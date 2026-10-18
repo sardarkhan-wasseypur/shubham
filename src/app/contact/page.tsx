@@ -11,8 +11,8 @@ import {
   Reveal,
   MaskHeading,
   DrawLine,
+  ChamberAddressCard,
 } from "@/components";
-import { profile } from "@/content/profile";
 import { constructMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = constructMetadata({
@@ -23,9 +23,6 @@ export const metadata: Metadata = constructMetadata({
 });
 
 export default function ContactPage() {
-  const hasVerifiedPhone = Boolean(profile.phone.verified && profile.phone.value);
-  const hasVerifiedAddress = Boolean(profile.address.verified && profile.address.value);
-
   return (
     <>
       <Header />
@@ -58,53 +55,9 @@ export default function ContactPage() {
                   Advocate Shubham Singh represents clients before the Supreme Court of India, Delhi High Court, and statutory tribunals. Chamber consultations are conducted strictly by prior appointment following preliminary conflict clearance.
                 </Reveal>
 
-                {/* Verified Contact Details block */}
-                <Reveal delay={450} className="border border-line bg-surface/60 p-6 rounded-[2px] space-y-4 mb-8">
-                  <div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-accent-text block mb-1">
-                      Jurisdiction &bull; Chambers
-                    </span>
-                    <p className="text-sm text-foreground font-medium">
-                      New Delhi, India
-                    </p>
-                    <p className="text-xs text-secondary mt-0.5">
-                      Conferences near High Court of Delhi &amp; District Courts Complexes by appointment.
-                    </p>
-                  </div>
-
-                  {hasVerifiedAddress && (
-                    <div className="pt-3 border-t border-line/60">
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-accent-text block mb-1">
-                        Chamber Address
-                      </span>
-                      <p className="text-sm text-foreground">
-                        {profile.address.value}
-                      </p>
-                    </div>
-                  )}
-
-                  {hasVerifiedPhone && (
-                    <div className="pt-3 border-t border-line/60">
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-accent-text block mb-1">
-                        Telephone
-                      </span>
-                      <a
-                        href={`tel:${profile.phone.value}`}
-                        className="text-sm text-foreground hover:text-accent-text"
-                      >
-                        {profile.phone.value}
-                      </a>
-                    </div>
-                  )}
-
-                  <div className="pt-3 border-t border-line/60">
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-accent-text block mb-1">
-                      Response Timeline
-                    </span>
-                    <p className="text-xs text-secondary">
-                      Online inquiries are reviewed within 24 business hours to verify lack of conflict of interest.
-                    </p>
-                  </div>
+                {/* Verified Chamber Address & Contact Details */}
+                <Reveal delay={450} className="mb-8">
+                  <ChamberAddressCard />
                 </Reveal>
 
                 {/* BCI Notice */}

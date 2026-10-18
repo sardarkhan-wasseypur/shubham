@@ -353,7 +353,7 @@ export function Header() {
 
           {/* Chamber Registration Micro-Note */}
           <div className="pt-2 border-t border-line/60 flex items-center justify-between text-[9px] text-secondary font-mono tracking-wider">
-            <span>CHAMBER OF ADV. SHUBHAM SINGH</span>
+            <span>LAW OFFICE OF SHUBHAM SINGH</span>
             <span>NEW DELHI</span>
           </div>
         </div>

@@ -35,7 +35,7 @@ export const formerAppointments: Appointment[] = [
   {
     id: "legal-advisor-up-madarsa",
     role: { value: "Legal Advisor", verified: true },
-    organization: { value: "UP Madarsa Board", verified: true },
+    organization: { value: "Uttar Pradesh Madarsa Board", verified: true },
     status: "former",
     verified: true,
   },

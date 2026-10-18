@@ -566,4 +566,100 @@ export const practiceAreas: PracticeArea[] = [
       verified: true,
     },
   },
+  {
+    slug: "ncmei-matters-lawyer-delhi",
+    title: { value: "NCMEI-related Matters", verified: true },
+    subtitle: { value: "National Commission for Minority Educational Institutions Act, 2004", verified: true },
+    shortDescription: {
+      value: "Legal representation and statutory advisory regarding proceedings before the National Commission for Minority Educational Institutions (NCMEI) and related appellate courts.",
+      verified: true,
+    },
+    intro: {
+      value: "The National Commission for Minority Educational Institutions Act, 2004 provides a specialized statutory forum for determining minority status, addressing affiliation grievances, and resolving regulatory matters concerning educational institutions established by religious and linguistic minorities.",
+      verified: true,
+    },
+    legalNote: {
+      value: "NCMEI proceedings operate under the powers of a civil court as delineated in Section 12 of the NCMEI Act, 2004. Submissions must adhere to prescribed documentary and evidentiary requirements, with determinations subject to writ review before the High Court of Delhi and appellate oversight by the Supreme Court of India.",
+      verified: true,
+    },
+    whoItHelps: {
+      value: [
+        "Trusts, societies, and foundations administering or establishing minority educational institutions.",
+        "School and college management bodies addressing affiliation or no-objection certificate (NOC) requirements.",
+        "Educational stakeholders requiring statutory representations or administrative dispute counsel.",
+      ],
+      verified: true,
+    },
+    whenItApplies: {
+      value: [
+        "Applications for grant or certification of minority educational status under Section 11 of the Act.",
+        "Statutory appeals or disputes concerning the issuance of NOC by competent state authorities.",
+        "Grievances regarding institutional autonomy and protections anchored under Article 30(1) of the Constitution.",
+      ],
+      verified: true,
+    },
+    processSteps: {
+      value: [
+        {
+          step: 1,
+          title: "Founding Document & Charter Review",
+          description: "Examination of trust deeds, society registration certificates, memoranda of association, and institutional bylaws.",
+        },
+        {
+          step: 2,
+          title: "Statutory Petition & Affidavit Drafting",
+          description: "Preparation of formal petitions, supporting affidavits, and verification records strictly in accordance with commission regulations.",
+        },
+        {
+          step: 3,
+          title: "Registry Filing & Service of Notices",
+          description: "Institution of proceedings before the NCMEI registry in New Delhi, followed by formal service upon competent state authorities.",
+        },
+        {
+          step: 4,
+          title: "Hearings & Statutory Representation",
+          description: "Substantive representation before the commission bench, addressing administrative observations and presenting documentary evidence.",
+        },
+        {
+          step: 5,
+          title: "Order Compliance & Judicial Review",
+          description: "Advising on compliance with final certification or instituting writ review proceedings before the High Court of Delhi where appropriate.",
+        },
+      ],
+      verified: true,
+    },
+    relevantForums: {
+      value: [
+        "National Commission for Minority Educational Institutions (NCMEI, New Delhi)",
+        "Delhi High Court (Writ & Appellate Jurisdiction)",
+        "Supreme Court of India (Appellate Jurisdiction)",
+      ],
+      verified: true,
+    },
+    faqs: {
+      value: [
+        {
+          question: "What is the primary role of the NCMEI?",
+          answer: "The National Commission for Minority Educational Institutions is a statutory quasi-judicial body constituted under the NCMEI Act, 2004 to advise governments, adjudicate disputes on minority status, and ensure educational rights under the Constitution.",
+        },
+        {
+          question: "Can an order of the NCMEI be challenged in court?",
+          answer: "Yes. Determinations and final orders of the Commission are amenable to the supervisory and writ jurisdiction of the High Court of Delhi under Articles 226/227 of the Constitution of India, and subsequently before the Supreme Court of India.",
+        },
+        {
+          question: "Does the Commission entertain matters from states outside Delhi?",
+          answer: "Yes. The NCMEI exercises jurisdiction across India, hearing petitions and disputes concerning minority educational institutions established across various states and union territories.",
+        },
+        {
+          question: "What is the importance of an NOC in institutional recognition?",
+          answer: "Under Section 10 of the NCMEI Act, if a state authority does not decide on an application for a No Objection Certificate within the prescribed statutory period, the applicant may approach the Commission directly for necessary directions.",
+        },
+      ],
+      verified: true,
+    },
+    disclaimer: {
+      value: "Information concerning NCMEI proceedings is strictly informational, observing Bar Council of India guidelines. Consult directly with the advocate for individual institutional advisory.",
+      verified: true,
+    },
+  },
 ];

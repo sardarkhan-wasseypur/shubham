@@ -3,13 +3,23 @@ import { Field } from "./types";
 export interface Profile {
   name: Field<string>;
   designation: Field<string>;
+  officeName: Field<string>;
   jurisdiction: Field<string>;
   experienceYears: Field<number>;
   education: Field<string[]>;
   barEnrolment: Field<string>;
+  barNotation: {
+    value: string;
+    verified: boolean;
+    note: string;
+  };
   phone: Field<string>;
   whatsApp: Field<string>;
-  address: Field<string>;
+  address: Field<string> & {
+    landmarks?: string[];
+    mapsUrl?: string;
+  };
+  clientTypes: Field<string[]>;
   photo: Field<string>;
   photoAlt: Field<string>;
   bio: Field<string>;
@@ -24,6 +34,7 @@ export interface Profile {
     alternate: string;
     verified: false;
     showPublicly: false;
+    note: string;
   };
 }
 
@@ -32,8 +43,8 @@ export interface Profile {
 export const DEV_TEST_STICKY_BAR = false;
 
 export const DEV_TEST_NUMBERS = {
-  phone: "+91 99999 99999",
-  whatsApp: "+919999999999",
+  phone: "+91 99905 90014",
+  whatsApp: "",
 };
 
 export const profile: Profile = {
@@ -45,6 +56,10 @@ export const profile: Profile = {
     value: "Advocate",
     verified: true,
   },
+  officeName: {
+    value: "Law Office of Shubham Singh",
+    verified: true,
+  },
   jurisdiction: {
     value: "Delhi, India",
     verified: true,
@@ -54,24 +69,35 @@ export const profile: Profile = {
     verified: false,
   },
   education: {
-    value: null,
-    verified: false,
+    value: ["LL.M., Gautam Buddha University"],
+    verified: true,
   },
   barEnrolment: {
-    value: null,
+    value: "Bar Council of Delhi",
+    verified: true,
+  },
+  barNotation: {
+    value: "(9) Y",
     verified: false,
+    note: "Client supplied notation '(9) Y'. Requires confirmation of exact meaning before publishing as an official registration or enrollment number.",
   },
   phone: {
-    value: null,
-    verified: false,
+    value: "+91 99905 90014",
+    verified: true,
   },
   whatsApp: {
     value: null,
     verified: false,
   },
   address: {
-    value: null,
-    verified: false,
+    value: "A-23, Sujan Singh Block, Middle Circle, Connaught Place, New Delhi – 110001, India",
+    verified: true,
+    landmarks: ["Wenger's", "Indian Oil petrol pump", "Block A"],
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=A-23+Sujan+Singh+Block+Middle+Circle+Connaught+Place+New+Delhi+110001",
+  },
+  clientTypes: {
+    value: ["Individuals", "Companies", "Businesses and other entities"],
+    verified: true,
   },
   photo: {
     value: "/images/advocate-portrait.jpg",
@@ -110,5 +136,6 @@ export const profile: Profile = {
     alternate: "Lawofficeofshubhamsingh@gmai.com",
     verified: false,
     showPublicly: false,
+    note: "Second email contains domain 'gmai.com' (possible typo). Both addresses flagged for client confirmation; neither published as verified until confirmed.",
   },
 };

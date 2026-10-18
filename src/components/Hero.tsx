@@ -23,6 +23,7 @@ export const heroTickerItems = [
   "FAMILY MATTERS",
   "TRADEMARK LAW",
   "CHEQUE BOUNCE MATTERS",
+  "NCMEI-RELATED MATTERS",
 ];
 
 export function Hero() {
@@ -169,7 +170,7 @@ export function Hero() {
               PANEL COUNSEL &bull; UNION OF INDIA &bull; STATE OF UTTAR PRADESH &bull; DMRC
             </p>
             <p className="font-display italic text-base sm:text-xl lg:text-2xl text-secondary leading-snug mb-3 sm:mb-4 max-w-xl">
-              Criminal, civil, matrimonial, family, trademark and cheque bounce matters.
+              Criminal, civil, matrimonial, family, trademark, cheque bounce and NCMEI-related matters.
             </p>
 
             {/* CTA Buttons */}

@@ -8,6 +8,7 @@ export const ENQUIRY_TYPES = [
   "matrimonial-law",
   "family-matters",
   "trademark-law",
+  "ncmei-matters",
   "general-consultation",
 ] as const;
 
@@ -17,9 +18,10 @@ export const ENQUIRY_TYPE_LABELS: Record<EnquiryType, string> = {
   "cheque-bounce": "Cheque Bounce Matters (Section 138 NI Act)",
   "criminal-law": "Criminal Law & Bail Proceedings",
   "civil-law": "Civil Suits & Commercial Litigation",
-  "matrimonial-law": "Matrimonial Disputes & Mutual Consent Divorce",
-  "family-matters": "Family Disputes & Succession Matters",
-  "trademark-law": "Trademark Law & Intellectual Property",
+  "matrimonial-law": "Matrimonial Matters & Proceedings",
+  "family-matters": "Family Matters & Succession",
+  "trademark-law": "Trademark & Intellectual Property Matters",
+  "ncmei-matters": "NCMEI-related Matters & Institutional Petitions",
   "general-consultation": "General Legal Consultation",
 };
 

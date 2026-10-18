@@ -24,3 +24,4 @@ export { RevealController } from "./RevealController";
 export { ScrollToTop } from "./ScrollToTop";
 export { JsonLd } from "./JsonLd";
 export { Breadcrumbs, type BreadcrumbItem } from "./Breadcrumbs";
+export { ChamberAddressCard } from "./ChamberAddressCard";

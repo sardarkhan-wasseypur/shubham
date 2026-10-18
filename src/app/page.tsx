@@ -125,8 +125,6 @@ export default function HomePage() {
                     title={area.title.value || ""}
                     subtitle={area.shortDescription.value}
                     tag={area.relevantForums.value?.[0]}
-                    featured={area.slug === "matrimonial-lawyer-delhi"}
-                    featuredBadge="Specialized"
                     href={`/${area.slug}`}
                   />
                 </Reveal>

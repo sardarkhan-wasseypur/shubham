@@ -7,7 +7,7 @@ import { siteUrl, siteName } from "@/content/seo";
 /**
  * Person Schema (Strictly Verified Data Only)
  * In accordance with Bar Council of India Rule 36 and project integrity standards:
- * - Omits unverified address, phone, education, bar enrolment, awards, or bio.
+ * - Includes verified qualifications (LL.M., Gautam Buddha University) and Bar Council of Delhi.
  * - Never includes ratings, reviews, or outcome claims.
  */
 export function getPersonSchema() {
@@ -33,7 +33,22 @@ export function getPersonSchema() {
     description: `Advocate practicing before the Supreme Court of India, Delhi High Court, and District Courts in Delhi NCR.`,
     url: siteUrl,
     ...(verifiedPhoto ? { image: verifiedPhoto } : {}),
-    worksFor: verifiedAppointments,
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "Gautam Buddha University",
+    },
+    memberOf: {
+      "@type": "Organization",
+      name: "Bar Council of Delhi",
+    },
+    worksFor: [
+      {
+        "@type": "LegalService",
+        name: profile.officeName.value,
+        url: siteUrl,
+      },
+      ...verifiedAppointments,
+    ],
     knowsAbout: [
       ...verifiedPractices,
       ...courts.map((c) => c.name),
@@ -134,8 +149,7 @@ export function getArticleSchema(article: ArticleSchemaData) {
 
 /**
  * LegalService / LocalBusiness Schema
- * CRITICAL RULE: Emitted ONLY after address AND phone are verified by the client.
- * Currently both are unverified, so this safely returns null.
+ * Emits verified office name, address, and telephone.
  */
 export function getLegalServiceSchema() {
   const hasVerifiedAddress = Boolean(profile.address.verified && profile.address.value);
@@ -148,15 +162,16 @@ export function getLegalServiceSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    name: `Law Chamber of Advocate ${profile.name.value}`,
+    name: profile.officeName.value,
     url: siteUrl,
+    telephone: profile.phone.value,
     address: {
       "@type": "PostalAddress",
-      streetAddress: profile.address.value,
+      streetAddress: "A-23, Sujan Singh Block, Middle Circle, Connaught Place",
+      postalCode: "110001",
       addressLocality: "New Delhi",
       addressRegion: "Delhi",
       addressCountry: "IN",
     },
-    telephone: profile.phone.value,
   };
 }

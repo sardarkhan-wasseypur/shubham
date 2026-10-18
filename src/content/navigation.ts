@@ -12,10 +12,11 @@ export const headerNavLinks: NavLink[] = [
 export const practiceNavLinks: NavLink[] = [
   { label: "Criminal Law", href: "/criminal-lawyer-delhi" },
   { label: "Civil Law", href: "/civil-lawyer-delhi" },
-  { label: "Matrimonial Law", href: "/matrimonial-lawyer-delhi" },
+  { label: "Matrimonial Matters", href: "/matrimonial-lawyer-delhi" },
   { label: "Family Matters", href: "/family-lawyer-delhi" },
-  { label: "Trademark Law", href: "/trademark-lawyer-delhi" },
+  { label: "Trademark & IP", href: "/trademark-lawyer-delhi" },
   { label: "Cheque Bounce Matters", href: "/cheque-bounce-lawyer-delhi" },
+  { label: "NCMEI Matters", href: "/ncmei-matters-lawyer-delhi" },
 ];
 
 export const footerNavLinks: NavLink[] = [

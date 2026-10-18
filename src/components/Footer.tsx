@@ -16,17 +16,28 @@ export function Footer() {
         {/* MOBILE STACKED FOOTER (matching Stitch mobile design) */}
         <div className="md:hidden flex flex-col gap-6 pb-8 border-b border-line">
           {/* Brand mark & title */}
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 min-w-9 min-h-9 bg-accent flex items-center justify-center font-hero text-on-accent text-lg shadow-sm">
+          <div className="flex items-start gap-3">
+            <div className="w-9 h-9 min-w-9 min-h-9 bg-accent flex items-center justify-center font-hero text-on-accent text-lg shadow-sm shrink-0 mt-0.5">
               SS
             </div>
             <div>
               <h4 className="font-display text-xl text-foreground leading-tight">
                 Advocate Shubham Singh
               </h4>
-              <span className="text-[10px] tracking-wider uppercase text-secondary block font-mono">
-                Advocate &bull; Delhi, India
+              <span className="text-[10px] tracking-wider uppercase text-accent-text block font-mono font-semibold">
+                {profile.officeName.value}
               </span>
+              <p className="text-xs text-secondary mt-1 leading-relaxed">
+                {profile.address.value}
+              </p>
+              {profile.phone.verified && profile.phone.value && (
+                <a
+                  href={`tel:${profile.phone.value}`}
+                  className="text-xs font-mono text-foreground hover:text-accent-text mt-1.5 inline-block font-medium"
+                >
+                  Tel: {profile.phone.value}
+                </a>
+              )}
             </div>
           </div>
 
@@ -37,7 +48,7 @@ export function Footer() {
                 Practice Areas
               </span>
               <ul className="space-y-1.5 text-secondary">
-                {practiceNavLinks.slice(0, 6).map((link) => (
+                {practiceNavLinks.map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="hover:text-foreground transition-colors">
                       {link.label}
@@ -48,27 +59,32 @@ export function Footer() {
             </div>
             <div>
               <span className="text-[10px] uppercase font-mono text-accent-text block mb-2 font-semibold">
-                Legal Compliance
+                Legal &amp; Office
               </span>
               <ul className="space-y-1.5 text-secondary">
                 <li>
-                  <Link href="/privacy-policy" className="hover:text-foreground transition-colors">
-                    Privacy Policy
+                  <Link href="/about" className="hover:text-foreground transition-colors">
+                    Chamber Profile
                   </Link>
                 </li>
                 <li>
-                  <Link href="/disclaimer" className="hover:text-foreground transition-colors">
-                    Disclaimer &amp; Terms
+                  <Link href="/professional-experience" className="hover:text-foreground transition-colors">
+                    Institutional Panels
                   </Link>
                 </li>
                 <li>
                   <Link href="/contact" className="hover:text-foreground transition-colors">
-                    Contact &amp; Inquiries
+                    Chamber Consultation
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#courts" className="hover:text-foreground transition-colors">
-                    Courts &amp; Tribunals
+                  <Link href="/disclaimer" className="hover:text-foreground transition-colors">
+                    Disclaimer (Rule 36)
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy-policy" className="hover:text-foreground transition-colors">
+                    Privacy Policy
                   </Link>
                 </li>
               </ul>
@@ -88,7 +104,7 @@ export function Footer() {
 
         {/* DESKTOP 12-COLUMN FOOTER */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-line">
-          {/* Column 1: Brand & Professional Notice */}
+          {/* Column 1: Brand & Office Address */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <div className="flex items-baseline gap-2">
@@ -99,9 +115,25 @@ export function Footer() {
                   ADVOCATE
                 </span>
               </div>
-              <p className="mt-3 text-sm text-secondary leading-relaxed max-w-sm">
-                Legal counsel appearing before the Supreme Court of India, Delhi High Court, District Courts, and Specialized Tribunals across the National Capital Territory of Delhi.
+              <span className="text-xs font-mono uppercase tracking-wider text-accent-text font-semibold block mt-1">
+                {profile.officeName.value}
+              </span>
+              <p className="mt-2 text-xs text-secondary leading-relaxed max-w-sm">
+                {profile.address.value}
               </p>
+              <p className="mt-1 text-[11px] text-secondary/80">
+                Landmarks: Wenger&apos;s &bull; Indian Oil petrol pump &bull; Block A
+              </p>
+              {profile.phone.verified && profile.phone.value && (
+                <div className="mt-2.5">
+                  <a
+                    href={`tel:${profile.phone.value}`}
+                    className="text-xs font-mono text-foreground hover:text-accent-text font-medium"
+                  >
+                    Tel: {profile.phone.value}
+                  </a>
+                </div>
+              )}
             </div>
 
             <div className="mt-6 pt-6 border-t border-line/60">
@@ -114,7 +146,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Practice Areas */}
+          {/* Column 2: Practice Areas (All 7) */}
           <div className="lg:col-span-3">
             <h3 className="text-label text-foreground uppercase tracking-[0.18em] font-semibold mb-4">
               Practice Areas
@@ -148,7 +180,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Consultation & Legal Routes */}
+          {/* Column 4: Consultation & Office Standing */}
           <div className="lg:col-span-2 flex flex-col justify-between">
             <div>
               <h3 className="text-label text-foreground uppercase tracking-[0.18em] font-semibold mb-4">
@@ -165,12 +197,15 @@ export function Footer() {
               </Link>
             </div>
 
-            <div className="mt-6">
-              <span className="text-[10px] uppercase tracking-wider text-secondary block">
-                Jurisdiction
+            <div className="mt-6 pt-4 border-t border-line/60">
+              <span className="text-[10px] uppercase tracking-wider text-secondary block font-semibold">
+                Bar Standing
               </span>
-              <span className="text-xs font-mono text-foreground font-medium">
-                {profile.jurisdiction.value}
+              <span className="text-xs font-mono text-foreground font-medium block">
+                {profile.barEnrolment.value}
+              </span>
+              <span className="text-[11px] text-secondary mt-0.5 block">
+                New Delhi, India
               </span>
             </div>
           </div>
@@ -179,7 +214,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-secondary">
           <p>
-            &copy; {CURRENT_YEAR} Advocate Shubham Singh. All rights reserved.
+            &copy; {CURRENT_YEAR} Advocate Shubham Singh &bull; {profile.officeName.value}. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6">

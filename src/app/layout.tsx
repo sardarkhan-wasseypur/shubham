@@ -5,7 +5,7 @@ import { defaultMetadata } from "@/content/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { RevealController } from "@/components/RevealController";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { getPersonSchema, getWebSiteSchema } from "@/lib/jsonLd";
+import { getPersonSchema, getWebSiteSchema, getLegalServiceSchema } from "@/lib/jsonLd";
 
 export const viewport: Viewport = {
   themeColor: "#0A0A0A",
@@ -69,6 +69,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: initScript }} />
         <JsonLd data={getPersonSchema()} />
         <JsonLd data={getWebSiteSchema()} />
+        {getLegalServiceSchema() && <JsonLd data={getLegalServiceSchema()!} />}
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         <ScrollToTop />

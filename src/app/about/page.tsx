@@ -63,6 +63,61 @@ export default function AboutPage() {
           }
         />
 
+        {/* PROFESSIONAL STANDING & CREDENTIALS */}
+        <section className="py-10 md:py-14 border-b border-line bg-surface/30">
+          <Container>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Reveal delay={100} className="border border-line bg-background p-6 rounded-[2px]">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-accent-text block mb-2 font-semibold">
+                  OFFICE / PRACTICE
+                </span>
+                <h3 className="font-display text-xl text-foreground font-medium mb-1">
+                  Law Office of Shubham Singh
+                </h3>
+                <p className="text-xs text-secondary">
+                  Connaught Place, New Delhi &bull; Litigation &amp; Advisory
+                </p>
+              </Reveal>
+
+              <Reveal delay={150} className="border border-line bg-background p-6 rounded-[2px]">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-accent-text block mb-2 font-semibold">
+                  QUALIFICATION
+                </span>
+                <h3 className="font-display text-xl text-foreground font-medium mb-1">
+                  LL.M.
+                </h3>
+                <p className="text-xs text-secondary">
+                  Gautam Buddha University
+                </p>
+              </Reveal>
+
+              <Reveal delay={200} className="border border-line bg-background p-6 rounded-[2px]">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-accent-text block mb-2 font-semibold">
+                  BAR ENROLMENT
+                </span>
+                <h3 className="font-display text-xl text-foreground font-medium mb-1">
+                  Bar Council of Delhi
+                </h3>
+                <p className="text-xs text-secondary">
+                  Advocate Standing &bull; Delhi Bar
+                </p>
+              </Reveal>
+
+              <Reveal delay={250} className="border border-line bg-background p-6 rounded-[2px]">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-accent-text block mb-2 font-semibold">
+                  CLIENT REPRESENTATION
+                </span>
+                <h3 className="font-display text-xl text-foreground font-medium mb-1">
+                  Diverse Briefs
+                </h3>
+                <p className="text-xs text-secondary">
+                  Advising Individuals, Companies &amp; Commercial Entities
+                </p>
+              </Reveal>
+            </div>
+          </Container>
+        </section>
+
         {/* VERIFIED JUDICIAL FORUMS */}
         <BandSection className="border-b border-line">
           <div className="mb-8">
