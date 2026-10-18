@@ -290,6 +290,8 @@ export function Header() {
                   href={link.href}
                   onClick={() => {
                     setIsMobileMenuOpen(false);
+                    document.body.style.overflow = "";
+                    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
                     menuButtonRef.current?.focus();
                   }}
                   style={{
@@ -327,6 +329,8 @@ export function Header() {
             href="/contact"
             onClick={() => {
               setIsMobileMenuOpen(false);
+              document.body.style.overflow = "";
+              window.scrollTo({ top: 0, left: 0, behavior: "instant" });
               menuButtonRef.current?.focus();
             }}
             className="w-full bg-accent hover:brightness-110 text-on-accent py-3.5 px-5 flex items-center justify-between font-semibold text-xs tracking-[0.2em] uppercase transition-colors shadow-sm min-h-[48px]"

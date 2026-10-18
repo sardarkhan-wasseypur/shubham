@@ -73,7 +73,7 @@ export function Hero() {
                 alt="Portrait of Advocate Shubham Singh in advocate's robes"
                 fill
                 priority
-                quality={92}
+                quality={90}
                 sizes="(max-width: 1024px) 60vw, 46vw"
                 className="object-cover object-[center_20%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
               />
