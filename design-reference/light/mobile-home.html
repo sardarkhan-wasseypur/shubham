@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Advocate Shubham Singh | Delhi, India</title>
+<!-- Fonts Preconnect -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#0A0A0A',
+              card: '#F4F3F0',
+              border: '#E2E0DC',
+              ivory: '#0A0A0A',
+              muted: '#5A5A5A',
+              subtle: '#787672',
+              red: '#C8102E',
+              eyebrow: '#B00D26'
+            }
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif'],
+            editorial: ['"Cormorant Garamond"', 'serif'],
+            body: ['"Inter"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+<!-- Base Custom Styles -->
+<style data-purpose="base-layout">
+    body {
+      background-color: #FFFFFF;
+      color: #0A0A0A;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .text-balance {
+      text-wrap: balance;
+    }
+  </style>
+<!-- Typography & Special Micro-Components Styles -->
+<style data-purpose="custom-elements">
+    .vertical-lr {
+      writing-mode: vertical-lr;
+      text-orientation: mixed;
+    }
+    .hero-light-gradient {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.75) 65%, #FFFFFF 100%);
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tickerAnimation 22s linear infinite;
+    }
+    @keyframes tickerAnimation {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body class="bg-white text-brand-black antialiased selection:bg-brand-red selection:text-white pb-24">
+<!-- BEGIN: TopHeader -->
+<!-- Floating persistent brand bar with logo and navigation trigger on translucent white background -->
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-4 bg-white/95 backdrop-blur-md border-b border-[#E2E0DC]">
+<!-- Brand Monogram -->
+<a aria-label="Shubham Singh Home" class="w-10 h-10 bg-brand-red flex items-center justify-center font-display text-white text-xl tracking-wider select-none shadow-sm" href="#">
+      SS
+    </a>
+<!-- Menu Hamburger Toggle -->
+<button aria-label="Open Navigation Menu" class="w-11 h-11 flex flex-col items-end justify-center gap-1.5 focus:outline-none" type="button">
+<span class="w-6 h-[2px] bg-[#0A0A0A] transition-transform"></span>
+<span class="w-4 h-[2px] bg-[#0A0A0A] transition-transform"></span>
+<span class="w-5 h-[2px] bg-[#0A0A0A] transition-transform"></span>
+</button>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: HeroSection -->
+<!-- Mobile hero with pure white background, top portrait fade, and dark bottom ticker -->
+<section class="relative min-h-screen flex flex-col justify-between pt-20 overflow-hidden bg-white border-b border-[#E2E0DC]" id="hero">
+<!-- Hero Portrait Photo & Gradient Overlay -->
+<div class="absolute inset-x-0 top-0 h-[55%] z-0 overflow-hidden pointer-events-none">
+<img alt="Advocate Shubham Singh" class="w-full h-full object-cover object-top opacity-95 scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj52O4rN1g6SNDRVEO9_hGmWq3v8dKT2k25CZ37HWIUvCLaAKbBQUPc8fQsN9Z8TvpkSn96ir79EhbTcd20GhqdcgY8R1gWEFt3n-zVF12VYG9L5UdZTsYd12K_N-URvbpeRx2an-BlAarfc_K2Svdn5Rq7qqZA3FB1z5rQrEnGt4Y91CXy928DUnSlp_nRcKnITuxzVSARVFtaBPRXH6Rg7hXyEToW-MDHfHliRLGs-doUdUOZxPiEjQ7EW0FEq2t9Q"/>
+<!-- Smooth White Scrim Gradient -->
+<div class="absolute inset-0 hero-light-gradient"></div>
+</div>
+<!-- Spacer to preserve top portrait visibility -->
+<div class="relative z-10 h-[28vh]"></div>
+<!-- Foreground Content Layer -->
+<div class="relative z-10 px-5 flex flex-col justify-end pt-4 pb-8 max-w-[420px] mx-auto w-full">
+<!-- Eyebrow Tagline with Red Hairline -->
+<div class="flex items-center gap-2 mb-2">
+<span class="w-5 h-[1.5px] bg-brand-red inline-block"></span>
+<span class="text-[11px] font-semibold tracking-[0.22em] text-[#B00D26] uppercase font-body">
+          ADVOCATE · DELHI, INDIA
+        </span>
+</div>
+<!-- Giant Stacked Display Name -->
+<div class="flex flex-col select-none">
+<h1 class="font-display text-[84px] leading-[0.88] tracking-tight text-[#0A0A0A] uppercase m-0">
+          SHUBHAM
+        </h1>
+<div class="flex items-center gap-3">
+<span class="font-display text-[84px] leading-[0.88] tracking-tight text-[#0A0A0A] uppercase m-0">
+            SINGH
+          </span>
+<!-- Condensed Red ADV. Badge -->
+<div class="bg-brand-red text-white font-display text-sm tracking-wider px-2 py-1 flex items-center justify-center uppercase self-center shadow-sm">
+            ADV.
+          </div>
+</div>
+</div>
+<!-- Standing & Appointments Subline -->
+<p class="mt-4 text-[10px] uppercase tracking-[0.16em] text-[#5A5A5A] font-medium leading-relaxed font-body">
+        PANEL COUNSEL · UNION OF INDIA · STATE OF UTTAR PRADESH · DMRC
+      </p>
+<!-- Editorial Italic Descriptor -->
+<p class="mt-2.5 font-editorial italic text-[17px] leading-snug text-[#5A5A5A]">
+        Criminal, civil, matrimonial, family, trademark and cheque bounce matters.
+      </p>
+<!-- Full-Width High-Contrast Primary CTA -->
+<div class="mt-6 flex flex-col gap-4">
+<a class="w-full h-12 bg-brand-red hover:bg-red-700 text-white font-semibold text-xs tracking-[0.18em] uppercase flex items-center justify-between px-5 rounded-none transition-colors duration-200" href="#contact">
+<span>GET IN TOUCH</span>
+<span class="text-base font-bold">→</span>
+</a>
+</div>
+<!-- Micro Scroll Down Indicator -->
+<div class="mt-7 flex items-center gap-2">
+<span class="text-[9px] tracking-[0.25em] text-[#787672] uppercase font-mono">SCROLL</span>
+<span class="w-10 h-[1px] bg-[#E2E0DC]"></span>
+</div>
+</div>
+<!-- Continuous Animated Ticker Strip (Retained dark background as specified) -->
+<div class="relative z-10 w-full overflow-hidden bg-[#0A0A0A] border-y border-[#0A0A0A] py-2.5">
+<div class="ticker-track text-[11px] font-medium tracking-[0.2em] text-[#F7F5F0] uppercase flex items-center whitespace-nowrap">
+<span class="mx-3">SUPREME COURT OF INDIA</span>
+<span class="text-brand-red text-xs">●</span>
+<span class="mx-3">DELHI HIGH COURT</span>
+<span class="text-brand-red text-xs">●</span>
+<span class="mx-3">DISTRICT COURTS DELHI</span>
+<span class="text-brand-red text-xs">●</span>
+<span class="mx-3">CRIMINAL DEFENSE</span>
+<span class="text-brand-red text-xs">●</span>
+<span class="mx-3">COMMERCIAL LITIGATION</span>
+<span class="text-brand-red text-xs">●</span>
+<span class="mx-3">MATRIMONIAL &amp; FAMILY</span>
+<span class="text-brand-red text-xs">●</span>
+<!-- Duplicated for seamless continuous loop -->
+<span class="mx-3">SUPREME COURT OF INDIA</span>
+<span class="text-brand-red text-xs">●</span>
+<span class="mx-3">DELHI HIGH COURT</span>
+<span class="text-brand-red text-xs">●</span>
+<span class="mx-3">DISTRICT COURTS DELHI</span>
+<span class="text-brand-red text-xs">●</span>
+<span class="mx-3">CRIMINAL DEFENSE</span>
+<span class="text-brand-red text-xs">●</span>
+<span class="mx-3">COMMERCIAL LITIGATION</span>
+<span class="text-brand-red text-xs">●</span>
+<span class="mx-3">MATRIMONIAL &amp; FAMILY</span>
+<span class="text-brand-red text-xs">●</span>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: StatsRow -->
+<!-- 3-column key numbers with vertical hairline dividers -->
+<section class="grid grid-cols-3 border-b border-[#E2E0DC] bg-[#F4F3F0]">
+<div class="p-4 flex flex-col justify-center items-center text-center border-r border-[#E2E0DC]">
+<span class="font-display text-4xl text-[#0A0A0A] leading-none">04</span>
+<span class="text-[10px] tracking-wider uppercase text-[#5A5A5A] mt-1 leading-tight font-medium">Courts &amp; Forums</span>
+</div>
+<div class="p-4 flex flex-col justify-center items-center text-center border-r border-[#E2E0DC]">
+<span class="font-display text-4xl text-[#0A0A0A] leading-none">06</span>
+<span class="text-[10px] tracking-wider uppercase text-[#5A5A5A] mt-1 leading-tight font-medium">Practice Areas</span>
+</div>
+<div class="p-4 flex flex-col justify-center items-center text-center">
+<span class="font-display text-4xl text-[#0A0A0A] leading-none">03</span>
+<span class="text-[10px] tracking-wider uppercase text-[#5A5A5A] mt-1 leading-tight font-medium">Panel Roles</span>
+</div>
+</section>
+<!-- END: StatsRow -->
+<!-- BEGIN: SectionAbout -->
+<!-- Section 01: Professional narrative & portrait -->
+<section class="px-5 py-12 border-b border-[#E2E0DC] bg-white" id="about">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[11px] font-semibold tracking-[0.2em] text-[#B00D26] uppercase font-body">01 — ABOUT</span>
+</div>
+<h2 class="font-editorial text-3xl leading-snug text-[#0A0A0A] mb-6 text-balance">
+      A practice built on preparation, clarity and careful drafting.
+    </h2>
+<!-- Advocate Portrait Crop with Left Accent Bar -->
+<div class="relative w-full aspect-[4/3] mb-6 overflow-hidden border-l-2 border-brand-red bg-[#F4F3F0]">
+<img alt="Advocate Shubham Singh Portrait" class="w-full h-full object-cover object-[center_20%] contrast-[1.02]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj52O4rN1g6SNDRVEO9_hGmWq3v8dKT2k25CZ37HWIUvCLaAKbBQUPc8fQsN9Z8TvpkSn96ir79EhbTcd20GhqdcgY8R1gWEFt3n-zVF12VYG9L5UdZTsYd12K_N-URvbpeRx2an-BlAarfc_K2Svdn5Rq7qqZA3FB1z5rQrEnGt4Y91CXy928DUnSlp_nRcKnITuxzVSARVFtaBPRXH6Rg7hXyEToW-MDHfHliRLGs-doUdUOZxPiEjQ7EW0FEq2t9Q"/>
+</div>
+<!-- Editorial Paragraphs -->
+<div class="space-y-4 text-[#5A5A5A] text-[14px] leading-relaxed">
+<p>
+        Advocate Shubham Singh maintains an active litigation practice anchored across Delhi courts and specialized regulatory tribunals. The chamber prioritizes trial readiness, robust statutory construction, and procedural accuracy across multifaceted civil and criminal proceedings.
+      </p>
+<p>
+        With an emphasis on structured drafting and plain-language advisory, representation is tailored to deliver dependable, timely, and objective counsel for individuals, public sector undertakings, and corporate bodies alike.
+      </p>
+</div>
+<div class="mt-6 pt-2">
+<a class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] font-semibold text-brand-red hover:text-red-700 transition-colors" href="#contact">
+<span>Read the chamber overview</span>
+<span class="text-brand-red text-base">→</span>
+</a>
+</div>
+</section>
+<!-- END: SectionAbout -->
+<!-- BEGIN: SectionPracticeAreas -->
+<!-- Section 02: Core Practice Areas stacked rows -->
+<section class="py-12 border-b border-[#E2E0DC] bg-white" id="practice">
+<div class="px-5 mb-6">
+<span class="text-[11px] font-semibold tracking-[0.2em] text-[#B00D26] uppercase font-body block mb-2">02 — PRACTICE AREAS</span>
+<h2 class="font-editorial text-3xl text-[#0A0A0A]">Core Jurisdictions</h2>
+<p class="text-xs text-[#5A5A5A] mt-1.5 leading-normal">
+        Structured legal representation across distinct civil, trial, and regulatory fields.
+      </p>
+</div>
+<!-- Stacked Practice Rows -->
+<div class="border-t border-[#E2E0DC] divide-y divide-[#E2E0DC]">
+<!-- 01 Criminal Law -->
+<div class="px-5 py-4 min-h-[58px] flex items-center justify-between hover:bg-[#F4F3F0] transition-colors">
+<div class="flex items-start gap-4">
+<span class="text-xs font-mono text-[#787672] pt-1">01</span>
+<div>
+<h3 class="font-editorial text-2xl text-[#0A0A0A] leading-tight">Criminal Law</h3>
+<p class="text-xs text-[#5A5A5A] mt-0.5">Trial defense, bail hearings, quashing petitions, economic offenses</p>
+</div>
+</div>
+<span class="text-[#787672] text-lg pl-3">→</span>
+</div>
+<!-- 02 Civil Law -->
+<div class="px-5 py-4 min-h-[58px] flex items-center justify-between hover:bg-[#F4F3F0] transition-colors">
+<div class="flex items-start gap-4">
+<span class="text-xs font-mono text-[#787672] pt-1">02</span>
+<div>
+<h3 class="font-editorial text-2xl text-[#0A0A0A] leading-tight">Civil Litigation</h3>
+<p class="text-xs text-[#5A5A5A] mt-0.5">Title injunctions, property recovery, commercial contract disputes</p>
+</div>
+</div>
+<span class="text-[#787672] text-lg pl-3">→</span>
+</div>
+<!-- 03 Matrimonial Law (Featured / Highlighted) -->
+<div class="px-5 py-4 min-h-[58px] flex items-center justify-between bg-[#F4F3F0] border-l-4 border-l-brand-red">
+<div class="flex items-start gap-4">
+<span class="text-xs font-mono text-[#B00D26] pt-1">03</span>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-editorial text-2xl text-[#0A0A0A] leading-tight">Matrimonial Law</h3>
+<span class="text-[9px] uppercase tracking-wider bg-brand-red/15 text-[#B00D26] font-semibold px-1.5 py-0.5 font-mono">Specialized</span>
+</div>
+<p class="text-xs text-[#5A5A5A] mt-0.5">Complex matrimonial litigation, mutual divorce, domestic custody claims</p>
+</div>
+</div>
+<span class="text-[#B00D26] text-lg pl-3 font-bold">→</span>
+</div>
+<!-- 04 Family Matters -->
+<div class="px-5 py-4 min-h-[58px] flex items-center justify-between hover:bg-[#F4F3F0] transition-colors">
+<div class="flex items-start gap-4">
+<span class="text-xs font-mono text-[#787672] pt-1">04</span>
+<div>
+<h3 class="font-editorial text-2xl text-[#0A0A0A] leading-tight">Family Matters</h3>
+<p class="text-xs text-[#5A5A5A] mt-0.5">Partition suits, testamentary succession, wills, family settlements</p>
+</div>
+</div>
+<span class="text-[#787672] text-lg pl-3">→</span>
+</div>
+<!-- 05 Trademark Law -->
+<div class="px-5 py-4 min-h-[58px] flex items-center justify-between hover:bg-[#F4F3F0] transition-colors">
+<div class="flex items-start gap-4">
+<span class="text-xs font-mono text-[#787672] pt-1">05</span>
+<div>
+<h3 class="font-editorial text-2xl text-[#0A0A0A] leading-tight">Trademark Law</h3>
+<p class="text-xs text-[#5A5A5A] mt-0.5">Infringement litigation, trademark opposition, brand portfolio protection</p>
+</div>
+</div>
+<span class="text-[#787672] text-lg pl-3">→</span>
+</div>
+<!-- 06 Cheque Bounce Matters -->
+<div class="px-5 py-4 min-h-[58px] flex items-center justify-between hover:bg-[#F4F3F0] transition-colors">
+<div class="flex items-start gap-4">
+<span class="text-xs font-mono text-[#787672] pt-1">06</span>
+<div>
+<h3 class="font-editorial text-2xl text-[#0A0A0A] leading-tight">Cheque Bounce Matters</h3>
+<p class="text-xs text-[#5A5A5A] mt-0.5">Negotiable Instruments Act (Section 138) complaints &amp; strategic recovery</p>
+</div>
+</div>
+<span class="text-[#787672] text-lg pl-3">→</span>
+</div>
+</div>
+</section>
+<!-- END: SectionPracticeAreas -->
+<!-- BEGIN: SectionAppointments -->
+<!-- Section 03: Government & Institutional Standing -->
+<section class="py-12 border-b border-[#E2E0DC] bg-[#F4F3F0]">
+<div class="px-5">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-semibold tracking-[0.2em] text-[#B00D26] uppercase font-body">03 — APPOINTMENTS</span>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+<span class="text-[10px] tracking-wider uppercase text-[#0A0A0A] font-mono font-medium">Current Standing</span>
+</div>
+</div>
+<h2 class="font-editorial text-3xl text-[#0A0A0A] mb-6">Institutional Panels</h2>
+<!-- Timeline Structure -->
+<div class="relative pl-6 border-l border-brand-red space-y-7 my-2">
+<!-- Union of India -->
+<div class="relative">
+<span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-brand-red ring-4 ring-[#F4F3F0]"></span>
+<span class="text-[10px] font-mono tracking-widest uppercase text-[#B00D26] font-semibold block">CENTRAL GOVERNMENT</span>
+<h4 class="font-editorial text-xl text-[#0A0A0A] font-semibold mt-0.5">Panel Counsel — Union of India</h4>
+<p class="text-xs text-[#5A5A5A] mt-1">Appearing on behalf of the Central Government before forums in Delhi.</p>
+</div>
+<!-- State of UP -->
+<div class="relative">
+<span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-brand-red ring-4 ring-[#F4F3F0]"></span>
+<span class="text-[10px] font-mono tracking-widest uppercase text-[#B00D26] font-semibold block">STATE STANDING</span>
+<h4 class="font-editorial text-xl text-[#0A0A0A] font-semibold mt-0.5">Panel Counsel — State of Uttar Pradesh</h4>
+<p class="text-xs text-[#5A5A5A] mt-1">Representing administrative bodies and state instrumentalities.</p>
+</div>
+<!-- DMRC -->
+<div class="relative">
+<span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-brand-red ring-4 ring-[#F4F3F0]"></span>
+<span class="text-[10px] font-mono tracking-widest uppercase text-[#B00D26] font-semibold block">PUBLIC SECTOR</span>
+<h4 class="font-editorial text-xl text-[#0A0A0A] font-semibold mt-0.5">Panel Counsel — Delhi Metro Rail Corp. (DMRC)</h4>
+<p class="text-xs text-[#5A5A5A] mt-1">Advising and handling public transit infrastructure dispute matters.</p>
+</div>
+</div>
+<!-- Past Appointments (Lower Contrast) -->
+<div class="mt-9 pt-6 border-t border-[#E2E0DC]">
+<span class="text-[10px] uppercase font-mono tracking-wider text-[#5A5A5A] font-semibold block mb-3">FORMER REPRESENTATIONS</span>
+<ul class="space-y-2.5 text-xs text-[#5A5A5A]">
+<li class="flex items-center gap-2">
+<span class="w-1.5 h-[1px] bg-[#787672]"></span>
+<span>Former Panel Counsel — Muthoot Finance Ltd.</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="w-1.5 h-[1px] bg-[#787672]"></span>
+<span>Former Legal Advisor — UP Madarsa Board</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- END: SectionAppointments -->
+<!-- BEGIN: SectionCourts -->
+<!-- Section 04: Jurisdictional coverage -->
+<section class="py-12 border-b border-[#E2E0DC] bg-white" id="courts">
+<div class="px-5 mb-6">
+<span class="text-[11px] font-semibold tracking-[0.2em] text-[#B00D26] uppercase font-body block mb-2">04 — COURTS &amp; FORUMS</span>
+<h2 class="font-editorial text-3xl text-[#0A0A0A]">Where I Practise</h2>
+<p class="text-xs text-[#5A5A5A] mt-1.5">
+        Regular litigation appearances across apex, high court, and district trial venues.
+      </p>
+</div>
+<div class="border-t border-[#E2E0DC] divide-y divide-[#E2E0DC]">
+<div class="px-5 py-4 min-h-[56px] flex items-center justify-between">
+<div>
+<h3 class="font-editorial text-xl text-[#0A0A0A]">Supreme Court of India</h3>
+<span class="text-[11px] text-[#5A5A5A] font-body">Apex Jurisdiction · Special Leave Petitions</span>
+</div>
+<span class="text-xs uppercase font-mono text-[#B00D26] tracking-wider font-semibold">APEX →</span>
+</div>
+<div class="px-5 py-4 min-h-[56px] flex items-center justify-between">
+<div>
+<h3 class="font-editorial text-xl text-[#0A0A0A]">Delhi High Court</h3>
+<span class="text-[11px] text-[#5A5A5A] font-body">Original, Appellate &amp; Writ Jurisdiction</span>
+</div>
+<span class="text-xs uppercase font-mono text-[#B00D26] tracking-wider font-semibold">HIGH COURT →</span>
+</div>
+<div class="px-5 py-4 min-h-[56px] flex items-center justify-between">
+<div>
+<h3 class="font-editorial text-xl text-[#0A0A0A]">District Courts of Delhi</h3>
+<span class="text-[11px] text-[#5A5A5A] font-body">Patiala House, Tis Hazari, Saket, Rohini, Karkardooma, Dwarka</span>
+</div>
+<span class="text-xs uppercase font-mono text-[#B00D26] tracking-wider font-semibold">TRIAL →</span>
+</div>
+<div class="px-5 py-4 min-h-[56px] flex items-center justify-between">
+<div>
+<h3 class="font-editorial text-xl text-[#0A0A0A]">Tribunals &amp; Commissions</h3>
+<span class="text-[11px] text-[#5A5A5A] font-body">NCLT, NCDRC, DRT, CAT &amp; Consumer Commissions</span>
+</div>
+<span class="text-xs uppercase font-mono text-[#B00D26] tracking-wider font-semibold">TRIBUNAL →</span>
+</div>
+</div>
+</section>
+<!-- END: SectionCourts -->
+<!-- BEGIN: SectionPrinciples -->
+<!-- Section 05: Core advocacy principles -->
+<section class="px-5 py-12 border-b border-[#E2E0DC] bg-white">
+<span class="text-[11px] font-semibold tracking-[0.2em] text-[#B00D26] uppercase font-body block mb-2">05 — WORKING PRINCIPLES</span>
+<h2 class="font-editorial text-3xl text-[#0A0A0A] mb-6">Standards of Chamber Practice</h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="font-display text-3xl text-brand-red leading-none">01</span>
+<div>
+<h4 class="font-editorial text-xl text-[#0A0A0A]">Clear Communication</h4>
+<p class="text-xs text-[#5A5A5A] mt-1 leading-relaxed">Direct, straightforward articulation of legal merits, timelines, and risks without ambiguous jargon.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="font-display text-3xl text-brand-red leading-none">02</span>
+<div>
+<h4 class="font-editorial text-xl text-[#0A0A0A]">Thorough Preparation</h4>
+<p class="text-xs text-[#5A5A5A] mt-1 leading-relaxed">Systematic scrutiny of case briefs, statutory precedents, and evidentiary records ahead of court sessions.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="font-display text-3xl text-brand-red leading-none">03</span>
+<div>
+<h4 class="font-editorial text-xl text-[#0A0A0A]">Transparent Process</h4>
+<p class="text-xs text-[#5A5A5A] mt-1 leading-relaxed">Clear expectations concerning filing stages, registry listings, and ongoing litigation proceedings.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="font-display text-3xl text-brand-red leading-none">04</span>
+<div>
+<h4 class="font-editorial text-xl text-[#0A0A0A]">Attention to Detail</h4>
+<p class="text-xs text-[#5A5A5A] mt-1 leading-relaxed">Vigilant examination of procedural nuances, limitation constraints, and technical compliance.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="font-display text-3xl text-brand-red leading-none">05</span>
+<div>
+<h4 class="font-editorial text-xl text-[#0A0A0A]">Understanding the Client's Concern</h4>
+<p class="text-xs text-[#5A5A5A] mt-1 leading-relaxed">Focusing resolution strategies upon practical, real-world outcomes tailored to individual needs.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SectionPrinciples -->
+<!-- BEGIN: SectionInsights -->
+<!-- Section 06: Legal notes & publications -->
+<section class="py-12 border-b border-[#E2E0DC] bg-white">
+<div class="px-5 mb-5 flex items-center justify-between">
+<div>
+<span class="text-[11px] font-semibold tracking-[0.2em] text-[#B00D26] uppercase font-body block mb-1">06 — LEGAL INSIGHTS</span>
+<h2 class="font-editorial text-3xl text-[#0A0A0A]">Notes &amp; Analysis</h2>
+</div>
+</div>
+<div class="border-t border-[#E2E0DC] divide-y divide-[#E2E0DC]">
+<article class="px-5 py-4 min-h-[56px] hover:bg-[#F4F3F0] transition-colors">
+<span class="text-[10px] font-mono uppercase text-[#B00D26] tracking-wider font-semibold">NEGOTIABLE INSTRUMENTS</span>
+<h3 class="font-editorial text-lg text-[#0A0A0A] mt-0.5">Understanding Cheque Bounce Proceedings under Section 138</h3>
+<div class="flex items-center justify-between mt-2 text-xs text-[#5A5A5A]">
+<span>Date to be added</span>
+<span class="text-brand-red font-semibold">Read Note →</span>
+</div>
+</article>
+<article class="px-5 py-4 min-h-[56px] hover:bg-[#F4F3F0] transition-colors">
+<span class="text-[10px] font-mono uppercase text-[#B00D26] tracking-wider font-semibold">FAMILY &amp; MATRIMONIAL</span>
+<h3 class="font-editorial text-lg text-[#0A0A0A] mt-0.5">Procedural Overview of Mutual Consent Divorce under Hindu Marriage Act</h3>
+<div class="flex items-center justify-between mt-2 text-xs text-[#5A5A5A]">
+<span>Date to be added</span>
+<span class="text-brand-red font-semibold">Read Note →</span>
+</div>
+</article>
+<article class="px-5 py-4 min-h-[56px] hover:bg-[#F4F3F0] transition-colors">
+<span class="text-[10px] font-mono uppercase text-[#B00D26] tracking-wider font-semibold">INTELLECTUAL PROPERTY</span>
+<h3 class="font-editorial text-lg text-[#0A0A0A] mt-0.5">Trademark Registration and Preliminary Protection Strategies</h3>
+<div class="flex items-center justify-between mt-2 text-xs text-[#5A5A5A]">
+<span>Date to be added</span>
+<span class="text-brand-red font-semibold">Read Note →</span>
+</div>
+</article>
+</div>
+<div class="px-5 mt-5">
+<a class="text-xs uppercase tracking-[0.16em] font-semibold text-[#5A5A5A] hover:text-[#0A0A0A] flex items-center gap-1.5" href="#contact">
+<span>View all legal briefs</span>
+<span class="text-brand-red">→</span>
+</a>
+</div>
+</section>
+<!-- END: SectionInsights -->
+<!-- BEGIN: SectionFAQ -->
+<!-- Section 07: Accordion answers -->
+<section class="px-5 py-12 border-b border-[#E2E0DC] bg-white" id="faq">
+<span class="text-[11px] font-semibold tracking-[0.2em] text-[#B00D26] uppercase font-body block mb-2">07 — FAQ</span>
+<h2 class="font-editorial text-3xl text-[#0A0A0A] mb-6">Frequently Asked Questions</h2>
+<div class="space-y-3">
+<!-- FAQ Item 1 (Expanded) -->
+<details class="group border border-[#E2E0DC] bg-[#F4F3F0] p-4 rounded-none [&amp;_summary::-webkit-details-marker]:hidden" open="">
+<summary class="flex cursor-pointer items-center justify-between text-[#0A0A0A] font-editorial text-xl min-h-[48px]">
+<span>Which matters do you handle?</span>
+<span class="text-brand-red text-2xl font-light transition-transform duration-200 group-open:rotate-45">+</span>
+</summary>
+<p class="mt-3 text-xs leading-relaxed text-[#5A5A5A] border-t border-[#E2E0DC] pt-3">
+          The chamber handles trial defense, commercial and property litigation, matrimonial and family disputes, Section 138 NI Act complaints, and trademark applications or oppositions.
+        </p>
+</details>
+<!-- FAQ Item 2 -->
+<details class="group border border-[#E2E0DC] bg-[#F4F3F0] p-4 rounded-none [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between text-[#0A0A0A] font-editorial text-xl min-h-[48px]">
+<span>Which courts do you practise in?</span>
+<span class="text-brand-red text-2xl font-light transition-transform duration-200 group-open:rotate-45">+</span>
+</summary>
+<p class="mt-3 text-xs leading-relaxed text-[#5A5A5A] border-t border-[#E2E0DC] pt-3">
+          Litigation is actively conducted before the Supreme Court of India, the Delhi High Court, all District Courts across the National Capital Territory, and statutory tribunals including NCLT and NCDRC.
+        </p>
+</details>
+<!-- FAQ Item 3 -->
+<details class="group border border-[#E2E0DC] bg-[#F4F3F0] p-4 rounded-none [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between text-[#0A0A0A] font-editorial text-xl min-h-[48px]">
+<span>How can I contact the office?</span>
+<span class="text-brand-red text-2xl font-light transition-transform duration-200 group-open:rotate-45">+</span>
+</summary>
+<p class="mt-3 text-xs leading-relaxed text-[#5A5A5A] border-t border-[#E2E0DC] pt-3">
+          You can initiate an inquiry via the chamber contact form below or connect through phone and WhatsApp. Official consultation slots are confirmed subsequent to preliminary verification.
+        </p>
+</details>
+<!-- FAQ Item 4 -->
+<details class="group border border-[#E2E0DC] bg-[#F4F3F0] p-4 rounded-none [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between text-[#0A0A0A] font-editorial text-xl min-h-[48px]">
+<span>What should I prepare for a first consultation?</span>
+<span class="text-brand-red text-2xl font-light transition-transform duration-200 group-open:rotate-45">+</span>
+</summary>
+<p class="mt-3 text-xs leading-relaxed text-[#5A5A5A] border-t border-[#E2E0DC] pt-3">
+          Please bring copies of relevant notices, court orders, case filings, contracts, or statutory notices. A concise chronological timeline of key events is strongly recommended.
+        </p>
+</details>
+<!-- FAQ Item 5 -->
+<details class="group border border-[#E2E0DC] bg-[#F4F3F0] p-4 rounded-none [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between text-[#0A0A0A] font-editorial text-xl min-h-[48px]">
+<span>How do I enquire about a matter?</span>
+<span class="text-brand-red text-2xl font-light transition-transform duration-200 group-open:rotate-45">+</span>
+</summary>
+<p class="mt-3 text-xs leading-relaxed text-[#5A5A5A] border-t border-[#E2E0DC] pt-3">
+          Submit the preliminary consultation form below detailing the category of dispute. The chamber will review the matter regarding jurisdiction and availability.
+        </p>
+</details>
+</div>
+</section>
+<!-- END: SectionFAQ -->
+<!-- BEGIN: SectionContactForm -->
+<!-- Chamber Consultation Enquiry & Contact details -->
+<section class="px-5 py-12 border-b border-[#E2E0DC] bg-[#F4F3F0]" id="contact">
+<span class="text-[11px] font-semibold tracking-[0.2em] text-[#B00D26] uppercase font-body block mb-2">CHAMBER CONSULTATION</span>
+<h2 class="font-editorial text-3xl text-[#0A0A0A] mb-2">Discuss Your Legal Requirements</h2>
+<p class="text-xs text-[#5A5A5A] mb-6 leading-normal">
+      Please provide preliminary information regarding your matter to arrange a formal chamber appointment.
+    </p>
+<!-- Consultation Form -->
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<!-- Full Name -->
+<div>
+<label class="block text-[11px] uppercase tracking-wider font-medium text-[#5A5A5A] mb-1.5 font-body" for="fullName">Full Name *</label>
+<input class="w-full min-h-[48px] h-12 bg-white border border-[#E2E0DC] px-3.5 text-sm text-[#0A0A0A] focus:border-brand-red focus:ring-0 rounded-none placeholder:text-[#8A8A8A]" id="fullName" placeholder="e.g. Rahul Sharma" required="" type="text"/>
+</div>
+<!-- Phone or Email -->
+<div>
+<label class="block text-[11px] uppercase tracking-wider font-medium text-[#5A5A5A] mb-1.5 font-body" for="contactInfo">Phone Number or Email *</label>
+<input class="w-full min-h-[48px] h-12 bg-white border border-[#E2E0DC] px-3.5 text-sm text-[#0A0A0A] focus:border-brand-red focus:ring-0 rounded-none placeholder:text-[#8A8A8A]" id="contactInfo" placeholder="+91 or email@domain.com" required="" type="text"/>
+</div>
+<!-- Enquiry Type Dropdown -->
+<div>
+<label class="block text-[11px] uppercase tracking-wider font-medium text-[#5A5A5A] mb-1.5 font-body" for="enquiryType">Matter Category</label>
+<select class="w-full min-h-[48px] h-12 bg-white border border-[#E2E0DC] px-3.5 text-sm text-[#0A0A0A] focus:border-brand-red focus:ring-0 rounded-none" id="enquiryType">
+<option value="criminal">Criminal Law / Bail Proceedings</option>
+<option value="civil">Civil Litigation / Property Dispute</option>
+<option value="matrimonial">Matrimonial &amp; Divorce Proceedings</option>
+<option value="family">Family Law &amp; Succession</option>
+<option value="trademark">Trademark &amp; Intellectual Property</option>
+<option value="cheque">Section 138 Cheque Bounce</option>
+<option value="other">Other Legal Consultation</option>
+</select>
+</div>
+<!-- Brief Summary -->
+<div>
+<label class="block text-[11px] uppercase tracking-wider font-medium text-[#5A5A5A] mb-1.5 font-body" for="matterBrief">Brief Summary of the Matter</label>
+<textarea class="w-full bg-white border border-[#E2E0DC] p-3 text-sm text-[#0A0A0A] focus:border-brand-red focus:ring-0 rounded-none placeholder:text-[#8A8A8A]" id="matterBrief" placeholder="Include current status, court if applicable, and pending dates..." rows="3"></textarea>
+</div>
+<!-- Compliance Checkbox -->
+<div class="flex items-start gap-2.5 pt-1">
+<input class="mt-1 h-4 w-4 rounded-none bg-white border-[#E2E0DC] text-brand-red focus:ring-0 focus:ring-offset-0" id="confirmAccuracy" required="" type="checkbox"/>
+<label class="text-[11px] text-[#5A5A5A] leading-tight select-none" for="confirmAccuracy">
+          I confirm this request is made of my own volition for legal consultation purposes.
+        </label>
+</div>
+<!-- Submit CTA Button -->
+<button class="w-full h-12 bg-brand-red hover:bg-red-700 text-white font-semibold text-xs tracking-[0.18em] uppercase flex items-center justify-between px-5 transition-colors mt-2" type="submit">
+<span>SEND ENQUIRY</span>
+<span class="text-base font-bold">→</span>
+</button>
+<!-- Disclaimer Note -->
+<p class="text-[10px] text-[#5A5A5A] leading-normal mt-2 italic text-center">
+        Submitting this form does not create an advocate-client relationship. All communication remains privileged and confidential.
+      </p>
+</form>
+<!-- Chamber Direct Channels Box -->
+<div class="mt-10 pt-6 border-t border-[#E2E0DC] space-y-3">
+<h3 class="font-editorial text-xl text-[#0A0A0A] mb-2">Direct Chamber Contact</h3>
+<div class="flex justify-between items-center text-xs py-1 border-b border-[#E2E0DC]/60">
+<span class="text-[#5A5A5A] uppercase font-mono tracking-wider">Phone</span>
+<span class="text-[#0A0A0A] font-medium">To be confirmed</span>
+</div>
+<div class="flex justify-between items-center text-xs py-1 border-b border-[#E2E0DC]/60">
+<span class="text-[#5A5A5A] uppercase font-mono tracking-wider">WhatsApp</span>
+<span class="text-[#0A0A0A] font-medium">To be confirmed</span>
+</div>
+<div class="flex justify-between items-center text-xs py-1 border-b border-[#E2E0DC]/60">
+<span class="text-[#5A5A5A] uppercase font-mono tracking-wider">Email</span>
+<span class="text-[#0A0A0A] font-medium">To be confirmed</span>
+</div>
+<div class="flex justify-between items-center text-xs py-1">
+<span class="text-[#5A5A5A] uppercase font-mono tracking-wider">Office</span>
+<span class="text-[#0A0A0A] font-medium">Delhi, India</span>
+</div>
+</div>
+</section>
+<!-- END: SectionContactForm -->
+<!-- BEGIN: MainFooter -->
+<!-- Standard compliant footer with Bar Council disclaimers in light mode -->
+<footer class="px-5 pt-10 pb-12 bg-white text-[#5A5A5A] border-t border-[#E2E0DC]">
+<!-- Brand mark & title -->
+<div class="flex items-center gap-3 mb-6">
+<div class="w-9 h-9 bg-brand-red flex items-center justify-center font-display text-white text-lg">
+        SS
+      </div>
+<div>
+<h4 class="font-editorial text-xl text-[#0A0A0A] leading-tight">Advocate Shubham Singh</h4>
+<span class="text-[10px] tracking-wider uppercase text-[#5A5A5A] block font-mono">Advocate · Delhi, India</span>
+</div>
+</div>
+<!-- Quick Navigation Groups -->
+<div class="grid grid-cols-2 gap-6 text-xs py-4 border-y border-[#E2E0DC]">
+<div>
+<span class="text-[10px] uppercase font-mono text-[#B00D26] font-semibold block mb-2">Practice Areas</span>
+<ul class="space-y-1.5 text-[#5A5A5A]">
+<li><a class="hover:text-[#0A0A0A]" href="#practice">Criminal Law</a></li>
+<li><a class="hover:text-[#0A0A0A]" href="#practice">Civil Litigation</a></li>
+<li><a class="hover:text-[#0A0A0A]" href="#practice">Matrimonial Law</a></li>
+<li><a class="hover:text-[#0A0A0A]" href="#practice">Family Matters</a></li>
+<li><a class="hover:text-[#0A0A0A]" href="#practice">Trademark Law</a></li>
+<li><a class="hover:text-[#0A0A0A]" href="#practice">Section 138 NI Act</a></li>
+</ul>
+</div>
+<div>
+<span class="text-[10px] uppercase font-mono text-[#B00D26] font-semibold block mb-2">Legal Compliance</span>
+<ul class="space-y-1.5 text-[#5A5A5A]">
+<li><a class="hover:text-[#0A0A0A]" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-[#0A0A0A]" href="#">Disclaimer &amp; Terms</a></li>
+<li><a class="hover:text-[#0A0A0A]" href="#">Bar Council Compliance</a></li>
+<li><a class="hover:text-[#0A0A0A]" href="#courts">Courts &amp; Tribunals</a></li>
+</ul>
+</div>
+</div>
+<!-- Bar Council Mandatory Disclaimer -->
+<div class="mt-6 text-[10px] leading-relaxed text-[#5A5A5A]">
+<p class="font-medium text-[#0A0A0A] mb-1 uppercase font-mono tracking-wider">Bar Council of India Disclaimer:</p>
+<p>
+        As per the rules of the Bar Council of India, advocates are prohibited from soliciting work or advertising in any manner. This website is meant solely for informational purposes and not for commercial solicitation. By browsing this page, the visitor acknowledges that the information provided is at their own request and no lawyer-client relationship is formed.
+      </p>
+</div>
+<!-- Copyright Notice -->
+<div class="mt-6 pt-4 border-t border-[#E2E0DC] text-[11px] font-mono text-[#5A5A5A] flex flex-col gap-1">
+<span>© 2026 Adv. Shubham Singh. All rights reserved.</span>
+<span>Delhi, India.</span>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<!-- BEGIN: StickyBottomBar -->
+<!-- Fixed Mobile Action Bar in Light Mode (Height: 60px, touch target >= 48px) -->
+<aside aria-label="Quick Actions" class="fixed bottom-0 inset-x-0 z-50 h-[60px] bg-white border-t border-[#E2E0DC] px-4 flex items-center justify-between gap-3 shadow-lg pb-[env(safe-area-inset-bottom)]">
+<!-- Phone Call Button (Solid Red) -->
+<a aria-label="Direct Phone Call" class="flex-1 h-11 bg-brand-red hover:bg-red-700 text-white text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 active:bg-red-800 transition-colors shadow-sm" href="tel:#">
+<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>CALL</span>
+</a>
+<!-- WhatsApp Quick Message Button (Outline #0A0A0A) -->
+<a aria-label="Send WhatsApp Message" class="flex-1 h-11 bg-transparent border-[1.5px] border-[#0A0A0A] hover:bg-[#F4F3F0] text-[#0A0A0A] text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 active:bg-[#E2E0DC] transition-colors" href="https://wa.me/" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4 text-[#0A0A0A]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12.031 2C6.516 2 2.024 6.49 2.024 12.007c0 1.942.556 3.754 1.523 5.289L2 22l4.85-1.503a9.98 9.98 0 005.181 1.442c5.515 0 10.007-4.49 10.007-10.007S17.546 2 12.031 2zm5.728 14.15c-.24.673-1.393 1.285-1.928 1.368-.49.076-1.127.108-3.232-.764-2.69-1.114-4.408-3.83-4.542-4.009-.134-.179-1.085-1.446-1.085-2.758 0-1.312.69-1.956.936-2.22.246-.265.541-.33.722-.33.18 0 .362.002.52.01.17.009.397-.064.62.473.23.553.784 1.916.853 2.056.07.14.116.304.023.488-.093.184-.139.299-.276.459-.138.161-.29.359-.414.482-.138.138-.282.288-.121.564.161.276.716 1.18 1.54 1.914 1.058.944 1.95 1.236 2.226 1.374.276.138.437.115.598-.069.161-.184.69-8.05.874-1.08.184-.276.368-.23.62-.138.253.092 1.609.759 1.885.897.276.138.46.207.529.322.069.115.069.667-.171 1.34z"></path>
+</svg>
+<span>WHATSAPP</span>
+</a>
+</aside>
+<!-- END: StickyBottomBar -->
+</body></html>

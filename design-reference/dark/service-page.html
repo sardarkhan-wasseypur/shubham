@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheque Bounce Matters in Delhi — Advocate Shubham Singh</title>
+  <!-- Google Fonts: Bebas Neue, Cormorant Garamond, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#C8102E',
+              darkRed: '#960C22',
+              redText: '#E63946',
+            },
+            editorial: {
+              black: '#0A0A0A',
+              card: '#141414',
+              surface: '#181818',
+              surfaceElevated: '#1F1F1F',
+              border: '#2A2A2A',
+              borderMuted: '#202020',
+              ivory: '#F7F5F0',
+              muted: '#8E8E8E',
+              subtle: '#666666'
+            }
+          },
+          fontFamily: {
+            bebas: ['"Bebas Neue"', 'sans-serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0A0A0A;
+      color: #F7F5F0;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection {
+      background-color: #C8102E;
+      color: #FFFFFF;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0A0A0A;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2A2A2A;
+      border-radius: 3px;
+    }
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0A] text-[#F7F5F0] min-h-screen flex flex-col selection:bg-[#C8102E] selection:text-white">
+
+  <!-- TOP RUNNING TICKER / APPOINTMENT STRIP -->
+  <aside aria-label="Official Standing Ticker" class="border-b border-[#2A2A2A] bg-[#0A0A0A] text-[11px] tracking-[0.2em] uppercase text-[#8E8E8E] py-2 px-6 lg:px-16 flex items-center justify-between">
+    <div class="flex items-center gap-3 overflow-hidden whitespace-nowrap text-xs">
+      <span class="inline-block w-1.5 h-1.5 bg-[#C8102E]"></span>
+      <span class="text-[#F7F5F0] font-medium tracking-widest">Supreme Court of India &amp; Delhi High Court</span>
+      <span class="text-[#444444]">/</span>
+      <span>Panel Counsel — Union of India</span>
+      <span class="text-[#444444]">/</span>
+      <span>Panel Counsel — State of Uttar Pradesh</span>
+      <span class="text-[#444444]">/</span>
+      <span>Panel Counsel — DMRC</span>
+    </div>
+    <div class="hidden md:flex items-center gap-6 text-[11px] tracking-wider lowercase text-[#8E8E8E]">
+      <span>delhi judicial practice · chamber reference #cb-138</span>
+    </div>
+  </aside>
+
+  <!-- PERSISTENT EDITORIAL DESKTOP HEADER -->
+  <header class="sticky top-0 z-50 bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#2A2A2A] transition-all duration-200">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-16 h-20 flex items-center justify-between">
+      <!-- Brand Identity / Red SS Box -->
+      <a href="#" class="flex items-center gap-4 group">
+        <div class="w-10 h-10 bg-[#C8102E] text-white flex items-center justify-center font-bold font-bebas text-2xl tracking-wider shadow-sm group-hover:bg-[#960C22] transition-colors">
+          SS
+        </div>
+        <div class="flex flex-col">
+          <div class="font-bebas text-2xl tracking-wider text-[#F7F5F0] leading-tight flex items-center gap-2">
+            SHUBHAM SINGH
+            <span class="text-[10px] font-sans tracking-widest px-1.5 py-0.5 bg-[#1F1F1F] text-[#8E8E8E] border border-[#2A2A2A]">ADV</span>
+          </div>
+          <span class="text-[10px] tracking-[0.25em] text-[#8E8E8E] uppercase font-inter -mt-0.5">Chambers &bull; New Delhi</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-9 text-xs uppercase tracking-[0.18em] font-medium text-[#8E8E8E]">
+        <a href="#" class="hover:text-[#F7F5F0] transition-colors">Home</a>
+        <a href="#" class="hover:text-[#F7F5F0] transition-colors">Chamber</a>
+        <a href="#" class="text-[#F7F5F0] flex items-center gap-1.5 font-semibold">
+          <span class="w-1.5 h-1.5 bg-[#C8102E] rounded-full inline-block"></span>
+          Practice Areas
+        </a>
+        <a href="#" class="hover:text-[#F7F5F0] transition-colors">Panels &amp; Forums</a>
+        <a href="#" class="hover:text-[#F7F5F0] transition-colors">Legal Insights</a>
+        <a href="#" class="hover:text-[#F7F5F0] transition-colors">Compliance</a>
+      </nav>
+
+      <!-- Right Contact Action -->
+      <div class="flex items-center gap-4">
+        <a href="#consultation-form" class="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#C8102E] hover:bg-[#960C22] text-white text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-150">
+          <span>Consult Chamber</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PRACTICE PAGE WRAPPER -->
+  <main class="flex-grow">
+
+    <!-- HERO TITLE BAND (COMPACT DARK BAND) -->
+    <section class="border-b border-[#2A2A2A] bg-[#0D0D0D] pt-12 pb-14 px-6 lg:px-16">
+      <div class="max-w-[1440px] mx-auto">
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-[#8E8E8E] mb-6">
+          <a href="#" class="hover:text-[#F7F5F0] transition-colors">Home</a>
+          <span class="text-[#3E3E3E]">/</span>
+          <a href="#" class="hover:text-[#F7F5F0] transition-colors">Practice Areas</a>
+          <span class="text-[#3E3E3E]">/</span>
+          <span class="text-[#C8102E] font-medium">Cheque Bounce Matters</span>
+        </nav>
+
+        <!-- Eyebrow Tag -->
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-5 h-[2px] bg-[#C8102E]"></span>
+          <span class="text-xs uppercase tracking-[0.25em] text-[#C8102E] font-medium font-inter">Section 138 &bull; Negotiable Instruments Act, 1881</span>
+        </div>
+
+        <!-- Bebas Neue H1 (~120px) with small red vertical block after -->
+        <div class="flex flex-wrap items-baseline gap-4 mb-6">
+          <h1 class="font-bebas text-6xl sm:text-7xl lg:text-[112px] xl:text-[120px] leading-[0.9] tracking-[0.03em] text-[#F7F5F0] uppercase">
+            CHEQUE BOUNCE MATTERS IN DELHI
+          </h1>
+          <span class="inline-block w-4 lg:w-5 h-10 lg:h-14 bg-[#C8102E] translate-y-1 lg:translate-y-2"></span>
+        </div>
+
+        <!-- Intro Paragraph (Inter 18px) -->
+        <div class="max-w-4xl">
+          <p class="font-inter text-lg lg:text-[18px] leading-relaxed text-[#A8A8A8] font-normal">
+            Advocate Shubham Singh acts in criminal complaints and appellate proceedings arising under Section 138 of the Negotiable Instruments Act, 1881 across the District Courts of Delhi and the High Court of Delhi. Representation extends to statutory demand notice issuance, complainant prosecution, defense trial advocacy, interim compensation applications under Section 143A, compounding, and appellate quashing under Section 482 Cr.P.C.
+          </p>
+        </div>
+
+        <!-- Key Procedural Timelines Indicator Pills -->
+        <div class="mt-8 pt-6 border-t border-[#1F1F1F] flex flex-wrap gap-4 text-xs font-inter text-[#8E8E8E]">
+          <div class="flex items-center gap-2 px-3 py-1.5 bg-[#141414] border border-[#2A2A2A]">
+            <span class="text-[#C8102E] font-bold">15 DAYS</span>
+            <span class="text-[#555]">&bull;</span>
+            <span>Statutory Notice Response Window</span>
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 bg-[#141414] border border-[#2A2A2A]">
+            <span class="text-[#C8102E] font-bold">30 DAYS</span>
+            <span class="text-[#555]">&bull;</span>
+            <span>Limitation for Filing Complaint</span>
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 bg-[#141414] border border-[#2A2A2A]">
+            <span class="text-[#C8102E] font-bold">DELHI JURISDICTION</span>
+            <span class="text-[#555]">&bull;</span>
+            <span>Designated Special NI Act Courts</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT BODY: TWO-COLUMN LAYOUT -->
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-16 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- ================= MAIN COLUMN (COL 1-8) ================= -->
+        <div class="lg:col-span-8 space-y-20">
+
+          <!-- SECTION 01: WHEN THIS APPLIES -->
+          <section id="when-this-applies" class="scroll-mt-28">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="font-bebas text-2xl text-[#C8102E] tracking-wider">01</span>
+              <span class="text-xs uppercase tracking-[0.2em] text-[#C8102E] font-medium font-inter">&mdash; Scope of Invocation</span>
+            </div>
+            <h2 class="font-cormorant text-3xl lg:text-4xl font-normal text-[#F7F5F0] mb-6">
+              When This Applies
+            </h2>
+            <p class="font-inter text-[15px] leading-relaxed text-[#9E9E9E] mb-6">
+              Proceedings under Section 138 of the Negotiable Instruments Act are triggered when a cheque presented for the discharge of a legally enforceable debt or liability is returned dishonoured by the bank. In commercial, corporate, and individual disputes across Delhi, the legal framework strictly regulates both criminal liability and structured opportunities for compounding.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-6 bg-[#141414] border border-[#2A2A2A] relative overflow-hidden group">
+                <div class="w-1 h-full bg-[#C8102E] absolute left-0 top-0"></div>
+                <h3 class="font-inter text-sm font-semibold uppercase tracking-wider text-[#F7F5F0] mb-2 flex items-center justify-between">
+                  <span>For Complainants (Payees)</span>
+                  <span class="text-[10px] text-[#C8102E] tracking-widest font-mono">RECOVERY / PROSECUTION</span>
+                </h3>
+                <ul class="space-y-2.5 text-xs text-[#8E8E8E] leading-relaxed">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#C8102E] font-bold">&bull;</span>
+                    <span>Cheque dishonour with remarks "Funds Insufficient", "Account Closed", or "Payment Stopped".</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#C8102E] font-bold">&bull;</span>
+                    <span>Drafting and dispatch of mandatory Legal Demand Notice within 30 days of receiving the memo.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#C8102E] font-bold">&bull;</span>
+                    <span>Filing of pre-summoning complaint before Metropolitan Magistrate upon expiry of the 15-day notice period.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#C8102E] font-bold">&bull;</span>
+                    <span>Seeking interim compensation up to 20% under Section 143A of the NI Act.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="p-6 bg-[#141414] border border-[#2A2A2A] relative overflow-hidden group">
+                <div class="w-1 h-full bg-[#333333] group-hover:bg-[#C8102E] transition-colors absolute left-0 top-0"></div>
+                <h3 class="font-inter text-sm font-semibold uppercase tracking-wider text-[#F7F5F0] mb-2 flex items-center justify-between">
+                  <span>For Accused (Drawers)</span>
+                  <span class="text-[10px] text-[#8E8E8E] tracking-widest font-mono">TRIAL DEFENSE &amp; QUASHING</span>
+                </h3>
+                <ul class="space-y-2.5 text-xs text-[#8E8E8E] leading-relaxed">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#C8102E] font-bold">&bull;</span>
+                    <span>Receipt of statutory demand notice or judicial summons from Delhi Metropolitan Magistrate Courts.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#C8102E] font-bold">&bull;</span>
+                    <span>Defense against misuse of blank security cheques given for non-existent legal debts.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#C8102E] font-bold">&bull;</span>
+                    <span>Rebuttal of statutory presumptions under Sections 118 and 139 via strict cross-examination.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#C8102E] font-bold">&bull;</span>
+                    <span>Petitions before High Court of Delhi under Section 482 Cr.P.C. for quashing malicious or time-barred complaints.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 02: HOW THE PROCESS GENERALLY WORKS (5 NUMBERED STEPS) -->
+          <section id="process-steps" class="scroll-mt-28">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="font-bebas text-2xl text-[#C8102E] tracking-wider">02</span>
+              <span class="text-xs uppercase tracking-[0.2em] text-[#C8102E] font-medium font-inter">&mdash; Statutory Roadmap</span>
+            </div>
+            <h2 class="font-cormorant text-3xl lg:text-4xl font-normal text-[#F7F5F0] mb-3">
+              How the Process Generally Works
+            </h2>
+            <p class="font-inter text-sm text-[#8E8E8E] mb-8">
+              Section 138 proceedings follow an exacting chronological statutory chain. Any deviation from statutory limitation periods can affect maintainability.
+            </p>
+
+            <div class="border-t border-[#2A2A2A]">
+              
+              <!-- Step 01 -->
+              <div class="py-7 border-b border-[#2A2A2A] grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                <div class="md:col-span-1">
+                  <span class="font-bebas text-3xl text-[#C8102E] tracking-wider">01</span>
+                </div>
+                <div class="md:col-span-4">
+                  <h3 class="font-inter text-base font-semibold text-[#F7F5F0] uppercase tracking-wide">
+                    Bank Return Memo &amp; Cause of Action
+                  </h3>
+                  <span class="text-[11px] font-mono uppercase tracking-widest text-[#8E8E8E] block mt-1">Validity: Within 3 Months</span>
+                </div>
+                <div class="md:col-span-7">
+                  <p class="font-inter text-sm leading-relaxed text-[#9E9E9E]">
+                    The cheque must be presented to the bank within its validity period (usually 3 months from issuance). When dishonoured, the bank issues a Return Memo specifying reasons such as "insufficiency of funds", "exceeds arrangement", or "account blocked". The date of memo receipt starts the statutory clock.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 02 -->
+              <div class="py-7 border-b border-[#2A2A2A] grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                <div class="md:col-span-1">
+                  <span class="font-bebas text-3xl text-[#C8102E] tracking-wider">02</span>
+                </div>
+                <div class="md:col-span-4">
+                  <h3 class="font-inter text-base font-semibold text-[#F7F5F0] uppercase tracking-wide">
+                    Statutory Demand Notice
+                  </h3>
+                  <span class="text-[11px] font-mono uppercase tracking-widest text-[#C8102E] block mt-1">Within 30 Days of Memo</span>
+                </div>
+                <div class="md:col-span-7">
+                  <p class="font-inter text-sm leading-relaxed text-[#9E9E9E]">
+                    A formal legal notice must be issued via registered post or speed post demanding payment of the cheque amount within 15 days of notice receipt. Precision in drafting is essential: the amount demanded must clearly correlate with the dishonoured cheque, without conflating unliquidated claims.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 03 -->
+              <div class="py-7 border-b border-[#2A2A2A] grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                <div class="md:col-span-1">
+                  <span class="font-bebas text-3xl text-[#C8102E] tracking-wider">03</span>
+                </div>
+                <div class="md:col-span-4">
+                  <h3 class="font-inter text-base font-semibold text-[#F7F5F0] uppercase tracking-wide">
+                    Filing of Criminal Complaint
+                  </h3>
+                  <span class="text-[11px] font-mono uppercase tracking-widest text-[#8E8E8E] block mt-1">Within 30 Days of Default</span>
+                </div>
+                <div class="md:col-span-7">
+                  <p class="font-inter text-sm leading-relaxed text-[#9E9E9E]">
+                    If the drawer fails to make payment within 15 days of receiving the legal notice, the cause of action arises on the 16th day. The complainant must institute a complaint under Section 138/142 before the competent Metropolitan Magistrate within 30 days thereafter, accompanied by affidavit and original documents.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 04 -->
+              <div class="py-7 border-b border-[#2A2A2A] grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                <div class="md:col-span-1">
+                  <span class="font-bebas text-3xl text-[#C8102E] tracking-wider">04</span>
+                </div>
+                <div class="md:col-span-4">
+                  <h3 class="font-inter text-base font-semibold text-[#F7F5F0] uppercase tracking-wide">
+                    Pre-Summoning &amp; Issuance of Process
+                  </h3>
+                  <span class="text-[11px] font-mono uppercase tracking-widest text-[#8E8E8E] block mt-1">Judicial Scrutiny</span>
+                </div>
+                <div class="md:col-span-7">
+                  <p class="font-inter text-sm leading-relaxed text-[#9E9E9E]">
+                    The court examines the complainant's pre-summoning evidence by way of affidavit under Section 145 NI Act. Upon satisfaction of prima facie ingredients, summons or bailable warrants are issued to the accused to secure appearance and take plea under Section 251 Cr.P.C.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 05 -->
+              <div class="py-7 border-b border-[#2A2A2A] grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                <div class="md:col-span-1">
+                  <span class="font-bebas text-3xl text-[#C8102E] tracking-wider">05</span>
+                </div>
+                <div class="md:col-span-4">
+                  <h3 class="font-inter text-base font-semibold text-[#F7F5F0] uppercase tracking-wide">
+                    Trial, Section 143A &amp; Final Judgment
+                  </h3>
+                  <span class="text-[11px] font-mono uppercase tracking-widest text-[#8E8E8E] block mt-1">Evidence &amp; Cross-Examination</span>
+                </div>
+                <div class="md:col-span-7">
+                  <p class="font-inter text-sm leading-relaxed text-[#9E9E9E]">
+                    The summary or summons trial proceeds through cross-examination of complainant witnesses, examination of the accused under Section 313 Cr.P.C., and defense evidence. Courts may order interim compensation under Section 143A. Proceedings conclude either in conviction, acquittal, or compoundable settlement through mediation.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- SECTION 03: FORUMS WHERE THESE MATTERS ARE HEARD -->
+          <section id="forums" class="scroll-mt-28">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="font-bebas text-2xl text-[#C8102E] tracking-wider">03</span>
+              <span class="text-xs uppercase tracking-[0.2em] text-[#C8102E] font-medium font-inter">&mdash; Jurisdiction</span>
+            </div>
+            <h2 class="font-cormorant text-3xl lg:text-4xl font-normal text-[#F7F5F0] mb-6">
+              Forums Where These Matters Are Heard
+            </h2>
+            <p class="font-inter text-sm text-[#8E8E8E] mb-8">
+              Territorial jurisdiction in cheque dishonour cases is determined under Section 142(2) of the NI Act — specifically the branch where the payee maintains their bank account (for account payee cheques). In Delhi, cases proceed across distinct court levels:
+            </p>
+
+            <div class="space-y-4">
+              <!-- Forum 1 -->
+              <div class="p-6 bg-[#141414] border border-[#2A2A2A] flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-[#C8102E]"></span>
+                    <h3 class="font-cormorant text-2xl text-[#F7F5F0] font-medium">Special Metropolitan Magistrate (NI Act) Courts</h3>
+                  </div>
+                  <p class="text-xs text-[#8E8E8E] font-inter">
+                    Tis Hazari &bull; Patiala House &bull; Rouse Avenue &bull; Saket &bull; Karkardooma &bull; Rohini &bull; Dwarka
+                  </p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <span class="inline-block text-[11px] font-mono text-[#C8102E] uppercase tracking-wider px-2.5 py-1 bg-[#1A1A1A] border border-[#2A2A2A]">
+                    Original Jurisdiction
+                  </span>
+                </div>
+              </div>
+
+              <!-- Forum 2 -->
+              <div class="p-6 bg-[#141414] border border-[#2A2A2A] flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-[#C8102E]"></span>
+                    <h3 class="font-cormorant text-2xl text-[#F7F5F0] font-medium">Courts of Sessions (Principal District &amp; Sessions Judges)</h3>
+                  </div>
+                  <p class="text-xs text-[#8E8E8E] font-inter">
+                    Criminal Appeals under Section 374 Cr.P.C. against conviction &bull; Criminal Revisions under Section 397 Cr.P.C.
+                  </p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <span class="inline-block text-[11px] font-mono text-[#8E8E8E] uppercase tracking-wider px-2.5 py-1 bg-[#1A1A1A] border border-[#2A2A2A]">
+                    First Appellate Court
+                  </span>
+                </div>
+              </div>
+
+              <!-- Forum 3 -->
+              <div class="p-6 bg-[#141414] border border-[#2A2A2A] flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-[#C8102E]"></span>
+                    <h3 class="font-cormorant text-2xl text-[#F7F5F0] font-medium">High Court of Delhi</h3>
+                  </div>
+                  <p class="text-xs text-[#8E8E8E] font-inter">
+                    Inherent Powers under Section 482 Cr.P.C. for quashing &bull; Special Leave to Appeal against acquittals under Section 378(4)
+                  </p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <span class="inline-block text-[11px] font-mono text-[#C8102E] uppercase tracking-wider px-2.5 py-1 bg-[#1A1A1A] border border-[#2A2A2A]">
+                    Constitutional &amp; Appellate
+                  </span>
+                </div>
+              </div>
+
+              <!-- Forum 4 -->
+              <div class="p-6 bg-[#141414] border border-[#2A2A2A] flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-[#C8102E]"></span>
+                    <h3 class="font-cormorant text-2xl text-[#F7F5F0] font-medium">Supreme Court of India</h3>
+                  </div>
+                  <p class="text-xs text-[#8E8E8E] font-inter">
+                    Special Leave Petitions (Criminal) under Article 136 of the Constitution on substantial questions of law
+                  </p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <span class="inline-block text-[11px] font-mono text-[#8E8E8E] uppercase tracking-wider px-2.5 py-1 bg-[#1A1A1A] border border-[#2A2A2A]">
+                    Apex Court
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 04: FREQUENTLY ASKED QUESTIONS (ACCORDION) -->
+          <section id="faqs" class="scroll-mt-28">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="font-bebas text-2xl text-[#C8102E] tracking-wider">04</span>
+              <span class="text-xs uppercase tracking-[0.2em] text-[#C8102E] font-medium font-inter">&mdash; Statutory Queries</span>
+            </div>
+            <h2 class="font-cormorant text-3xl lg:text-4xl font-normal text-[#F7F5F0] mb-6">
+              Frequently Asked Questions
+            </h2>
+
+            <div class="border-t border-[#2A2A2A] divide-y divide-[#2A2A2A]">
+              
+              <!-- FAQ 1 (Open by default) -->
+              <details class="group py-5" open>
+                <summary class="flex items-center justify-between cursor-pointer list-none select-none text-left min-h-[48px]">
+                  <span class="font-cormorant text-xl lg:text-2xl text-[#F7F5F0] group-hover:text-[#C8102E] transition-colors pr-4">
+                    What happens if the 30-day notice period is missed after cheque dishonour?
+                  </span>
+                  <span class="w-6 h-6 flex items-center justify-center border border-[#2A2A2A] text-xs font-mono text-[#C8102E] flex-shrink-0">
+                    <span class="group-open:hidden">+</span>
+                    <span class="hidden group-open:inline">&minus;</span>
+                  </span>
+                </summary>
+                <div class="pt-4 pb-2 text-sm text-[#9E9E9E] font-inter leading-relaxed max-w-3xl">
+                  Under Section 138 proviso (b), issuing the statutory demand notice within 30 days of receiving the bank memo is a mandatory condition precedent. If missed, the complainant generally cannot institute a Section 138 complaint on that specific dishonour. However, if the cheque remains within its original 3-month validity period, it may in certain circumstances be re-presented to the bank to generate a fresh return memo and a new cause of action.
+                </div>
+              </details>
+
+              <!-- FAQ 2 -->
+              <details class="group py-5">
+                <summary class="flex items-center justify-between cursor-pointer list-none select-none text-left min-h-[48px]">
+                  <span class="font-cormorant text-xl lg:text-2xl text-[#F7F5F0] group-hover:text-[#C8102E] transition-colors pr-4">
+                    Can a cheque bounce matter be settled or compounded outside court?
+                  </span>
+                  <span class="w-6 h-6 flex items-center justify-center border border-[#2A2A2A] text-xs font-mono text-[#C8102E] flex-shrink-0">
+                    <span class="group-open:hidden">+</span>
+                    <span class="hidden group-open:inline">&minus;</span>
+                  </span>
+                </summary>
+                <div class="pt-4 pb-2 text-sm text-[#9E9E9E] font-inter leading-relaxed max-w-3xl">
+                  Yes. Under Section 147 of the Negotiable Instruments Act, all offences under Section 138 are expressly compoundable. Parties may enter into a formal settlement agreement at any stage of proceedings — during pre-summoning, mediation cell proceedings, Lok Adalat, regular trial, or even in appeal before the High Court. Upon compounding and payment of agreed terms, the criminal proceedings stand terminated.
+                </div>
+              </details>
+
+              <!-- FAQ 3 -->
+              <details class="group py-5">
+                <summary class="flex items-center justify-between cursor-pointer list-none select-none text-left min-h-[48px]">
+                  <span class="font-cormorant text-xl lg:text-2xl text-[#F7F5F0] group-hover:text-[#C8102E] transition-colors pr-4">
+                    What is the significance of Section 143A (Interim Compensation)?
+                  </span>
+                  <span class="w-6 h-6 flex items-center justify-center border border-[#2A2A2A] text-xs font-mono text-[#C8102E] flex-shrink-0">
+                    <span class="group-open:hidden">+</span>
+                    <span class="hidden group-open:inline">&minus;</span>
+                  </span>
+                </summary>
+                <div class="pt-4 pb-2 text-sm text-[#9E9E9E] font-inter leading-relaxed max-w-3xl">
+                  Inserted via the 2018 amendment, Section 143A empowers the trial court to order the drawer to deposit interim compensation up to 20% of the cheque amount in summary or summons trials where the accused pleads not guilty. As settled by the Supreme Court in <em>Rakesh Ranjan Shrivastava v. State of Jharkhand</em> (2024), this provision is discretionary, requiring the trial court to record reasons considering prima facie merits.
+                </div>
+              </details>
+
+              <!-- FAQ 4 -->
+              <details class="group py-5">
+                <summary class="flex items-center justify-between cursor-pointer list-none select-none text-left min-h-[48px]">
+                  <span class="font-cormorant text-xl lg:text-2xl text-[#F7F5F0] group-hover:text-[#C8102E] transition-colors pr-4">
+                    Is the director of a company automatically liable for a dishonoured corporate cheque?
+                  </span>
+                  <span class="w-6 h-6 flex items-center justify-center border border-[#2A2A2A] text-xs font-mono text-[#C8102E] flex-shrink-0">
+                    <span class="group-open:hidden">+</span>
+                    <span class="hidden group-open:inline">&minus;</span>
+                  </span>
+                </summary>
+                <div class="pt-4 pb-2 text-sm text-[#9E9E9E] font-inter leading-relaxed max-w-3xl">
+                  No. Under Section 141 of the NI Act (Vicarious Liability), a director can only be arrayed as an accused if the complaint contains specific, distinct averments that such director was in charge of, and responsible to the company for the conduct of its business at the time the offence was committed. Independent, non-executive directors who are not signatories often seek quashing under Section 482 Cr.P.C. when vicarious liability lacks specific factual foundation.
+                </div>
+              </details>
+
+            </div>
+          </section>
+
+          <!-- SECTION 05: RELATED INSIGHTS (2 ARTICLE ROWS) -->
+          <section id="related-insights" class="scroll-mt-28">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="font-bebas text-2xl text-[#C8102E] tracking-wider">05</span>
+              <span class="text-xs uppercase tracking-[0.2em] text-[#C8102E] font-medium font-inter">&mdash; Legal Analysis &amp; Precedents</span>
+            </div>
+            <h2 class="font-cormorant text-3xl lg:text-4xl font-normal text-[#F7F5F0] mb-6">
+              Related Insights
+            </h2>
+
+            <div class="space-y-4">
+              <!-- Article 1 -->
+              <article class="p-6 bg-[#141414] border border-[#2A2A2A] hover:border-[#C8102E] transition-colors duration-200">
+                <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-[#8E8E8E] mb-3">
+                  <span class="text-[#C8102E]">CRIMINAL &bull; NI ACT JURISPRUDENCE</span>
+                  <span>DECEMBER 2024 &bull; 8 MIN READ</span>
+                </div>
+                <h3 class="font-cormorant text-2xl text-[#F7F5F0] hover:text-[#C8102E] transition-colors font-medium mb-3">
+                  <a href="#">Discretionary Nature of Section 143A NI Act: Analyzing the Standard of Prima Facie Case and Hardship</a>
+                </h3>
+                <p class="font-inter text-xs text-[#8E8E8E] leading-relaxed mb-4">
+                  A critical review of the Supreme Court's ruling establishing that interim compensation awards under Section 143A are not automatic upon pleading not guilty, detailing factors Delhi trial courts must consider before directing 20% deposit.
+                </p>
+                <a href="#" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#C8102E] hover:text-white transition-colors">
+                  <span>Read Full Analysis</span>
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </article>
+
+              <!-- Article 2 -->
+              <article class="p-6 bg-[#141414] border border-[#2A2A2A] hover:border-[#C8102E] transition-colors duration-200">
+                <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-[#8E8E8E] mb-3">
+                  <span class="text-[#C8102E]">DEFENSE STRATEGY &bull; SECTION 139</span>
+                  <span>OCTOBER 2024 &bull; 6 MIN READ</span>
+                </div>
+                <h3 class="font-cormorant text-2xl text-[#F7F5F0] hover:text-[#C8102E] transition-colors font-medium mb-3">
+                  <a href="#">Rebutting the Statutory Presumption: Standard of Proof on Preponderance of Probabilities in Cheque Trials</a>
+                </h3>
+                <p class="font-inter text-xs text-[#8E8E8E] leading-relaxed mb-4">
+                  Examining cross-examination techniques and documentary inconsistencies required by the defense to dislodge the presumption of legal liability under Section 139 without the accused necessarily entering the witness box.
+                </p>
+                <a href="#" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#C8102E] hover:text-white transition-colors">
+                  <span>Read Full Analysis</span>
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </article>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ================= STICKY RIGHT SIDEBAR (COL 9-12) ================= -->
+        <aside class="lg:col-span-4 sticky top-28 space-y-6">
+          
+          <!-- CTA CARD: DISCUSS YOUR MATTER -->
+          <div class="bg-[#141414] border border-[#2A2A2A] p-7 shadow-2xl relative">
+            <div class="w-1.5 h-8 bg-[#C8102E] absolute left-0 top-7"></div>
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-inter font-bold tracking-[0.22em] text-[#C8102E] uppercase">CHAMBER CONSULTATION</span>
+              <span class="text-[10px] font-mono text-[#8E8E8E]">DELHI &bull; NCR</span>
+            </div>
+
+            <h3 class="font-cormorant text-2xl lg:text-3xl font-medium text-[#F7F5F0] mb-3">
+              Discuss Your Cheque Bounce Matter
+            </h3>
+
+            <p class="font-inter text-xs leading-relaxed text-[#8E8E8E] mb-6">
+              Arrange an in-person conference at the New Delhi chamber or a confidential video consultation regarding demand notices, complaint institution, or trial representation.
+            </p>
+
+            <!-- Form Fields -->
+            <form id="consultation-form" onsubmit="event.preventDefault();" class="space-y-4">
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-[#8E8E8E] mb-1 font-inter">Full Legal Name *</label>
+                <input type="text" placeholder="e.g. Rajesh Kumar" required class="w-full h-11 px-3.5 bg-[#0D0D0D] border border-[#2A2A2A] text-xs text-[#F7F5F0] placeholder-[#555] focus:outline-none focus:border-[#C8102E] transition-colors">
+              </div>
+
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-[#8E8E8E] mb-1 font-inter">Phone / WhatsApp Number *</label>
+                <input type="tel" placeholder="+91 98XXX XXXXX" required class="w-full h-11 px-3.5 bg-[#0D0D0D] border border-[#2A2A2A] text-xs text-[#F7F5F0] placeholder-[#555] focus:outline-none focus:border-[#C8102E] transition-colors">
+              </div>
+
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-[#8E8E8E] mb-1 font-inter">Matter Stage</label>
+                <select class="w-full h-11 px-3.5 bg-[#0D0D0D] border border-[#2A2A2A] text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C8102E] transition-colors">
+                  <option value="notice-received">Statutory Demand Notice Received</option>
+                  <option value="notice-to-send">Need to Issue Demand Notice</option>
+                  <option value="court-summons">Court Summons Issued / Trial Pending</option>
+                  <option value="appeal-quash">Appeal / High Court Quashing (482)</option>
+                  <option value="other">General Commercial Inquiry</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-[#8E8E8E] mb-1 font-inter">Cheque Amount &amp; Brief Summary</label>
+                <textarea rows="3" placeholder="Disputed amount, date of memo, relevant court..." class="w-full p-3.5 bg-[#0D0D0D] border border-[#2A2A2A] text-xs text-[#F7F5F0] placeholder-[#555] focus:outline-none focus:border-[#C8102E] transition-colors resize-none"></textarea>
+              </div>
+
+              <div class="pt-1">
+                <button type="submit" class="w-full py-3.5 bg-[#C8102E] hover:bg-[#960C22] text-white text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-150 flex items-center justify-center gap-2">
+                  <span>Submit Chamber Enquiry</span>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </form>
+
+            <!-- Chamber Specific Disclaimer within Sidebar -->
+            <div class="mt-5 pt-4 border-t border-[#202020]">
+              <p class="text-[10px] leading-relaxed text-[#6E6E6E] font-inter">
+                Communications transmitted through this form are kept strictly confidential under advocate-client privilege principles. Submission does not by itself establish a formal retainer relationship.
+              </p>
+            </div>
+          </div>
+
+          <!-- PRACTICE DIRECTORY MINI-NAV (FOR PRACTICE PAGES TEMPLATE) -->
+          <div class="bg-[#141414] border border-[#2A2A2A] p-6">
+            <span class="text-[10px] font-inter font-bold tracking-[0.22em] text-[#8E8E8E] uppercase block mb-3">All Practice Jurisdictions</span>
+            <ul class="space-y-2 text-xs font-inter divide-y divide-[#1F1F1F]">
+              <li class="pt-2 flex items-center justify-between text-[#F7F5F0] font-medium">
+                <span class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#C8102E]"></span>
+                  <span>Cheque Bounce Matters</span>
+                </span>
+                <span class="text-[10px] text-[#C8102E] tracking-wider uppercase font-mono">Current</span>
+              </li>
+              <li class="pt-2 flex items-center justify-between text-[#8E8E8E] hover:text-[#F7F5F0] transition-colors">
+                <a href="#" class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#333]"></span>
+                  <span>Criminal Law &amp; Bail Jurisprudence</span>
+                </a>
+                <span class="text-[11px]">&rarr;</span>
+              </li>
+              <li class="pt-2 flex items-center justify-between text-[#8E8E8E] hover:text-[#F7F5F0] transition-colors">
+                <a href="#" class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#333]"></span>
+                  <span>Civil Litigation &amp; Commercial Disputes</span>
+                </a>
+                <span class="text-[11px]">&rarr;</span>
+              </li>
+              <li class="pt-2 flex items-center justify-between text-[#8E8E8E] hover:text-[#F7F5F0] transition-colors">
+                <a href="#" class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#333]"></span>
+                  <span>Matrimonial &amp; Divorce Proceedings</span>
+                </a>
+                <span class="text-[11px]">&rarr;</span>
+              </li>
+              <li class="pt-2 flex items-center justify-between text-[#8E8E8E] hover:text-[#F7F5F0] transition-colors">
+                <a href="#" class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#333]"></span>
+                  <span>Family Settlements &amp; Succession</span>
+                </a>
+                <span class="text-[11px]">&rarr;</span>
+              </li>
+              <li class="pt-2 flex items-center justify-between text-[#8E8E8E] hover:text-[#F7F5F0] transition-colors">
+                <a href="#" class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#333]"></span>
+                  <span>Trademark &amp; Intellectual Property</span>
+                </a>
+                <span class="text-[11px]">&rarr;</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- DIRECT CHAMBER CONTACT INFO -->
+          <div class="p-5 bg-[#0D0D0D] border border-[#202020] text-xs text-[#8E8E8E] space-y-2">
+            <div class="text-[10px] uppercase tracking-widest text-[#F7F5F0] font-semibold">Chamber Physical Address</div>
+            <p class="leading-relaxed">Chamber No. 422, Lawyers' Chambers Block, Delhi High Court / Patiala House Court Complex, New Delhi 110001</p>
+            <div class="pt-2 flex items-center gap-3 text-[11px] text-[#C8102E]">
+              <span>Emergency Hearing Support</span>
+              <span>&bull;</span>
+              <span>Prior Appointment Only</span>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+    <!-- ================= FINAL CONTACT CTA BAND (#141414) ================= -->
+    <section class="bg-[#141414] border-t border-b border-[#2A2A2A] py-16 px-6 lg:px-16 mt-12">
+      <div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-8 space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 bg-[#C8102E]"></span>
+            <span class="text-xs uppercase tracking-[0.25em] text-[#C8102E] font-medium font-inter">Procedural Timelines Are Strict</span>
+          </div>
+          <h2 class="font-cormorant text-3xl lg:text-5xl font-normal text-[#F7F5F0]">
+            Require Counsel for a Section 138 Matter in Delhi?
+          </h2>
+          <p class="font-inter text-sm lg:text-[15px] leading-relaxed text-[#9E9E9E] max-w-2xl">
+            Whether responding to a 15-day statutory demand notice, contesting an interim compensation application, or filing a time-bound complaint before the Metropolitan Magistrate, timely procedural intervention is critical.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4">
+          <a href="#consultation-form" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#C8102E] hover:bg-[#960C22] text-white text-xs font-semibold uppercase tracking-[0.2em] transition-all text-center">
+            <span>Schedule Chamber Conference</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="tel:+9111XXXXXXXX" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#0A0A0A] hover:bg-[#1A1A1A] text-[#F7F5F0] border border-[#2A2A2A] text-xs font-semibold uppercase tracking-[0.2em] transition-all text-center">
+            <span>Call Chamber Clerk</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= REGULATORY DISCLAIMER STRIP ================= -->
+  <section class="border-b border-[#2A2A2A] bg-[#0A0A0A] py-6 px-6 lg:px-16 text-center">
+    <div class="max-w-[1200px] mx-auto">
+      <p class="text-[11px] leading-relaxed text-[#737373] font-inter">
+        <span class="text-[#8E8E8E] font-semibold uppercase tracking-wider">Bar Council of India Regulatory Notice:</span> 
+        The information provided on this page is published solely for educational, academic, and general legal reference regarding procedural aspects of Section 138 of the Negotiable Instruments Act in the National Capital Territory of Delhi. It does not constitute legal advice, solicitation, invitation, or advertisement. No outcome is promised or guaranteed. Individuals must seek independent legal counsel for specific factual disputes.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= EDITORIAL DESKTOP FOOTER ================= -->
+  <footer class="bg-[#0A0A0A] text-[#8E8E8E] pt-16 pb-12 px-6 lg:px-16 border-t border-[#1F1F1F]">
+    <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-14">
+      
+      <!-- Brand & Chamber Bio (Col 1-4) -->
+      <div class="lg:col-span-4 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-[#C8102E] text-white flex items-center justify-center font-bold font-bebas text-xl tracking-wider">
+            SS
+          </div>
+          <div class="font-bebas text-2xl tracking-wider text-[#F7F5F0]">
+            ADVOCATE SHUBHAM SINGH
+          </div>
+        </div>
+        <p class="text-xs leading-relaxed text-[#7A7A7A] max-w-sm">
+          Chambers practicing before the Supreme Court of India, High Court of Delhi, and District Courts across Delhi NCR. Focused on rigorous trial advocacy, precision drafting, and statutory compliance.
+        </p>
+        <div class="pt-2 text-xs text-[#5A5A5A] font-mono">
+          Bar Council Registration: D/XXXX/201X &bull; High Court Bar Association
+        </div>
+      </div>
+
+      <!-- Practice Areas (Col 5-7) -->
+      <div class="lg:col-span-3 space-y-3">
+        <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#F7F5F0]">Practice Domains</div>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#" class="hover:text-[#F7F5F0] transition-colors text-[#C8102E]">Cheque Bounce Matters (Sec. 138 NI Act)</a></li>
+          <li><a href="#" class="hover:text-[#F7F5F0] transition-colors">Criminal Trial, Bail &amp; Appellate Quashing</a></li>
+          <li><a href="#" class="hover:text-[#F7F5F0] transition-colors">Civil Commercial Litigation &amp; Injunctions</a></li>
+          <li><a href="#" class="hover:text-[#F7F5F0] transition-colors">Matrimonial Proceedings &amp; Maintenance</a></li>
+          <li><a href="#" class="hover:text-[#F7F5F0] transition-colors">Trademark Opposition &amp; Brand Protection</a></li>
+        </ul>
+      </div>
+
+      <!-- Panel Standing & Courts (Col 8-10) -->
+      <div class="lg:col-span-3 space-y-3">
+        <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#F7F5F0]">Standing &amp; Jurisdictions</div>
+        <ul class="space-y-2 text-xs">
+          <li class="text-[#A8A8A8]">Panel Counsel &mdash; Union of India</li>
+          <li class="text-[#A8A8A8]">Panel Counsel &mdash; State of Uttar Pradesh</li>
+          <li class="text-[#A8A8A8]">Panel Counsel &mdash; Delhi Metro Rail Corp (DMRC)</li>
+          <li><a href="#" class="hover:text-[#F7F5F0] transition-colors">Supreme Court of India</a></li>
+          <li><a href="#" class="hover:text-[#F7F5F0] transition-colors">High Court of Delhi</a></li>
+        </ul>
+      </div>
+
+      <!-- Chamber Coordination (Col 11-12) -->
+      <div class="lg:col-span-2 space-y-3">
+        <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#F7F5F0]">Chamber Hours</div>
+        <p class="text-xs text-[#7A7A7A] leading-relaxed">
+          Monday &ndash; Saturday<br>
+          10:00 AM &ndash; 7:30 PM IST<br>
+          <span class="text-[#C8102E]">Conferences strictly by appointment.</span>
+        </p>
+        <div class="pt-2 text-xs text-[#8E8E8E]">
+          Clerk Desk: Available for filing status.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Utility Bar -->
+    <div class="max-w-[1440px] mx-auto pt-8 border-t border-[#1C1C1C] flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#5A5A5A] gap-4">
+      <div>
+        &copy; 2026 Chamber of Advocate Shubham Singh. All rights reserved.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-[#8E8E8E] transition-colors">Legal Disclaimer</a>
+        <a href="#" class="hover:text-[#8E8E8E] transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-[#8E8E8E] transition-colors">Terms of Engagement</a>
+        <a href="#" class="hover:text-[#8E8E8E] transition-colors">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

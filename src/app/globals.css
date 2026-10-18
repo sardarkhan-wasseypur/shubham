@@ -1,0 +1,479 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+
+  /* Semantic Color Tokens - Dark Theme (Primary Look) */
+  --background: #0A0A0A;
+  --surface: #141414;
+  --foreground: #F7F5F0;
+  --secondary: #A3A09A;
+  --line: #2A2A2A;
+  --accent: #C8102E;
+  --accent-text: #FF5A6E;
+  --on-accent: #FFFFFF;
+
+  /* Typography Font Variables */
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-inter: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Fluid Type Scale */
+  --hero-name: clamp(5rem, 20vw, 18rem);
+  --display-xl: clamp(2.75rem, 5vw + 1rem, 4.5rem);
+  --display-lg: clamp(2.25rem, 3.8vw + 0.8rem, 3.5rem);
+  --display-md: clamp(1.75rem, 2.6vw + 0.6rem, 2.5rem);
+  --h3: clamp(1.35rem, 1.8vw + 0.4rem, 1.75rem);
+  --body-lg: clamp(1.125rem, 0.8vw + 0.85rem, 1.25rem);
+  --body: clamp(0.95rem, 0.4vw + 0.85rem, 1.05rem);
+  --label: clamp(0.75rem, 0.3vw + 0.68rem, 0.85rem);
+
+  /* Spacing Scale & Container (Max 1680px) */
+  --section-y: clamp(5rem, 10vw, 9rem);
+  --container-max-width: 1680px;
+  --container-padding: clamp(24px, 4vw, 64px);
+
+  /* Editorial Motion Tokens */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-reveal: 900ms;
+  --duration-ui: 250ms;
+  --duration-stagger: 100ms;
+  --duration-theme: 200ms;
+  --distance-reveal: 24px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Semantic Color Tokens - Light Theme */
+  --background: #FFFFFF;
+  --surface: #F4F3F0;
+  --foreground: #0A0A0A;
+  --secondary: #5A5A5A;
+  --line: #E2E0DC;
+  --accent: #C8102E;
+  --accent-text: #B00D26;
+  --on-accent: #FFFFFF;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-secondary: var(--secondary);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-on-accent: var(--on-accent);
+
+  --font-hero: var(--font-bebas);
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-inter);
+
+  --text-hero-name: var(--hero-name);
+  --text-hero-name--line-height: 0.85;
+  --text-display-xl: var(--display-xl);
+  --text-display-xl--line-height: 1.1;
+  --text-display-lg: var(--display-lg);
+  --text-display-lg--line-height: 1.15;
+  --text-display-md: var(--display-md);
+  --text-display-md--line-height: 1.25;
+  --text-h3: var(--h3);
+  --text-h3--line-height: 1.35;
+  --text-body-lg: var(--body-lg);
+  --text-body-lg--line-height: 1.6;
+  --text-body: var(--body);
+  --text-body--line-height: 1.65;
+  --text-label: var(--label);
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.18em;
+
+  --spacing-section-y: var(--section-y);
+}
+
+/* Explicit utilities */
+@utility text-hero-name {
+  font-size: var(--hero-name);
+  line-height: 0.85;
+  text-transform: uppercase;
+}
+
+@utility text-label {
+  font-size: var(--label);
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@utility container-custom {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 3.5vw, 2.5rem);
+  padding-right: clamp(1rem, 3.5vw, 2.5rem);
+}
+
+/* Base styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--background);
+  color: var(--foreground);
+  scroll-behavior: auto;
+  transition: background-color 200ms var(--ease-editorial), color 200ms var(--ease-editorial);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 200ms var(--ease-editorial), color 200ms var(--ease-editorial);
+}
+
+/* Photographs are never inverted or recoloured */
+img, picture, video {
+  filter: none !important;
+}
+
+/* Selection colour = accent with on-accent text */
+::selection {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Visible focus ring: 2px foreground outline with 3px background offset */
+*:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+/* In-page anchor interactions smooth scroll (disabled during route transitions) */
+@media (prefers-reduced-motion: no-preference) {
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-ticker {
+    animation-play-state: paused !important;
+  }
+}
+
+/* Ticker Marquee Animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker 35s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* ============================================================
+   EDITORIAL MOTION KEYFRAMES (pradeeprai.com behaviour)
+   ============================================================ */
+
+/* 1. Hero Photo Scale & Fade */
+@keyframes heroPhotoScale {
+  0% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 2. Header Fade Down */
+@keyframes heroHeaderDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3. Eyebrow Rule ScaleX */
+@keyframes eyebrowRuleGrow {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* 4. Masked Name Line Rise */
+@keyframes heroNameLine {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 5. Red Vertical ADV Block ScaleY */
+@keyframes heroAdvBlock {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* Fade in simple */
+@keyframes heroFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 6. Hero Staggered Fade Up */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 8. Vertical Scroll Line Loop (2s infinite) */
+@keyframes scrollLinePulse {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  49.9% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+/* ============================================================
+   MOTION UTILITIES
+   ============================================================ */
+
+.animate-hero-photo {
+  animation: heroPhotoScale 1200ms var(--ease-editorial) forwards;
+}
+
+.animate-header-down {
+  animation: heroHeaderDown 600ms var(--ease-editorial) 100ms forwards;
+}
+
+.animate-eyebrow-rule {
+  animation: eyebrowRuleGrow 500ms var(--ease-editorial) 200ms forwards;
+  transform-origin: left;
+}
+
+.animate-eyebrow-text {
+  animation: heroFadeIn 500ms var(--ease-editorial) 350ms forwards;
+}
+
+.animate-hero-name-1 {
+  animation: heroNameLine 900ms var(--ease-editorial) 400ms forwards;
+}
+
+.animate-hero-name-2 {
+  animation: heroNameLine 900ms var(--ease-editorial) 500ms forwards;
+}
+
+.animate-hero-adv-block {
+  animation: heroAdvBlock 700ms var(--ease-editorial) 700ms forwards;
+  transform-origin: top;
+}
+
+.animate-hero-adv-text {
+  animation: heroFadeIn 400ms var(--ease-editorial) 1000ms forwards;
+}
+
+.animate-hero-tagline {
+  animation: heroFadeUp 900ms var(--ease-editorial) 850ms forwards;
+}
+
+.animate-hero-cta {
+  animation: heroFadeUp 900ms var(--ease-editorial) 950ms forwards;
+}
+
+.animate-hero-stats {
+  animation: heroFadeUp 900ms var(--ease-editorial) 1050ms forwards;
+}
+
+.animate-hero-ticker {
+  animation: heroFadeUp 900ms var(--ease-editorial) 1150ms forwards;
+}
+
+.animate-scroll-line {
+  animation: scrollLinePulse 2000ms var(--ease-editorial) infinite;
+}
+
+/* Nav Link Underline: draws from the left on hover/focus */
+.nav-link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms var(--ease-editorial);
+}
+
+.nav-link-underline:hover::after,
+.nav-link-underline:focus-visible::after,
+.nav-link-underline.active::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   PAGE TRANSITION (app/template.tsx on every route change)
+   ============================================================ */
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-page-transition {
+  animation: pageFadeIn 250ms var(--ease-editorial);
+}
+
+
+/* ============================================================
+   CENTRAL SCROLL & ROUTE REVEAL SYSTEM
+   No-JS Fallback: All content is 100% visible by default.
+   Only when .js class is present do unrevealed elements hide.
+   ============================================================ */
+
+/* 1. Reveal Fade-Up (24px, 900ms, cubic-bezier(0.22, 1, 0.36, 1)) */
+.reveal-fade-up,
+[data-reveal="fade-up"] {
+  opacity: 1;
+  transform: none;
+}
+
+.js .reveal-fade-up:not(.is-revealed),
+.js [data-reveal="fade-up"]:not(.is-revealed) {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance, 24px));
+}
+
+.js .reveal-fade-up.is-revealed,
+.js [data-reveal="fade-up"].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 900ms var(--ease-editorial), transform 900ms var(--ease-editorial);
+}
+
+/* 2. Masked Line Heading (900ms cubic-bezier masked rise) */
+.mask-line-container {
+  overflow: hidden;
+  display: block;
+}
+
+.mask-line-inner {
+  display: block;
+  transform: none;
+}
+
+.js .mask-line-container:not(.is-revealed) .mask-line-inner,
+.js [data-reveal="mask-heading"]:not(.is-revealed) .mask-line-inner {
+  transform: translateY(100%);
+}
+
+.js .mask-line-container.is-revealed .mask-line-inner,
+.js [data-reveal="mask-heading"].is-revealed .mask-line-inner {
+  transform: translateY(0);
+  transition: transform 900ms var(--ease-editorial);
+}
+
+/* 3. DrawLine (500ms scaleX from left) */
+.draw-line-element,
+[data-reveal="draw-line"] {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.js .draw-line-element:not(.is-revealed),
+.js [data-reveal="draw-line"]:not(.is-revealed) {
+  transform: scaleX(0);
+}
+
+.js .draw-line-element.is-revealed,
+.js [data-reveal="draw-line"].is-revealed {
+  transform: scaleX(1);
+  transition: transform 500ms var(--ease-editorial);
+}
+
+/* 4. Reduced Motion Safeguard */
+@media (prefers-reduced-motion: reduce) {
+  .animate-page-transition {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .js .reveal-fade-up:not(.is-revealed),
+  .js [data-reveal="fade-up"]:not(.is-revealed),
+  .js .mask-line-container:not(.is-revealed) .mask-line-inner,
+  .js [data-reveal="mask-heading"]:not(.is-revealed) .mask-line-inner,
+  .js .draw-line-element:not(.is-revealed),
+  .js [data-reveal="draw-line"]:not(.is-revealed) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
