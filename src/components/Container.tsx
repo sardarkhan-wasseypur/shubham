@@ -14,7 +14,7 @@ export function Container({
 }: ContainerProps) {
   return (
     <Component
-      className={`w-full max-w-[1680px] mx-auto px-[clamp(24px,4vw,64px)] ${className}`}
+      className={`w-full max-w-[1680px] min-[2560px]:max-w-[2240px] mx-auto px-[clamp(24px,4vw,64px)] min-[2560px]:px-16 ${className}`}
       {...props}
     >
       {children}

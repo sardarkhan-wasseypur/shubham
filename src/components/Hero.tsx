@@ -64,7 +64,7 @@ export function Hero() {
       {/* 1. DESKTOP HERO PHOTO: right bleed matching Stitch desktop reference & pradeeprai.com */}
       <div
         data-portrait-container="true"
-        className="hidden md:block absolute top-0 right-0 w-full md:w-[50%] lg:w-[48%] xl:w-[46%] h-full pointer-events-none z-0 overflow-hidden"
+        className="hidden md:block absolute top-0 right-0 w-full md:w-[50%] lg:w-[48%] xl:w-[46%] min-[2560px]:w-[38%] h-full pointer-events-none z-0 overflow-hidden"
       >
         {isPhotoVerified ? (
           <>
@@ -75,13 +75,13 @@ export function Hero() {
                 fill
                 priority
                 quality={90}
-                sizes="(max-width: 1024px) 60vw, 46vw"
-                className="object-cover object-[center_20%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
+                sizes="(max-width: 1024px) 60vw, (max-width: 2559px) 46vw, 38vw"
+                className="object-cover object-[center_20%] min-[2560px]:object-[center_18%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
               />
             </div>
             {/* Scrim blending smoothly into background without cutting the face */}
             <div
-              className="absolute inset-y-0 left-0 w-2/5 md:w-1/2 bg-gradient-to-r from-background via-background/80 to-transparent"
+              className="absolute inset-y-0 left-0 w-2/5 md:w-1/2 min-[2560px]:w-[50%] bg-gradient-to-r from-background via-background/80 to-transparent"
               aria-hidden="true"
             />
             <div
@@ -104,43 +104,43 @@ export function Hero() {
       {/* Mobile spacer to reveal advocate portrait */}
       <div className="md:hidden h-[24vh] xs:h-[26vh] sm:h-[28vh] pointer-events-none" />
 
-      {/* 2. HERO CONTENT CONTAINER (Matches wide 1680px layout) */}
-      <div className="relative z-10 w-full max-w-[1680px] mx-auto px-[clamp(16px,4vw,64px)] flex-1 flex flex-col justify-end md:justify-center py-4 md:py-2 lg:py-4">
+      {/* 2. HERO CONTENT CONTAINER (Matches wide 1680px layout, scales to 2240px at 2560px) */}
+      <div className="relative z-10 w-full max-w-[1680px] min-[2560px]:max-w-[2240px] mx-auto px-[clamp(16px,4vw,64px)] min-[2560px]:px-16 flex-1 flex flex-col justify-end md:justify-center py-4 md:py-2 lg:py-4">
         {/* Eyebrow: red rule grows from width 0 (500ms), text fades in */}
-        <div className="flex items-center gap-2.5 sm:gap-4 mb-2.5 sm:mb-4">
+        <div className="flex items-center gap-2.5 sm:gap-4 mb-2.5 sm:mb-4 min-[2560px]:mb-6">
           <span
-            className="w-5 sm:w-8 h-[1.5px] sm:h-[2px] bg-accent origin-left animate-eyebrow-rule shrink-0"
+            className="w-5 sm:w-8 min-[2560px]:w-12 h-[1.5px] sm:h-[2px] bg-accent origin-left animate-eyebrow-rule shrink-0"
             aria-hidden="true"
           />
-          <p className="font-sans text-[11px] sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent-text animate-eyebrow-text">
+          <p className="font-sans text-[11px] sm:text-sm min-[2560px]:text-base font-semibold uppercase tracking-[0.2em] text-accent-text animate-eyebrow-text">
             ADVOCATE &bull; DELHI, INDIA
             <span className="hidden sm:inline"> &bull; SUPREME COURT &amp; HIGH COURT</span>
           </p>
         </div>
 
         {/* Name & ADV Block: Single semantic H1 with responsive desktop/mobile presentations */}
-        <h1 className="mb-4 sm:mb-6 select-none">
+        <h1 className="mb-4 sm:mb-6 min-[2560px]:mb-8 select-none">
           {/* Desktop Layout (>= 768px): SHUBHAM on line 1, SINGH + Red ADV Block on line 2 (matching pradeeprai.com & Stitch) */}
           <span className="hidden md:flex flex-col leading-[0.82] tracking-tight">
             <span className="overflow-hidden block">
-              <span className="block font-hero text-[clamp(4.5rem,min(11vw,14vh),8.5rem)] text-foreground transform-gpu animate-hero-name-1 uppercase">
+              <span className="block font-hero text-[clamp(4.5rem,min(11vw,14vh),8.5rem)] min-[2560px]:text-[11.5rem] text-foreground transform-gpu animate-hero-name-1 uppercase">
                 SHUBHAM
               </span>
             </span>
 
             <span className="overflow-hidden block">
-              <span className="flex items-center gap-3 sm:gap-4 md:gap-5 transform-gpu animate-hero-name-2">
-                <span className="font-hero text-[clamp(4.5rem,min(11vw,14vh),8.5rem)] text-foreground uppercase">
+              <span className="flex items-center gap-3 sm:gap-4 md:gap-5 min-[2560px]:gap-6 transform-gpu animate-hero-name-2">
+                <span className="font-hero text-[clamp(4.5rem,min(11vw,14vh),8.5rem)] min-[2560px]:text-[11.5rem] text-foreground uppercase">
                   SINGH
                 </span>
 
                 {/* Red vertical block with rotated "ADV." right beside SINGH */}
                 <span
-                  className="w-10 sm:w-12 lg:w-14 h-[clamp(2.75rem,min(8vw,11vh),6.8rem)] bg-accent rounded-[1px] flex items-center justify-center relative shadow-sm animate-hero-adv-block shrink-0"
+                  className="w-10 sm:w-12 lg:w-14 min-[2560px]:w-18 h-[clamp(2.75rem,min(8vw,11vh),6.8rem)] min-[2560px]:h-[9.2rem] bg-accent rounded-[1px] flex items-center justify-center relative shadow-sm animate-hero-adv-block shrink-0"
                   aria-hidden="true"
                 >
                   <span
-                    className="font-hero text-xs sm:text-sm lg:text-base text-on-accent tracking-[0.25em] uppercase select-none animate-hero-adv-text"
+                    className="font-hero text-xs sm:text-sm lg:text-base min-[2560px]:text-xl text-on-accent tracking-[0.25em] uppercase select-none animate-hero-adv-text"
                     style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                   >
                     ADV.
@@ -163,34 +163,34 @@ export function Hero() {
         </h1>
 
         {/* Lower Content Grid: Left Narrative + Right Stat Blocks (matching Stitch & pradeeprai.com) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 items-end">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 min-[2560px]:gap-8 items-end">
           {/* Bottom-Left Narrative & Panel Counsel Notice */}
-          <div className="md:col-span-7 lg:col-span-6 flex flex-col justify-end animate-hero-tagline">
-            <p className="font-sans text-[10px] sm:text-[12px] font-semibold tracking-[0.16em] text-secondary uppercase mb-1 sm:mb-2">
+          <div className="md:col-span-7 lg:col-span-6 min-[2560px]:col-span-5 flex flex-col justify-end animate-hero-tagline">
+            <p className="font-sans text-[10px] sm:text-[12px] min-[2560px]:text-[13px] font-semibold tracking-[0.16em] text-secondary uppercase mb-1 sm:mb-2 min-[2560px]:mb-3">
               PANEL COUNSEL &bull; UNION OF INDIA &bull; STATE OF UTTAR PRADESH &bull; DMRC
             </p>
-            <p className="font-display italic text-base sm:text-xl lg:text-2xl text-secondary leading-snug mb-3 sm:mb-4 max-w-xl">
+            <p className="font-display italic text-base sm:text-xl lg:text-2xl min-[2560px]:text-3xl text-secondary leading-snug mb-3 sm:mb-4 min-[2560px]:mb-6 max-w-xl min-[2560px]:max-w-2xl">
               Criminal, civil, matrimonial, family, trademark, cheque bounce and NCMEI-related matters.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3.5 sm:gap-4 mb-4 md:mb-0 animate-hero-cta">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3.5 sm:gap-4 min-[2560px]:gap-5 mb-4 md:mb-0 animate-hero-cta">
               {/* Mobile: Full-width button with arrow */}
               <Button
                 variant="solid-red"
                 href="/contact"
-                className="w-full sm:w-auto h-11 sm:h-11 flex items-center justify-between sm:justify-center px-6 font-semibold text-xs tracking-[0.18em]"
+                className="w-full sm:w-auto h-11 sm:h-11 min-[2560px]:h-14 flex items-center justify-between sm:justify-center px-6 min-[2560px]:px-8 font-semibold text-xs min-[2560px]:text-sm tracking-[0.18em]"
               >
                 <span>GET IN TOUCH</span>
                 <span className="sm:hidden text-base font-bold">&rarr;</span>
               </Button>
               {/* Secondary text link or button */}
-              <div className="flex items-center justify-between sm:justify-start gap-4">
+              <div className="flex items-center justify-between sm:justify-start gap-4 min-[2560px]:gap-5">
                 <div className="hidden sm:inline-flex">
                   <Button
                     variant="outline"
                     href="/practice-areas"
-                    className="h-11 px-6 text-xs uppercase tracking-[0.14em]"
+                    className="h-11 min-[2560px]:h-14 px-6 min-[2560px]:px-8 text-xs min-[2560px]:text-sm uppercase tracking-[0.14em]"
                   >
                     Explore Practice Areas
                   </Button>
@@ -212,30 +212,30 @@ export function Hero() {
           </div>
 
           {/* Bottom-Right: 3 Stat Blocks (matching pradeeprai.com & Stitch desktop screenshot) */}
-          <div className="hidden md:flex md:col-span-4 lg:col-span-5 items-end gap-6 lg:gap-8 pb-1 animate-hero-stats">
-            <div className="flex flex-col border-l border-line pl-4 lg:pl-5">
-              <span className="font-hero text-4xl lg:text-5xl leading-none text-foreground">
+          <div className="hidden md:flex md:col-span-4 lg:col-span-5 min-[2560px]:col-span-5 items-end gap-6 lg:gap-8 min-[2560px]:gap-10 pb-1 animate-hero-stats">
+            <div className="flex flex-col border-l border-line pl-4 lg:pl-5 min-[2560px]:pl-6">
+              <span className="font-hero text-4xl lg:text-5xl min-[2560px]:text-6xl leading-none text-foreground">
                 {courtCount}
               </span>
-              <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-secondary mt-1 whitespace-nowrap font-medium">
+              <span className="font-sans text-[10px] min-[2560px]:text-xs uppercase tracking-[0.18em] text-secondary mt-1 whitespace-nowrap font-medium">
                 Courts &amp; Forums
               </span>
             </div>
 
-            <div className="flex flex-col border-l border-line pl-4 lg:pl-5">
-              <span className="font-hero text-4xl lg:text-5xl leading-none text-foreground">
+            <div className="flex flex-col border-l border-line pl-4 lg:pl-5 min-[2560px]:pl-6">
+              <span className="font-hero text-4xl lg:text-5xl min-[2560px]:text-6xl leading-none text-foreground">
                 {practiceCount}
               </span>
-              <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-secondary mt-1 whitespace-nowrap font-medium">
+              <span className="font-sans text-[10px] min-[2560px]:text-xs uppercase tracking-[0.18em] text-secondary mt-1 whitespace-nowrap font-medium">
                 Practice Areas
               </span>
             </div>
 
-            <div className="flex flex-col border-l border-line pl-4 lg:pl-5">
-              <span className="font-hero text-4xl lg:text-5xl leading-none text-foreground">
+            <div className="flex flex-col border-l border-line pl-4 lg:pl-5 min-[2560px]:pl-6">
+              <span className="font-hero text-4xl lg:text-5xl min-[2560px]:text-6xl leading-none text-foreground">
                 {appointmentCount}
               </span>
-              <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-secondary mt-1 whitespace-nowrap font-medium">
+              <span className="font-sans text-[10px] min-[2560px]:text-xs uppercase tracking-[0.18em] text-secondary mt-1 whitespace-nowrap font-medium">
                 Panel Roles
               </span>
             </div>
@@ -243,11 +243,11 @@ export function Hero() {
 
           {/* Far Right: Vertical Scroll Indicator (Desktop only) */}
           <div
-            className="hidden xl:flex md:col-span-1 flex-col items-center justify-end pb-2 text-secondary font-mono text-[9px] tracking-[0.25em] uppercase select-none"
+            className="hidden xl:flex md:col-span-1 min-[2560px]:col-span-2 flex-col items-center min-[2560px]:items-end justify-end pb-2 min-[2560px]:pb-4 text-secondary font-mono text-[9px] min-[2560px]:text-[11px] tracking-[0.25em] uppercase select-none"
             aria-hidden="true"
           >
             <span style={{ writingMode: "vertical-rl" }}>SCROLL</span>
-            <div className="w-[1.5px] h-8 bg-line relative overflow-hidden mt-2">
+            <div className="w-[1.5px] h-8 min-[2560px]:h-12 bg-line relative overflow-hidden mt-2">
               <div className="w-full h-full bg-accent animate-scroll-line" />
             </div>
           </div>

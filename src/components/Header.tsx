@@ -133,33 +133,33 @@ export function Header() {
             : "bg-transparent border-b border-transparent"
         }`}
       >
-        <div className="w-full max-w-[1680px] mx-auto px-[clamp(16px,4vw,64px)] h-16 min-[1100px]:h-20 flex items-center justify-between">
+        <div className="w-full max-w-[1680px] min-[2560px]:max-w-[2240px] mx-auto px-[clamp(16px,4vw,64px)] min-[2560px]:px-16 h-16 min-[1100px]:h-20 min-[2560px]:h-24 flex items-center justify-between">
           {/* Left: Red square "SS" monogram (40px) + Wordmark "Shubham Singh" */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-foreground rounded-[2px] whitespace-nowrap shrink-0"
+            className="flex items-center gap-3 min-[2560px]:gap-4 group focus-visible:outline-2 focus-visible:outline-foreground rounded-[2px] whitespace-nowrap shrink-0"
           >
             {/* 40x40 Red Square SS Monogram */}
-            <div className="w-10 h-10 min-w-10 min-h-10 bg-accent text-on-accent font-hero text-2xl flex items-center justify-center rounded-[1px] select-none tracking-wider pt-0.5 shadow-sm group-hover:brightness-95 transition-all">
+            <div className="w-10 h-10 min-[2560px]:w-12 min-[2560px]:h-12 min-w-10 min-h-10 bg-accent text-on-accent font-hero text-2xl min-[2560px]:text-3xl flex items-center justify-center rounded-[1px] select-none tracking-wider pt-0.5 shadow-sm group-hover:brightness-95 transition-all">
               SS
             </div>
             {/* Wordmark and tiny tracked subtitle (collapses on very small screens < 360px to guarantee 0 overflow) */}
             <div className="hidden xs:flex flex-col justify-center">
-              <span className="font-display text-xl sm:text-2xl font-medium tracking-wide text-foreground leading-none whitespace-nowrap group-hover:text-accent-text transition-colors duration-200">
+              <span className="font-display text-xl sm:text-2xl min-[2560px]:text-3xl font-medium tracking-wide text-foreground leading-none whitespace-nowrap group-hover:text-accent-text transition-colors duration-200">
                 Shubham Singh
               </span>
-              <span className="font-sans text-[10px] tracking-[0.25em] text-secondary uppercase font-semibold leading-none mt-1 whitespace-nowrap">
+              <span className="font-sans text-[10px] min-[2560px]:text-xs tracking-[0.25em] text-secondary uppercase font-semibold leading-none mt-1 whitespace-nowrap">
                 ADVOCATE &bull; DELHI
               </span>
             </div>
           </Link>
 
           {/* Centre & Right: Full Nav shown from 1100px up (single non-wrapping row) */}
-          <div className="hidden min-[1100px]:flex items-center gap-8 lg:gap-10 shrink-0">
+          <div className="hidden min-[1100px]:flex items-center gap-8 lg:gap-10 min-[2560px]:gap-12 shrink-0">
             {/* Nav links: Tracked uppercase Inter 12px, equal 28px gaps, red underline on active item, underline-draw hover */}
             <nav
               aria-label="Main Navigation"
-              className="flex items-center gap-[28px]"
+              className="flex items-center gap-[28px] min-[2560px]:gap-[36px]"
             >
               {headerNavLinks.map((link) => {
                 const isActive = pathname === link.href;
@@ -167,7 +167,7 @@ export function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`font-sans text-[12px] uppercase tracking-[0.14em] font-medium whitespace-nowrap py-1 relative transition-colors duration-200 ${
+                    className={`font-sans text-[12px] min-[2560px]:text-[13px] uppercase tracking-[0.14em] font-medium whitespace-nowrap py-1 relative transition-colors duration-200 ${
                       isActive
                         ? "text-accent-text border-b-2 border-accent pb-0.5"
                         : "text-secondary hover:text-foreground after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-accent after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200"
@@ -180,12 +180,12 @@ export function Header() {
             </nav>
 
             {/* Right actions: 40x40 ThemeToggle + Solid red "Get in Touch" button */}
-            <div className="flex items-center gap-4 shrink-0">
+            <div className="flex items-center gap-4 min-[2560px]:gap-6 shrink-0">
               <ThemeToggle />
               <Button
                 variant="solid-red"
                 href="/contact"
-                className="whitespace-nowrap shrink-0 px-5 py-2.5 text-[12px]"
+                className="whitespace-nowrap shrink-0 px-5 py-2.5 min-[2560px]:px-7 min-[2560px]:py-3.5 text-[12px] min-[2560px]:text-[13px]"
               >
                 Get in Touch
               </Button>
