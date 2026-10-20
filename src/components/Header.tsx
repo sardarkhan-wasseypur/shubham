@@ -4,18 +4,11 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle, SegmentedThemeSwitch } from "./ThemeToggle";
-import { headerNavLinks } from "@/content/navigation";
+import { headerNavLinks, getVisibleNav } from "@/content/navigation";
 import { Button } from "./Button";
 
-const mobileNavLinks = [
-  { num: "01", label: "HOME", href: "/" },
-  { num: "02", label: "PRACTICE AREAS", href: "/practice-areas" },
-  { num: "03", label: "EXPERIENCE", href: "/professional-experience" },
-  { num: "04", label: "INSIGHTS", href: "/legal-insights" },
-  { num: "05", label: "CONTACT", href: "/contact" },
-];
-
 export function Header() {
+  const mobileNavLinks = getVisibleNav();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();

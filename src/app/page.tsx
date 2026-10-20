@@ -21,6 +21,8 @@ import {
 } from "@/components";
 import { practiceAreas } from "@/content/practiceAreas";
 import { courts } from "@/content/courts";
+import { getHomepageGalleryItems } from "@/content/gallery";
+import { HomepageGallery } from "@/components/gallery/HomepageGallery";
 import { principles } from "@/content/principles";
 import { faqs } from "@/content/faqs";
 import { profile } from "@/content/profile";
@@ -36,6 +38,7 @@ export const metadata: Metadata = constructMetadata({
 
 export default function HomePage() {
   const faqSchema = getFaqPageSchema(faqs);
+  const homepagePhotos = getHomepageGalleryItems();
   const isPhotoVerified = Boolean(profile.photo.verified && profile.photo.value);
 
   return (
@@ -242,6 +245,9 @@ export default function HomePage() {
             </div>
           </Container>
         </RevealSection>
+
+        {/* SECTION: HOMEPAGE GALLERY (Moments from practice and events) */}
+        {homepagePhotos.length >= 3 && <HomepageGallery photos={homepagePhotos} />}
 
         {/* SECTION 06: ADVOCACY PRINCIPLES (Single column on mobile) */}
         <RevealSection className="py-12 sm:py-16 md:py-24 border-b border-line bg-surface/30">
