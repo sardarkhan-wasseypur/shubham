@@ -82,21 +82,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "www.shubhamsinghadvocate.com",
-          },
-        ],
-        destination: "https://shubhamsinghadvocate.com/:path*",
-        permanent: true,
-      },
-    ];
-  },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {

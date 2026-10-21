@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SEODefaults } from "./types";
 
 export const siteUrl: string =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://shubhamsinghadvocate.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.shubhamsinghadvocate.com";
 
 export const siteName: string = "Advocate Shubham Singh";
 

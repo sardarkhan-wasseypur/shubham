@@ -82,9 +82,6 @@ export function GalleryGrid({ items }: GalleryGridProps) {
       {/* Masonry Responsive Grid: 3 columns desktop, 2 columns tablet, 1 column mobile */}
       <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
         {filteredItems.map((item, index) => {
-          // First row of images gets eager loading (index < 3 for 3-column desktop)
-          const isFirstRow = index < 3;
-
           return (
             <div
               key={item.id}
