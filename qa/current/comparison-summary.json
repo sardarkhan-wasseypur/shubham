@@ -1,0 +1,16 @@
+{
+  "totalRoutes": 17,
+  "totalFilesCompared": 69,
+  "textIdentical": false,
+  "textDifferences": [
+    {
+      "file": "about_text_sample.txt",
+      "error": "Missing current text file"
+    }
+  ],
+  "shotResultsSummary": {
+    "total": 68,
+    "exactMatches": 0,
+    "highConfidenceMatches": 10
+  }
+}

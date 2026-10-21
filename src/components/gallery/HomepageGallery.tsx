@@ -4,7 +4,11 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { GalleryItem } from "@/content/gallery";
-import { Lightbox } from "@/components/gallery/Lightbox";
+import dynamic from "next/dynamic";
+const Lightbox = dynamic(
+  () => import("@/components/gallery/Lightbox").then((mod) => mod.Lightbox),
+  { ssr: false }
+);
 
 interface HomepageGalleryProps {
   photos: GalleryItem[];

@@ -58,6 +58,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   compress: true,
+  poweredByHeader: false,
+  productionBrowserSourceMaps: false,
   trailingSlash: false,
   images: {
     formats: ["image/avif", "image/webp"],
@@ -68,6 +70,15 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: securityHeaders,
+      },
+      {
+        source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
       },
     ];
   },

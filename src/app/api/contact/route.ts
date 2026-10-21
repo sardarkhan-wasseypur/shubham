@@ -161,7 +161,7 @@ export async function POST(req: NextRequest) {
 
     // 7. Email Provider Resolution & Sending
     const emailProvider = process.env.EMAIL_PROVIDER?.toLowerCase();
-    const resendApiKey = process.env.RESEND_API_KEY;
+    const resendApiKey = process.env.EMAIL_PROVIDER_API_KEY || process.env.RESEND_API_KEY;
     const smtpHost = process.env.SMTP_HOST;
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
@@ -180,7 +180,7 @@ export async function POST(req: NextRequest) {
 
     // Case B: Resend Provider via HTTP REST API
     if (resendApiKey) {
-      const recipientEmail = process.env.CONTACT_RECIPIENT_EMAIL || "thevidhikars@gmail.com";
+      const recipientEmail = process.env.CONTACT_TO_EMAIL || process.env.CONTACT_RECIPIENT_EMAIL || "thevidhikars@gmail.com";
       const fromEmail = process.env.CONTACT_FROM_EMAIL || "Chamber Consultation <onboarding@resend.dev>";
 
       const emailHtml = `
@@ -255,7 +255,7 @@ ${sanitizedMessage}
       {
         success: false,
         error:
-          "The consultation inquiry email dispatch service is currently unconfigured (missing RESEND_API_KEY or EMAIL_PROVIDER env vars). The chamber cannot receive web messages until this is configured.",
+          "The consultation inquiry email dispatch service is currently unconfigured (missing EMAIL_PROVIDER_API_KEY / RESEND_API_KEY or EMAIL_PROVIDER env vars). The chamber cannot receive web messages until this is configured.",
       },
       { status: 503 }
     );

@@ -3,7 +3,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { GalleryItem } from "@/content/gallery";
-import { Lightbox } from "@/components/gallery/Lightbox";
+import dynamic from "next/dynamic";
+const Lightbox = dynamic(
+  () => import("@/components/gallery/Lightbox").then((mod) => mod.Lightbox),
+  { ssr: false }
+);
 
 interface GalleryGridProps {
   items: GalleryItem[];
@@ -105,8 +109,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
                     width={item.width || 1200}
                     height={item.height || 800}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    loading={isFirstRow ? "eager" : "lazy"}
-                    priority={isFirstRow}
+                                        loading="lazy"
                     placeholder={item.blurDataURL ? "blur" : "empty"}
                     blurDataURL={item.blurDataURL}
                     className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-300 ease-out"

@@ -43,7 +43,7 @@ export function getPersonSchema() {
     },
     worksFor: [
       {
-        "@type": "LegalService",
+        "@type": "Organization",
         name: profile.officeName.value,
         url: siteUrl,
       },

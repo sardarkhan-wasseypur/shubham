@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteUrl } from "@/content/seo";
 import { practiceAreas } from "@/content/practiceAreas";
 import { articles } from "@/content/articles";
+import { hasVerifiedGalleryItems } from "@/content/gallery";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Use fixed ISO date for sitemap stability
@@ -81,5 +82,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  return [...staticRoutes, ...serviceRoutes, ...articleRoutes];
+  const galleryRoutes: MetadataRoute.Sitemap = hasVerifiedGalleryItems()
+    ? [
+        {
+          url: `${siteUrl}/gallery`,
+          lastModified: buildDate,
+          changeFrequency: "weekly",
+          priority: 0.7,
+        },
+      ]
+    : [];
+
+  return [...staticRoutes, ...serviceRoutes, ...galleryRoutes, ...articleRoutes];
 }

@@ -71,7 +71,7 @@ export default function HomePage() {
                       src={profile.photo.value!}
                       alt="Advocate Shubham Singh in court robes"
                       fill
-                      priority
+                      loading="lazy"
                       quality={90}
                       sizes="100vw"
                       className="object-cover object-[center_20%] contrast-[1.05]"

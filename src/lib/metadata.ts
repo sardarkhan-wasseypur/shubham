@@ -25,6 +25,9 @@ export function constructMetadata({
 
   return {
     metadataBase: new URL(siteUrl),
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+      : {}),
     title: {
       absolute: title,
     },
