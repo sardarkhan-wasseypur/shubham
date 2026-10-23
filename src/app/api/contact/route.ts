@@ -37,7 +37,7 @@ function methodNotAllowed() {
 }
 
 export async function GET() {
-  return methodNotAllowed();
+  return methodNotAllowed();  
 }
 
 export async function PUT() {
