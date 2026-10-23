@@ -25,9 +25,11 @@ export function constructMetadata({
 
   return {
     metadataBase: new URL(siteUrl),
-    ...(process.env.GOOGLE_SITE_VERIFICATION
-      ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
-      : {}),
+    verification: {
+      google:
+        process.env.GOOGLE_SITE_VERIFICATION ||
+        "aJmjqKGgWBM3l7VeA5Yb6ecT9D8vPIifdrCCB3Mrdbo",
+    },
     title: {
       absolute: title,
     },

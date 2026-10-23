@@ -17,6 +17,11 @@ export const seoDefaults: SEODefaults = {
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  verification: {
+    google:
+      process.env.GOOGLE_SITE_VERIFICATION ||
+      "aJmjqKGgWBM3l7VeA5Yb6ecT9D8vPIifdrCCB3Mrdbo",
+  },
   title: {
     default: seoDefaults.title,
     template: `%s | ${siteName}`,
