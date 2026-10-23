@@ -4,7 +4,7 @@ import { SEODefaults } from "./types";
 export const siteUrl: string =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.shubhamsinghadvocate.com";
 
-export const siteName: string = "Advocate Shubham Singh";
+export const siteName: string = "Shubham Singh Advocate";
 
 export const seoDefaults: SEODefaults = {
   siteName,
@@ -21,6 +21,15 @@ export const defaultMetadata: Metadata = {
     google:
       process.env.GOOGLE_SITE_VERIFICATION ||
       "aJmjqKGgWBM3l7VeA5Yb6ecT9D8vPIifdrCCB3Mrdbo",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "48x48" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   title: {
     default: seoDefaults.title,

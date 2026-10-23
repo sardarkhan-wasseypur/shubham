@@ -29,6 +29,11 @@ export function getPersonSchema() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: profile.name.value,
+    alternateName: [
+      "Advocate Shubham Singh",
+      "Shubham Singh Advocate",
+      "ShubhamSinghAdvocate",
+    ],
     jobTitle: profile.designation.value,
     description: `Advocate practicing before the Supreme Court of India, Delhi High Court, and District Courts in Delhi NCR.`,
     url: siteUrl,
@@ -63,8 +68,9 @@ export function getWebSiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: siteName,
-    url: siteUrl,
+    name: "Shubham Singh Advocate",
+    alternateName: "ShubhamSinghAdvocate",
+    url: `${siteUrl}/`,
     description:
       "Informational resource for Advocate Shubham Singh, legal practitioner in Delhi, India.",
     inLanguage: "en-IN",
