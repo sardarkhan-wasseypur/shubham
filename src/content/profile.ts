@@ -44,8 +44,11 @@ export const DEV_TEST_STICKY_BAR = false;
 
 export const DEV_TEST_NUMBERS = {
   phone: "+91 99905 90014",
-  whatsApp: "",
+  whatsApp: "+91 99905 90014",
 };
+
+// Canonical international WhatsApp number without '+', spaces, or hyphens for official wa.me click-to-chat links
+export const LAWYER_WHATSAPP_NUMBER = "919990590014";
 
 export const profile: Profile = {
   name: {
@@ -86,8 +89,8 @@ export const profile: Profile = {
     verified: true,
   },
   whatsApp: {
-    value: null,
-    verified: false,
+    value: "+91 99905 90014",
+    verified: true,
   },
   address: {
     value: "A-23, Sujan Singh Block, Middle Circle, Connaught Place, New Delhi – 110001, India",

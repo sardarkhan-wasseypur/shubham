@@ -1,13 +1,16 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import {
   ENQUIRY_TYPES,
   ENQUIRY_TYPE_LABELS,
   EnquiryType,
   validatePhoneOrEmail,
+  formatWhatsAppMessage,
+  buildWhatsAppUrl,
 } from "@/lib/contactSchema";
+import { LAWYER_WHATSAPP_NUMBER } from "@/content/profile";
 
 interface FormErrors {
   name?: string;
@@ -26,17 +29,15 @@ export function ContactForm() {
   const [consent, setConsent] = useState(false);
   const [honeypot, setHoneypot] = useState(""); // Bot honeypot
 
-  // Timing check: capture initial render timestamp safely in effect
-  const renderedAtRef = useRef<number | null>(null);
-  useEffect(() => {
-    renderedAtRef.current = Date.now();
-  }, []);
-
   // Form State
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [errors, setErrors] = useState<FormErrors>({});
   const [serverMessage, setServerMessage] = useState<string>("");
-  const [referenceId, setReferenceId] = useState<string>("");
+  const [preparedMessage, setPreparedMessage] = useState<string>("");
+  const [preparedWhatsAppUrl, setPreparedWhatsAppUrl] = useState<string>("");
+
+  // Guard against duplicate rapid submissions
+  const isSubmittingRef = useRef(false);
 
   // Refs for accessibility focus management
   const errorSummaryRef = useRef<HTMLDivElement>(null);
@@ -97,12 +98,23 @@ export function ContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Run client validation
+    // 1. Prevent duplicate submissions from rapid clicks
+    if (isSubmittingRef.current) {
+      return;
+    }
+
+    // 2. Honeypot check (silently drop bot submissions)
+    if (honeypot && honeypot.trim().length > 0) {
+      return;
+    }
+
+    // 3. Synchronous client-side validation
     const isValid = validateForm();
     if (!isValid) {
+      isSubmittingRef.current = false;
       setStatus("error");
       setServerMessage("Please correct the errors in the form before submitting.");
       // Move accessibility focus to Error Summary
@@ -112,74 +124,64 @@ export function ContactForm() {
       return;
     }
 
-    setStatus("submitting");
-    setServerMessage("");
+    // Mark as submitting to guard against duplicate clicks
+    isSubmittingRef.current = true;
 
+    // 4. Format pre-filled WhatsApp message synchronously
+    const formattedMsg = formatWhatsAppMessage({
+      name,
+      phoneOrEmail,
+      enquiryType,
+      message,
+    });
+    const whatsappUrl = buildWhatsAppUrl(formattedMsg, LAWYER_WHATSAPP_NUMBER);
+
+    // 5. Open WhatsApp immediately on the user's direct click event
+    let openedInNewTab = false;
     try {
-      const payload = {
-        name: name.trim(),
-        phoneOrEmail: phoneOrEmail.trim(),
-        enquiryType,
-        message: message.trim(),
-        consent,
-        honeypot,
-        renderedAt: renderedAtRef.current,
-      };
-
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json().catch(() => ({}));
-
-      // ONLY transition to success upon 2xx response
-      if (res.ok && data.success) {
-        setStatus("success");
-        setReferenceId(data.referenceId || "CONFIRMED");
-        setServerMessage(data.message || "Your inquiry has been received.");
-        setErrors({});
-        // Focus success container for screen readers
-        setTimeout(() => {
-          successCardRef.current?.focus();
-        }, 50);
-      } else {
-        // Error state: Honest message, preserve user inputs
-        setStatus("error");
-        setServerMessage(
-          data.error ||
-            "An error occurred while submitting your inquiry. Your information has been preserved. Please try again."
-        );
-
-        if (data.errors) {
-          const serverFieldErrors: FormErrors = {};
-          if (data.errors.name) serverFieldErrors.name = data.errors.name[0];
-          if (data.errors.phoneOrEmail) serverFieldErrors.phoneOrEmail = data.errors.phoneOrEmail[0];
-          if (data.errors.enquiryType) serverFieldErrors.enquiryType = data.errors.enquiryType[0];
-          if (data.errors.message) serverFieldErrors.message = data.errors.message[0];
-          if (data.errors.consent) serverFieldErrors.consent = data.errors.consent[0];
-          setErrors(serverFieldErrors);
-        }
-
-        setTimeout(() => {
-          errorSummaryRef.current?.focus();
-        }, 50);
+      const newTab = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      if (newTab && !newTab.closed && typeof newTab.closed !== "undefined") {
+        openedInNewTab = true;
       }
     } catch {
-      setStatus("error");
-      setServerMessage(
-        "Network connection failed. Your data has not been lost. Please verify your internet connection and try again."
-      );
-      setTimeout(() => {
-        errorSummaryRef.current?.focus();
-      }, 50);
+      openedInNewTab = false;
     }
+
+    if (!openedInNewTab) {
+      // Browser or webview popup blocker intercepted window.open:
+      // Fallback to top-level navigation so client is not stranded
+      try {
+        window.location.href = whatsappUrl;
+      } catch {
+        // Confirmation card contains immediate click-to-open button
+      }
+    }
+
+    // 6. Update confirmation state
+    setPreparedMessage(formattedMsg);
+    setPreparedWhatsAppUrl(whatsappUrl);
+    setErrors({});
+    setServerMessage("");
+    setStatus("success");
+
+    // Move accessibility focus to confirmation container
+    setTimeout(() => {
+      successCardRef.current?.focus();
+    }, 50);
+  };
+
+  const handleEdit = () => {
+    isSubmittingRef.current = false;
+    setStatus("idle");
+    setErrors({});
+    setServerMessage("");
+    setTimeout(() => {
+      nameInputRef.current?.focus();
+    }, 50);
   };
 
   const handleReset = () => {
+    isSubmittingRef.current = false;
     setName("");
     setPhoneOrEmail("");
     setEnquiryType("cheque-bounce");
@@ -189,71 +191,106 @@ export function ContactForm() {
     setErrors({});
     setStatus("idle");
     setServerMessage("");
-    setReferenceId("");
-    renderedAtRef.current = Date.now();
+    setPreparedMessage("");
+    setPreparedWhatsAppUrl("");
+    setTimeout(() => {
+      nameInputRef.current?.focus();
+    }, 50);
   };
 
-  // SUCCESS STATE (Rendered ONLY after a 2xx response)
+  // SUCCESS / WHATSAPP PRE-FILLED STATE
+  // Important behavior: Message is pre-filled, NOT automatically delivered.
+  // The client must press Send in WhatsApp.
   if (status === "success") {
     return (
       <div
         ref={successCardRef}
         tabIndex={-1}
         role="region"
-        aria-label="Inquiry submission confirmation"
-        className="border border-line bg-surface p-8 sm:p-10 rounded-[2px] text-center focus:outline-none"
+        aria-label="WhatsApp consultation enquiry confirmation"
+        className="border border-line bg-surface p-6 sm:p-10 rounded-[2px] text-center focus:outline-none"
       >
+        {/* WhatsApp Icon */}
         <div className="w-14 h-14 rounded-full bg-accent/10 border-2 border-accent text-accent flex items-center justify-center mx-auto mb-5">
-          <svg
-            className="w-7 h-7 stroke-current fill-none"
-            viewBox="0 0 24 24"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <polyline points="20 6 9 17 4 12" />
+          <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.031 2C6.516 2 2.024 6.49 2.024 12.007c0 1.942.556 3.754 1.523 5.289L2 22l4.85-1.503a9.98 9.98 0 005.181 1.442c5.515 0 10.007-4.49 10.007-10.007S17.546 2 12.031 2zm5.728 14.15c-.24.673-1.393 1.285-1.928 1.368-.49.076-1.127.108-3.232-.764-2.69-1.114-4.408-3.83-4.542-4.009-.134-.179-1.085-1.446-1.085-2.758 0-1.312.69-1.956.936-2.22.246-.265.541-.33.722-.33.18 0 .362.002.52.01.17.009.397-.064.62.473.23.553.784 1.916.853 2.056.07.14.116.304.023.488-.093.184-.139.299-.276.459-.138.161-.29.359-.414.482-.138.138-.282.288-.121.564.161.276.716 1.18 1.54 1.914 1.058.944 1.95 1.236 2.226 1.374.276.138.437.115.598-.069.161-.184.69-8.05.874-1.08.184-.276.368-.23.62-.138.253.092 1.609.759 1.885.897.276.138.46.207.529.322.069.115.069.667-.171 1.34z" />
           </svg>
         </div>
 
         <span className="text-[11px] font-mono text-accent-text uppercase tracking-widest block mb-2 font-semibold">
-          Reference &bull; {referenceId}
+          WhatsApp Consultation Desk
         </span>
 
-        <h3 className="font-display text-3xl sm:text-4xl text-foreground font-normal mb-3">
-          Consultation Inquiry Received
+        <h3 className="font-display text-2xl sm:text-3xl md:text-4xl text-foreground font-normal mb-3">
+          Enquiry Pre-Filled in WhatsApp
         </h3>
 
         <p className="text-secondary text-sm sm:text-base leading-relaxed max-w-lg mx-auto mb-6">
-          {serverMessage}
+          WhatsApp has been opened with your enquiry pre-filled. Please review your message and press{" "}
+          <strong className="text-foreground font-semibold">Send</strong> in WhatsApp to deliver your consultation request directly to Advocate Shubham Singh.
         </p>
 
-        <div className="p-5 bg-background border border-line text-xs text-secondary text-left rounded-[2px] max-w-md mx-auto mb-8 space-y-2">
-          <div className="flex items-center gap-2 text-foreground font-semibold">
+        {/* IMPORTANT BEHAVIOR REMINDER */}
+        <div className="p-4 bg-accent/10 border border-accent/40 text-xs text-foreground text-left rounded-[2px] max-w-lg mx-auto mb-6 space-y-1.5">
+          <div className="flex items-center gap-2 font-semibold text-accent-text">
             <span className="w-2 h-2 rounded-full bg-accent" aria-hidden="true" />
-            <span>Next Steps in Chamber Protocol:</span>
+            <span>Action Required: Press &quot;Send&quot; in WhatsApp</span>
           </div>
-          <p>
-            1. <strong>Conflict Clearance:</strong> Names of parties are cross-referenced against active panel retainers.
-          </p>
-          <p>
-            2. <strong>Direct Communication:</strong> You will receive a response regarding chamber availability within 24 business hours.
+          <p className="text-secondary leading-relaxed">
+            Your enquiry details have been pre-formatted for your convenience, but the message is not transmitted automatically. You must tap the Send button in WhatsApp to submit it to the chamber.
           </p>
         </div>
 
-        <button
-          type="button"
-          onClick={handleReset}
-          className="inline-flex items-center justify-center border border-line text-foreground text-xs font-semibold uppercase tracking-[0.14em] py-3.5 px-6 rounded-[2px] hover:border-foreground hover:bg-surface/80 transition-colors focus-visible:outline-2 focus-visible:outline-foreground"
-        >
-          Submit Another Inquiry
-        </button>
+        {/* FORMATTED MESSAGE PREVIEW */}
+        <div className="p-4 bg-background border border-line text-left rounded-[2px] max-w-lg mx-auto mb-6">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-secondary block mb-2 font-semibold">
+            Pre-Filled Message Summary:
+          </span>
+          <pre className="font-mono text-xs text-foreground/90 whitespace-pre-wrap leading-relaxed max-h-48 overflow-y-auto">
+            {preparedMessage}
+          </pre>
+        </div>
+
+        {/* ACTIONS */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto mb-6">
+          {preparedWhatsAppUrl && (
+            <a
+              href={preparedWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-accent text-on-accent text-xs font-semibold uppercase tracking-[0.14em] py-3.5 px-6 rounded-[2px] hover:brightness-110 transition-colors shadow-sm"
+            >
+              <span>Open WhatsApp</span>
+              <span className="text-sm font-bold">&nearr;</span>
+            </a>
+          )}
+
+          <button
+            type="button"
+            onClick={handleEdit}
+            className="w-full sm:w-auto inline-flex items-center justify-center border border-line text-foreground text-xs font-semibold uppercase tracking-[0.14em] py-3.5 px-6 rounded-[2px] hover:border-foreground hover:bg-surface/80 transition-colors"
+          >
+            Edit Enquiry
+          </button>
+
+          <button
+            type="button"
+            onClick={handleReset}
+            className="w-full sm:w-auto inline-flex items-center justify-center border border-line/60 text-secondary text-xs uppercase tracking-[0.14em] py-3.5 px-6 rounded-[2px] hover:text-foreground hover:border-line transition-colors"
+          >
+            New Form
+          </button>
+        </div>
+
+        {/* STATUTORY DISCLAIMER */}
+        <p className="text-[11px] text-secondary max-w-lg mx-auto leading-relaxed border-t border-line/60 pt-4">
+          Submitting an enquiry via WhatsApp does not create an advocate-client relationship. Formal representation commences upon mutual execution of a Vakalatnama following preliminary conflict clearance.
+        </p>
       </div>
     );
   }
 
-  // IDLE / SUBMITTING / ERROR STATES
-  const isSubmitting = status === "submitting";
+  // IDLE / ERROR STATES
   const errorCount = Object.keys(errors).length;
 
   return (
@@ -574,23 +611,10 @@ export function ContactForm() {
         <div>
           <button
             type="submit"
-            disabled={isSubmitting}
-            className="w-full h-12 min-h-[48px] inline-flex items-center justify-between px-5 bg-accent text-on-accent text-xs font-semibold uppercase tracking-[0.18em] rounded-[2px] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-foreground transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+            className="w-full h-12 min-h-[48px] inline-flex items-center justify-between px-5 bg-accent text-on-accent text-xs font-semibold uppercase tracking-[0.18em] rounded-[2px] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-foreground transition-all shadow-sm"
           >
-            {isSubmitting ? (
-              <span className="inline-flex items-center gap-2">
-                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                </svg>
-                Transmitting Consultation Inquiry...
-              </span>
-            ) : (
-              <>
-                <span>SEND ENQUIRY</span>
-                <span className="text-base font-bold">&rarr;</span>
-              </>
-            )}
+            <span>SEND ENQUIRY</span>
+            <span className="text-base font-bold">&rarr;</span>
           </button>
         </div>
       </form>

@@ -143,3 +143,100 @@ export const contactSchema = z
   });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
+
+/**
+ * Extracts phone and/or email from a user-supplied contact string.
+ */
+export function extractContactDetails(contactStr: string): {
+  phone?: string;
+  email?: string;
+  raw: string;
+} {
+  const trimmed = contactStr.trim();
+  const emailMatch = trimmed.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+
+  if (emailMatch) {
+    const email = emailMatch[0];
+    const remainder = trimmed
+      .replace(email, "")
+      .replace(/^[,/\s|&;-]+|[,/\s|&;-]+$/g, "")
+      .trim();
+    const digits = remainder.replace(/\D/g, "");
+    if (digits.length >= 7 && digits.length <= 15) {
+      return { phone: remainder, email, raw: trimmed };
+    }
+    return { email, raw: trimmed };
+  }
+
+  const check = validatePhoneOrEmail(trimmed);
+  if (check.type === "phone") {
+    return { phone: trimmed, raw: trimmed };
+  }
+  if (check.type === "email") {
+    return { email: trimmed, raw: trimmed };
+  }
+  return { raw: trimmed };
+}
+
+export interface FormatWhatsAppMessageParams {
+  name: string;
+  phoneOrEmail: string;
+  enquiryType: EnquiryType;
+  message: string;
+}
+
+/**
+ * Formats entered consultation inquiry details into a clean, professional WhatsApp message
+ * conforming to the chamber intake protocol.
+ */
+export function formatWhatsAppMessage({
+  name,
+  phoneOrEmail,
+  enquiryType,
+  message,
+}: FormatWhatsAppMessageParams): string {
+  const trimmedName = name.trim();
+  const contactInfo = extractContactDetails(phoneOrEmail);
+  const matterLabel = ENQUIRY_TYPE_LABELS[enquiryType] || enquiryType;
+  const trimmedMessage = message.trim();
+
+  const lines: string[] = [
+    "Hello Advocate Shubham Singh,",
+    "",
+    "I would like to enquire about a consultation.",
+    "",
+    `Name: ${trimmedName}`,
+  ];
+
+  if (contactInfo.phone) {
+    lines.push(`Phone: ${contactInfo.phone}`);
+  }
+  if (contactInfo.email) {
+    lines.push(`Email: ${contactInfo.email}`);
+  }
+  if (!contactInfo.phone && !contactInfo.email) {
+    lines.push(`Phone / Email: ${contactInfo.raw}`);
+  }
+
+  lines.push(`Matter: ${matterLabel}`);
+  lines.push("");
+  lines.push("Enquiry:");
+  lines.push(trimmedMessage);
+  lines.push("");
+  lines.push("Please let me know the next steps. Thank you.");
+
+  return lines.join("\n");
+}
+
+/**
+ * Encodes the formatted message into the official WhatsApp click-to-chat URL:
+ * https://wa.me/NUMBER?text=ENCODED_MESSAGE
+ */
+export function buildWhatsAppUrl(
+  message: string,
+  phoneNumber: string = "919990590014"
+): string {
+  const cleanNumber = phoneNumber.replace(/[^0-9]/g, "");
+  return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
+}
+
