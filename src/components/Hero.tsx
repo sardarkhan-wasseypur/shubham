@@ -41,7 +41,7 @@ export function Hero() {
     <section className="relative w-full min-h-[92vh] lg:h-screen lg:min-h-[640px] lg:max-h-screen flex flex-col justify-between pt-16 sm:pt-20 md:pt-24 lg:pt-20 border-b border-line overflow-hidden bg-background">
       {/* 1. MOBILE HERO PHOTO: top background fade matching Stitch mobile screenshot */}
       {isPhotoVerified && (
-        <div className="md:hidden absolute inset-x-0 top-0 h-[60%] sm:h-[64%] z-0 overflow-hidden pointer-events-none">
+        <div className="md:hidden absolute inset-x-0 top-0 h-[48vh] min-h-[360px] max-h-[480px] z-0 overflow-hidden pointer-events-none">
           <div className="relative w-full h-full animate-hero-photo">
             <Image
               src={photoSrc}
@@ -50,7 +50,7 @@ export function Hero() {
               priority
               quality={90}
               sizes="(max-width: 767px) 100vw, 1px"
-              className="object-cover object-[center_18%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
+              className="object-cover object-[center_12%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
             />
           </div>
           {/* Scrim gradient blending into theme background */}
@@ -64,7 +64,7 @@ export function Hero() {
       {/* 1. DESKTOP HERO PHOTO: right bleed matching Stitch desktop reference & pradeeprai.com */}
       <div
         data-portrait-container="true"
-        className="hidden md:block absolute top-0 right-0 w-full md:w-[50%] lg:w-[48%] xl:w-[46%] min-[2560px]:w-[38%] h-full pointer-events-none z-0 overflow-hidden"
+        className="hidden md:block absolute top-0 right-0 w-full md:w-[56%] lg:w-[48%] xl:w-[46%] min-[2560px]:w-[38%] h-full pointer-events-none z-0 overflow-hidden"
       >
         {isPhotoVerified ? (
           <>
@@ -75,8 +75,8 @@ export function Hero() {
                 fill
                 priority
                 quality={90}
-                sizes="(max-width: 767px) 1px, (max-width: 1024px) 60vw, (max-width: 2559px) 46vw, 38vw"
-                className="object-cover object-[center_20%] min-[2560px]:object-[center_18%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
+                sizes="(max-width: 767px) 1px, (max-width: 1024px) 56vw, (max-width: 2559px) 46vw, 38vw"
+                className="object-cover object-[center_10%] lg:object-[center_16%] min-[2560px]:object-[center_18%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
               />
             </div>
             {/* Scrim blending smoothly into background without cutting the face */}
@@ -89,7 +89,7 @@ export function Hero() {
               aria-hidden="true"
             />
             <div
-              className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-background/70 to-transparent"
+              className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background/60 to-transparent"
               aria-hidden="true"
             />
           </>
@@ -102,7 +102,7 @@ export function Hero() {
       </div>
 
       {/* Mobile spacer to reveal advocate portrait */}
-      <div className="md:hidden h-[24vh] xs:h-[26vh] sm:h-[28vh] pointer-events-none" />
+      <div className="md:hidden h-[18vh] xs:h-[22vh] sm:h-[26vh] pointer-events-none" />
 
       {/* 2. HERO CONTENT CONTAINER (Matches wide 1680px layout, scales to 2240px at 2560px) */}
       <div className="relative z-10 w-full max-w-[1680px] min-[2560px]:max-w-[2240px] mx-auto px-[clamp(16px,4vw,64px)] min-[2560px]:px-16 flex-1 flex flex-col justify-end md:justify-center py-4 md:py-2 lg:py-4">
@@ -151,7 +151,7 @@ export function Hero() {
           </span>
 
           {/* Mobile Layout (< 768px): 2-line Bebas Name + inline red ADV badge (matching previous Stitch mobile screenshot) */}
-          <span className="flex md:hidden flex-col font-hero text-[clamp(3.1rem,16.5vw,5rem)] leading-[0.88] tracking-tight text-foreground uppercase m-0">
+          <span className="flex md:hidden flex-col font-hero text-[clamp(2.6rem,14vw,4.5rem)] leading-[0.88] tracking-tight text-foreground uppercase m-0">
             <span className="block">SHUBHAM</span>
             <span className="flex items-center gap-2.5 sm:gap-3">
               <span>SINGH</span>
@@ -169,7 +169,7 @@ export function Hero() {
             <p className="font-sans text-[10px] sm:text-[12px] min-[2560px]:text-[13px] font-semibold tracking-[0.16em] text-secondary uppercase mb-1 sm:mb-2 min-[2560px]:mb-3">
               PANEL COUNSEL &bull; UNION OF INDIA &bull; STATE OF UTTAR PRADESH &bull; DMRC
             </p>
-            <p className="font-display italic text-base sm:text-xl lg:text-2xl min-[2560px]:text-3xl text-secondary leading-snug mb-3 sm:mb-4 min-[2560px]:mb-6 max-w-xl min-[2560px]:max-w-2xl">
+            <p className="font-display italic text-sm sm:text-xl lg:text-2xl min-[2560px]:text-3xl text-secondary leading-snug mb-3 sm:mb-4 min-[2560px]:mb-6 max-w-xl min-[2560px]:max-w-2xl">
               Criminal, civil, matrimonial, family, trademark, cheque bounce and NCMEI-related matters.
             </p>
 

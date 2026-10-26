@@ -66,15 +66,15 @@ export default function HomePage() {
 
                 {/* Mobile Advocate Portrait with Left Red Accent Bar matching Stitch Section 01 */}
                 {isPhotoVerified && (
-                  <div className="relative w-full aspect-[4/3] mb-6 overflow-hidden border-l-2 border-accent bg-surface md:hidden shadow-sm">
+                  <div className="relative w-full max-w-[360px] mx-auto aspect-[3/4] sm:aspect-[4/5] mb-6 overflow-hidden border-l-2 border-accent bg-surface md:hidden shadow-sm rounded-[1px]">
                     <Image
                       src={profile.photo.value!}
                       alt="Advocate Shubham Singh in court robes"
                       fill
                       loading="lazy"
                       quality={90}
-                      sizes="(max-width: 767px) 100vw, 1px"
-                      className="object-cover object-[center_20%] contrast-[1.05]"
+                      sizes="(max-width: 767px) 360px, 1px"
+                      className="object-cover object-[center_12%] contrast-[1.05]"
                     />
                   </div>
                 )}

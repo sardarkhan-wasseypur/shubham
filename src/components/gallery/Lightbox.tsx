@@ -187,7 +187,9 @@ export function Lightbox({
           aria-label="Close lightbox"
           className="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-[2px] bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors focus-visible:outline-2 focus-visible:outline-tertiary"
         >
-          <span className="material-symbols-outlined text-[24px]">close</span>
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
       </div>
 
@@ -201,7 +203,9 @@ export function Lightbox({
             aria-label="Previous photo"
             className="absolute left-2 sm:left-4 z-10 min-w-[44px] min-h-[44px] w-12 h-12 flex items-center justify-center rounded-[2px] bg-surface-container-low/80 hover:bg-surface-container-high text-on-surface backdrop-blur-sm border border-outline-variant/30 transition-colors focus-visible:outline-2 focus-visible:outline-tertiary"
           >
-            <span className="material-symbols-outlined text-[28px]">chevron_left</span>
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
         )}
 
@@ -235,7 +239,9 @@ export function Lightbox({
             aria-label="Next photo"
             className="absolute right-2 sm:right-4 z-10 min-w-[44px] min-h-[44px] w-12 h-12 flex items-center justify-center rounded-[2px] bg-surface-container-low/80 hover:bg-surface-container-high text-on-surface backdrop-blur-sm border border-outline-variant/30 transition-colors focus-visible:outline-2 focus-visible:outline-tertiary"
           >
-            <span className="material-symbols-outlined text-[28px]">chevron_right</span>
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
           </button>
         )}
       </div>
