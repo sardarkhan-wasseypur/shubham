@@ -49,7 +49,7 @@ export function Hero() {
               fill
               priority
               quality={90}
-              sizes="100vw"
+              sizes="(max-width: 767px) 100vw, 1px"
               className="object-cover object-[center_18%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
             />
           </div>
@@ -75,7 +75,7 @@ export function Hero() {
                 fill
                 priority
                 quality={90}
-                sizes="(max-width: 1024px) 60vw, (max-width: 2559px) 46vw, 38vw"
+                sizes="(max-width: 767px) 1px, (max-width: 1024px) 60vw, (max-width: 2559px) 46vw, 38vw"
                 className="object-cover object-[center_20%] min-[2560px]:object-[center_18%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
               />
             </div>

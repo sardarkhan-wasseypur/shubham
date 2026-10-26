@@ -73,7 +73,7 @@ export default function HomePage() {
                       fill
                       loading="lazy"
                       quality={90}
-                      sizes="100vw"
+                      sizes="(max-width: 767px) 100vw, 1px"
                       className="object-cover object-[center_20%] contrast-[1.05]"
                     />
                   </div>

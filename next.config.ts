@@ -62,7 +62,7 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   trailingSlash: false,
   images: {
-    formats: ["image/avif", "image/webp"],
+    formats: ["image/webp"],
     qualities: [75, 90],
   },
   async headers() {
