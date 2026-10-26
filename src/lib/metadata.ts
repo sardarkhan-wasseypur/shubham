@@ -78,7 +78,7 @@ export function constructMetadata({
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: "Advocate Shubham Singh | Legal Counsel, Delhi",
+          alt: "Advocate Shubham Singh | Legal Counsel",
         },
       ],
     },

@@ -11,9 +11,12 @@ import {
   PageHero,
   Reveal,
   MaskHeading,
+  JsonLd,
 } from "@/components";
 import { practiceAreas } from "@/content/practiceAreas";
 import { constructMetadata } from "@/lib/metadata";
+import { getBreadcrumbSchema } from "@/lib/jsonLd";
+import { siteUrl } from "@/content/seo";
 
 export const metadata: Metadata = constructMetadata({
   title: "Legal Practice Areas in Delhi | Advocate Shubham Singh",
@@ -23,8 +26,14 @@ export const metadata: Metadata = constructMetadata({
 });
 
 export default function PracticeAreasPage() {
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Practice Areas", url: `${siteUrl}/practice-areas` },
+  ]);
+
   return (
     <>
+      <JsonLd data={breadcrumbs} />
       <Header />
       <main id="main-content" className="min-h-screen bg-background text-foreground pt-28 sm:pt-32">
         {/* HEADER / INTRO */}

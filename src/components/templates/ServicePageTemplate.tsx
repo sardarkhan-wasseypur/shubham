@@ -16,7 +16,8 @@ import {
 } from "@/components";
 import { PracticeArea } from "@/content/types";
 import { practiceAreas } from "@/content/practiceAreas";
-import { getFaqPageSchema } from "@/lib/jsonLd";
+import { getFaqPageSchema, getBreadcrumbSchema } from "@/lib/jsonLd";
+import { siteUrl } from "@/content/seo";
 
 interface ServicePageTemplateProps {
   area: PracticeArea;
@@ -45,8 +46,16 @@ export function ServicePageTemplate({ area }: ServicePageTemplateProps) {
   // Schema for visible FAQs on this service page
   const faqSchema = rawFaqs.length > 0 ? getFaqPageSchema(rawFaqs) : null;
 
+  // Breadcrumb schema for practice area hierarchy
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Practice Areas", url: `${siteUrl}/practice-areas` },
+    { name: title, url: `${siteUrl}/${area.slug}` },
+  ]);
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
       {faqSchema && <JsonLd data={faqSchema} />}
       <Header />
       <main id="main-content" className="min-h-screen bg-background text-foreground pt-28 sm:pt-32">

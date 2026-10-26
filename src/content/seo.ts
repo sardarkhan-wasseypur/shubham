@@ -4,12 +4,12 @@ import { SEODefaults } from "./types";
 export const siteUrl: string =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.shubhamsinghadvocate.com";
 
-export const siteName: string = "Shubham Singh Advocate";
+export const siteName: string = "Advocate Shubham Singh";
 
 export const seoDefaults: SEODefaults = {
   siteName,
   siteUrl,
-  title: "Advocate Shubham Singh | Legal Counsel, Delhi",
+  title: "Advocate Shubham Singh | Legal Counsel",
   description:
     "Informational resource for Advocate Shubham Singh, legal practitioner appearing before the Supreme Court of India, Delhi High Court, and District Courts in Delhi NCR.",
   locale: "en_IN",
@@ -33,7 +33,7 @@ export const defaultMetadata: Metadata = {
   },
   title: {
     default: seoDefaults.title,
-    template: `%s | ${siteName}`,
+    template: `%s | Advocate Shubham Singh`,
   },
   description: seoDefaults.description,
   robots: {

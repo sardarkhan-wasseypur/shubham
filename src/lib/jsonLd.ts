@@ -68,9 +68,9 @@ export function getWebSiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Shubham Singh Advocate",
+    name: siteName,
     alternateName: "ShubhamSinghAdvocate",
-    url: `${siteUrl}/`,
+    url: siteUrl,
     description:
       "Informational resource for Advocate Shubham Singh, legal practitioner in Delhi, India.",
     inLanguage: "en-IN",
@@ -179,5 +179,28 @@ export function getLegalServiceSchema() {
       addressRegion: "Delhi",
       addressCountry: "IN",
     },
+  };
+}
+
+/**
+ * ProfilePage Schema
+ * For the About page, marking it as a profile page about the advocate.
+ */
+export function getProfilePageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    mainEntity: {
+      "@type": "Person",
+      name: profile.name.value,
+      jobTitle: profile.designation.value,
+      url: siteUrl,
+      ...(profile.photo.verified && profile.photo.value
+        ? { image: `${siteUrl}${profile.photo.value}` }
+        : {}),
+    },
+    url: `${siteUrl}/about`,
+    name: `About ${profile.name.value}`,
+    description: `Professional profile of Advocate ${profile.name.value}, legal counsel in Delhi, India.`,
   };
 }

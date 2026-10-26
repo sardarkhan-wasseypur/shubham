@@ -10,11 +10,14 @@ import {
   PageHero,
   Reveal,
   MaskHeading,
+  JsonLd,
 } from "@/components";
 import { currentAppointments, formerAppointments } from "@/content/appointments";
 import { courts } from "@/content/courts";
 import { profile } from "@/content/profile";
 import { constructMetadata } from "@/lib/metadata";
+import { getBreadcrumbSchema } from "@/lib/jsonLd";
+import { siteUrl } from "@/content/seo";
 
 export const metadata: Metadata = constructMetadata({
   title: "Professional Standing & Empanelments | Shubham Singh",
@@ -24,8 +27,14 @@ export const metadata: Metadata = constructMetadata({
 });
 
 export default function ProfessionalExperiencePage() {
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Professional Experience", url: `${siteUrl}/professional-experience` },
+  ]);
+
   return (
     <>
+      <JsonLd data={breadcrumbs} />
       <Header />
       <main id="main-content" className="min-h-screen bg-background text-foreground pt-28 sm:pt-32">
         {/* HEADER / INTRO */}

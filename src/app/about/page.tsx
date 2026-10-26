@@ -17,6 +17,9 @@ import { profile } from "@/content/profile";
 import { courts } from "@/content/courts";
 import { principles } from "@/content/principles";
 import { constructMetadata } from "@/lib/metadata";
+import { getProfilePageSchema, getBreadcrumbSchema } from "@/lib/jsonLd";
+import { siteUrl } from "@/content/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = constructMetadata({
   title: "About Advocate Shubham Singh | Legal Counsel, Delhi",
@@ -26,8 +29,15 @@ export const metadata: Metadata = constructMetadata({
 });
 
 export default function AboutPage() {
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About", url: `${siteUrl}/about` },
+  ]);
+
   return (
     <>
+      <JsonLd data={breadcrumbs} />
+      <JsonLd data={getProfilePageSchema()} />
       <Header />
       <main id="main-content" className="min-h-screen bg-background text-foreground pt-28 sm:pt-32">
         {/* HERO / CHAMBER PROFILE */}

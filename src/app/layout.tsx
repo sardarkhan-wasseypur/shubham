@@ -66,6 +66,7 @@ export default function RootLayout({
       className={`no-js ${bebasNeue.variable} ${cormorant.variable} ${inter.variable}`}
     >
       <head>
+        <link rel="manifest" href="/manifest.json" />
         <script dangerouslySetInnerHTML={{ __html: initScript }} />
         <JsonLd data={getPersonSchema()} />
         <JsonLd data={getWebSiteSchema()} />

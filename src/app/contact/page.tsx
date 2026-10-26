@@ -12,8 +12,11 @@ import {
   MaskHeading,
   DrawLine,
   ChamberAddressCard,
+  JsonLd,
 } from "@/components";
 import { constructMetadata } from "@/lib/metadata";
+import { getBreadcrumbSchema } from "@/lib/jsonLd";
+import { siteUrl } from "@/content/seo";
 
 export const metadata: Metadata = constructMetadata({
   title: "Chamber Contact & Consultation | Advocate Shubham Singh",
@@ -23,8 +26,14 @@ export const metadata: Metadata = constructMetadata({
 });
 
 export default function ContactPage() {
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Contact", url: `${siteUrl}/contact` },
+  ]);
+
   return (
     <>
+      <JsonLd data={breadcrumbs} />
       <Header />
       <main id="main-content" className="min-h-screen bg-background text-foreground pt-28 sm:pt-32">
         {/* HEADER / INTRO */}

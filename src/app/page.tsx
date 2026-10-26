@@ -30,7 +30,7 @@ import { constructMetadata } from "@/lib/metadata";
 import { getFaqPageSchema } from "@/lib/jsonLd";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Advocate Shubham Singh | Legal Counsel in Delhi",
+  title: "Advocate Shubham Singh | Legal Counsel",
   description:
     "Informational resource for Advocate Shubham Singh, legal counsel practicing before Supreme Court of India, Delhi High Court & District Courts.",
   pathname: "/",

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Advocate Shubham Singh | Legal Counsel, Delhi";
+export const alt = "Advocate Shubham Singh | Legal Counsel";
 export const size = {
   width: 1200,
   height: 630,
