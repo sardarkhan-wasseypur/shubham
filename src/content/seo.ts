@@ -4,7 +4,7 @@ import { SEODefaults } from "./types";
 export const siteUrl: string =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.shubhamsinghadvocate.com";
 
-export const siteName: string = "Advocate Shubham Singh";
+export const siteName: string = "Shubham Singh Advocate";
 
 export const seoDefaults: SEODefaults = {
   siteName,
