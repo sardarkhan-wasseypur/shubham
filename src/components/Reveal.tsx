@@ -50,6 +50,7 @@ export function Reveal({
       data-reveal="fade-up"
       className={`reveal-fade-up ${className}`}
       style={dynamicStyles}
+      suppressHydrationWarning
     >
       {children}
     </Component>

@@ -50,7 +50,7 @@ export function Footer() {
               <ul className="space-y-1.5 text-secondary">
                 {practiceNavLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="hover:text-foreground transition-colors">
+                    <Link href={link.href} className="inline-block py-1.5 hover:text-foreground transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -63,27 +63,27 @@ export function Footer() {
               </span>
               <ul className="space-y-1.5 text-secondary">
                 <li>
-                  <Link href="/about" className="hover:text-foreground transition-colors">
+                  <Link href="/about" className="inline-block py-1.5 hover:text-foreground transition-colors">
                     Chamber Profile
                   </Link>
                 </li>
                 <li>
-                  <Link href="/professional-experience" className="hover:text-foreground transition-colors">
+                  <Link href="/professional-experience" className="inline-block py-1.5 hover:text-foreground transition-colors">
                     Institutional Panels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-foreground transition-colors">
+                  <Link href="/contact" className="inline-block py-1.5 hover:text-foreground transition-colors">
                     Chamber Consultation
                   </Link>
                 </li>
                 <li>
-                  <Link href="/disclaimer" className="hover:text-foreground transition-colors">
+                  <Link href="/disclaimer" className="inline-block py-1.5 hover:text-foreground transition-colors">
                     Disclaimer (Rule 36)
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacy-policy" className="hover:text-foreground transition-colors">
+                  <Link href="/privacy-policy" className="inline-block py-1.5 hover:text-foreground transition-colors">
                     Privacy Policy
                   </Link>
                 </li>

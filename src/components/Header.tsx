@@ -120,7 +120,7 @@ export function Header() {
       </a>
 
       <header
-        className={`fixed top-0 left-0 right-0 z-50 animate-header-down transition-colors duration-250 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-250 ${
           isScrolled
             ? "bg-surface/95 backdrop-blur-md border-b border-line shadow-sm"
             : "bg-transparent border-b border-transparent"

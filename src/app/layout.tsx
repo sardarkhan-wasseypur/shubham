@@ -41,8 +41,6 @@ export const metadata: Metadata = defaultMetadata;
 const initScript = `
 (function() {
   try {
-    document.documentElement.classList.remove('no-js');
-    document.documentElement.classList.add('js');
     try { localStorage.removeItem('theme'); } catch (e) {}
     var stored = localStorage.getItem('theme-v2');
     var theme = stored === 'light' ? 'light' : 'dark';
@@ -63,7 +61,7 @@ export default function RootLayout({
       lang="en"
       data-theme="dark"
       suppressHydrationWarning
-      className={`no-js ${bebasNeue.variable} ${cormorant.variable} ${inter.variable}`}
+      className={`${bebasNeue.variable} ${cormorant.variable} ${inter.variable}`}
     >
       <head>
         <link rel="manifest" href="/manifest.json" />

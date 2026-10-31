@@ -42,13 +42,13 @@ export function Hero() {
       {/* 1. MOBILE HERO PHOTO: top background fade matching Stitch mobile screenshot */}
       {isPhotoVerified && (
         <div className="md:hidden absolute inset-x-0 top-0 h-[48vh] min-h-[360px] max-h-[480px] z-0 overflow-hidden pointer-events-none">
-          <div className="relative w-full h-full animate-hero-photo">
+          <div className="relative w-full h-full ">
             <Image
               src={photoSrc}
               alt="Portrait of Advocate Shubham Singh in advocate's robes"
               fill
               priority
-              quality={90}
+              quality={80}
               sizes="(max-width: 767px) 100vw, 1px"
               className="object-cover object-[center_12%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
             />
@@ -68,13 +68,13 @@ export function Hero() {
       >
         {isPhotoVerified ? (
           <>
-            <div className="relative w-full h-full animate-hero-photo">
+            <div className="relative w-full h-full ">
               <Image
                 src={photoSrc}
                 alt="Portrait of Advocate Shubham Singh in advocate's robes"
                 fill
                 priority
-                quality={90}
+                quality={80}
                 sizes="(max-width: 767px) 1px, (max-width: 1024px) 56vw, (max-width: 2559px) 46vw, 38vw"
                 className="object-cover object-[center_10%] lg:object-[center_16%] min-[2560px]:object-[center_18%] filter contrast-[1.08] brightness-[0.88] dark:brightness-[0.78]"
               />
@@ -109,10 +109,10 @@ export function Hero() {
         {/* Eyebrow: red rule grows from width 0 (500ms), text fades in */}
         <div className="flex items-center gap-2.5 sm:gap-4 mb-2.5 sm:mb-4 min-[2560px]:mb-6">
           <span
-            className="w-5 sm:w-8 min-[2560px]:w-12 h-[1.5px] sm:h-[2px] bg-accent origin-left animate-eyebrow-rule shrink-0"
+            className="w-5 sm:w-8 min-[2560px]:w-12 h-[1.5px] sm:h-[2px] bg-accent origin-left  shrink-0"
             aria-hidden="true"
           />
-          <p className="font-sans text-[11px] sm:text-sm min-[2560px]:text-base font-semibold uppercase tracking-[0.2em] text-accent-text animate-eyebrow-text">
+          <p className="font-sans text-[11px] sm:text-sm min-[2560px]:text-base font-semibold uppercase tracking-[0.2em] text-accent-text ">
             ADVOCATE &bull; DELHI, INDIA
             <span className="hidden sm:inline"> &bull; SUPREME COURT &amp; HIGH COURT</span>
           </p>
@@ -123,24 +123,24 @@ export function Hero() {
           {/* Desktop Layout (>= 768px): SHUBHAM on line 1, SINGH + Red ADV Block on line 2 (matching pradeeprai.com & Stitch) */}
           <span className="hidden md:flex flex-col leading-[0.82] tracking-tight">
             <span className="overflow-hidden block">
-              <span className="block font-hero text-[clamp(4.5rem,min(11vw,14vh),8.5rem)] min-[2560px]:text-[11.5rem] text-foreground transform-gpu animate-hero-name-1 uppercase">
+              <span className="block font-hero text-[clamp(4.5rem,min(11vw,14vh),8.5rem)] min-[2560px]:text-[11.5rem] text-foreground transform-gpu  uppercase">
                 SHUBHAM
               </span>
             </span>
 
             <span className="overflow-hidden block">
-              <span className="flex items-center gap-3 sm:gap-4 md:gap-5 min-[2560px]:gap-6 transform-gpu animate-hero-name-2">
+              <span className="flex items-center gap-3 sm:gap-4 md:gap-5 min-[2560px]:gap-6 transform-gpu ">
                 <span className="font-hero text-[clamp(4.5rem,min(11vw,14vh),8.5rem)] min-[2560px]:text-[11.5rem] text-foreground uppercase">
                   SINGH
                 </span>
 
                 {/* Red vertical block with rotated "ADV." right beside SINGH */}
                 <span
-                  className="w-10 sm:w-12 lg:w-14 min-[2560px]:w-18 h-[clamp(2.75rem,min(8vw,11vh),6.8rem)] min-[2560px]:h-[9.2rem] bg-accent rounded-[1px] flex items-center justify-center relative shadow-sm animate-hero-adv-block shrink-0"
+                  className="w-10 sm:w-12 lg:w-14 min-[2560px]:w-18 h-[clamp(2.75rem,min(8vw,11vh),6.8rem)] min-[2560px]:h-[9.2rem] bg-accent rounded-[1px] flex items-center justify-center relative shadow-sm  shrink-0"
                   aria-hidden="true"
                 >
                   <span
-                    className="font-hero text-xs sm:text-sm lg:text-base min-[2560px]:text-xl text-on-accent tracking-[0.25em] uppercase select-none animate-hero-adv-text"
+                    className="font-hero text-xs sm:text-sm lg:text-base min-[2560px]:text-xl text-on-accent tracking-[0.25em] uppercase select-none "
                     style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                   >
                     ADV.
@@ -165,7 +165,7 @@ export function Hero() {
         {/* Lower Content Grid: Left Narrative + Right Stat Blocks (matching Stitch & pradeeprai.com) */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 min-[2560px]:gap-8 items-end">
           {/* Bottom-Left Narrative & Panel Counsel Notice */}
-          <div className="md:col-span-7 lg:col-span-6 min-[2560px]:col-span-5 flex flex-col justify-end animate-hero-tagline">
+          <div className="md:col-span-7 lg:col-span-6 min-[2560px]:col-span-5 flex flex-col justify-end ">
             <p className="font-sans text-[10px] sm:text-[12px] min-[2560px]:text-[13px] font-semibold tracking-[0.16em] text-secondary uppercase mb-1 sm:mb-2 min-[2560px]:mb-3">
               PANEL COUNSEL &bull; UNION OF INDIA &bull; STATE OF UTTAR PRADESH &bull; DMRC
             </p>
@@ -174,7 +174,7 @@ export function Hero() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3.5 sm:gap-4 min-[2560px]:gap-5 mb-4 md:mb-0 animate-hero-cta">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3.5 sm:gap-4 min-[2560px]:gap-5 mb-4 md:mb-0 ">
               {/* Mobile: Full-width button with arrow */}
               <Button
                 variant="solid-red"
@@ -212,7 +212,7 @@ export function Hero() {
           </div>
 
           {/* Bottom-Right: 3 Stat Blocks (matching pradeeprai.com & Stitch desktop screenshot) */}
-          <div className="hidden md:flex md:col-span-4 lg:col-span-5 min-[2560px]:col-span-5 items-end gap-6 lg:gap-8 min-[2560px]:gap-10 pb-1 animate-hero-stats">
+          <div className="hidden md:flex md:col-span-4 lg:col-span-5 min-[2560px]:col-span-5 items-end gap-6 lg:gap-8 min-[2560px]:gap-10 pb-1 ">
             <div className="flex flex-col border-l border-line pl-4 lg:pl-5 min-[2560px]:pl-6">
               <span className="font-hero text-4xl lg:text-5xl min-[2560px]:text-6xl leading-none text-foreground">
                 {courtCount}
@@ -255,7 +255,7 @@ export function Hero() {
       </div>
 
       {/* 3. CONTINUOUS ANIMATED TICKER STRIP */}
-      <div className="relative z-20 w-full border-t border-line bg-surface overflow-hidden py-2.5 sm:py-3 animate-hero-ticker">
+      <div className="relative z-20 w-full border-t border-line bg-surface overflow-hidden py-2.5 sm:py-3 ">
         <Ticker items={tickerItems} speedSeconds={34} />
       </div>
 

@@ -26,6 +26,7 @@ export function MaskedHeading({
     <Component
       ref={ref as React.Ref<any>} // eslint-disable-line @typescript-eslint/no-explicit-any
       className={`mask-line-container ${isRevealed ? "is-revealed" : ""} ${className}`}
+      suppressHydrationWarning
     >
       <span className="mask-line-inner transform-gpu">{children}</span>
     </Component>

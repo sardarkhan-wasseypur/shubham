@@ -460,7 +460,7 @@ export function ContactForm() {
             name="phoneOrEmail"
             type="text"
             required
-            autoComplete="email tel"
+            autoComplete="on"
             value={phoneOrEmail}
             onChange={(e) => {
               setPhoneOrEmail(e.target.value);

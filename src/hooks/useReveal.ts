@@ -9,12 +9,12 @@ interface UseRevealOptions {
 
 /**
  * Custom hook for one-shot viewport entry observation.
- * Uses IntersectionObserver with threshold 0.15, unobserves immediately upon trigger.
+ * Automatically reveals elements already within the viewport on mount.
  */
 export function useReveal<T extends HTMLElement = HTMLDivElement>(
   options: UseRevealOptions = {}
 ) {
-  const { threshold = 0.15, rootMargin = "0px" } = options;
+  const { threshold = 0, rootMargin = "80px" } = options;
   const ref = useRef<T | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
 
@@ -22,8 +22,15 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(
     const node = ref.current;
     if (!node) return;
 
+    // Immediately reveal if already within or near the viewport
+    const vh = window.innerHeight || 800;
+    if (node.getBoundingClientRect().top < vh + 100) {
+      setIsRevealed(true);
+      return;
+    }
+
     if (!("IntersectionObserver" in window)) {
-      requestAnimationFrame(() => setIsRevealed(true));
+      setIsRevealed(true);
       return;
     }
 

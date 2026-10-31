@@ -67,9 +67,9 @@ export function AppointmentList({
                 <span className="text-[10px] font-mono tracking-widest uppercase text-accent-text block">
                   {tag}
                 </span>
-                <h4 className="font-display text-xl sm:text-2xl text-foreground font-medium mt-0.5 group-hover:text-accent-text transition-colors">
+                <h3 className="font-display text-xl sm:text-2xl text-foreground font-medium mt-0.5 group-hover:text-accent-text transition-colors">
                   {item.role.value} &mdash; {item.organization.value}
-                </h4>
+                </h3>
                 <p className="text-xs text-secondary mt-1 leading-relaxed">
                   {item.id === "panel-counsel-uoi" &&
                     "Appearing on behalf of the Central Government before judicial forums in Delhi."}

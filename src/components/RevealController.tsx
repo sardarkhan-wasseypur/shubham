@@ -6,59 +6,73 @@ import { usePathname } from "next/navigation";
 /**
  * RevealController: Central scroll & route animation orchestrator.
  * Placed in RootLayout. On mount and every route change (via usePathname):
- * 1. Re-queries all [data-reveal] elements in the DOM.
- * 2. Observes them with ONE IntersectionObserver (threshold 0.15).
- * 3. Immediately fires for all elements currently in viewport, animating them.
- * 4. Unobserves each element immediately after firing.
- * 5. Cleans up and disconnects on unmount or route change.
- * 6. Respects prefers-reduced-motion: reduce.
+ * 1. Defers execution until after React hydration completes to prevent hydration mismatches.
+ * 2. Marks any elements currently within or near the viewport as .is-revealed so they never flash.
+ * 3. Adds the .js class to documentElement for progressive enhancement of below-the-fold reveals.
+ * 4. Observes remaining offscreen [data-reveal] elements with IntersectionObserver (rootMargin 80px).
+ * 5. Respects prefers-reduced-motion: reduce.
  */
 export function RevealController() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // If reduced motion is requested or IntersectionObserver is unsupported, reveal all immediately
-    const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let observer: IntersectionObserver | null = null;
 
-    if (prefersReducedMotion || typeof IntersectionObserver === "undefined") {
-      document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
-        el.classList.add("is-revealed");
-      });
-      return;
-    }
+    // Run after React hydration finishes across the route
+    const timer = setTimeout(() => {
+      const prefersReducedMotion =
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target as HTMLElement;
-            target.classList.add("is-revealed");
-            observer.unobserve(target);
-          }
+      if (prefersReducedMotion || typeof IntersectionObserver === "undefined") {
+        document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
+          el.classList.add("is-revealed");
         });
-      },
-      {
-        threshold: 0.15,
+        return;
       }
-    );
 
-    const observeTargets = () => {
+      // 1. Immediately mark all elements currently within or near viewport as revealed
+      const vh = window.innerHeight || 800;
+      document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-revealed)").forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < vh + 100) {
+          el.classList.add("is-revealed");
+        }
+      });
+
+      // 2. Enable .js class now that in-viewport elements are safely marked revealed
+      document.documentElement.classList.add("js");
+
+      // 3. Observe remaining offscreen targets as user scrolls
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const target = entry.target as HTMLElement;
+              target.classList.add("is-revealed");
+              observer?.unobserve(target);
+            }
+          });
+        },
+        {
+          threshold: 0,
+          rootMargin: "80px",
+        }
+      );
+
       const elements = document.querySelectorAll<HTMLElement>(
         "[data-reveal]:not(.is-revealed)"
       );
       elements.forEach((el) => {
-        observer.observe(el);
+        observer?.observe(el);
       });
-    };
-
-    // Run observation after React finishes DOM hydration across the route
-    const timer = setTimeout(observeTargets, 80);
+    }, 50);
 
     return () => {
       clearTimeout(timer);
-      observer.disconnect();
+      if (observer) {
+        observer.disconnect();
+      }
     };
   }, [pathname]);
 

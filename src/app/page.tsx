@@ -270,9 +270,9 @@ export default function HomePage() {
                     0{idx + 1}
                   </span>
                   <div>
-                    <h4 className="font-display text-xl text-foreground">
+                    <h3 className="font-display text-xl text-foreground">
                       {principle.title}
-                    </h4>
+                    </h3>
                     <p className="text-xs text-secondary mt-1 leading-relaxed">
                       {principle.description}
                     </p>

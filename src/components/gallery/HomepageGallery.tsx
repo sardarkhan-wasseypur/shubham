@@ -159,7 +159,7 @@ export function HomepageGallery({ photos }: HomepageGalleryProps) {
                 <button
                   type="button"
                   onClick={() => setLightboxIndex(idx)}
-                  aria-label={`View photo in lightbox: ${photo.alt}`}
+                  aria-label={photo.caption ? `${photo.caption}. View photo in lightbox: ${photo.alt}` : `View photo in lightbox: ${photo.alt}`}
                   className="group relative w-full h-full block rounded-[2px] overflow-hidden border border-line bg-surface focus-visible:outline-2 focus-visible:outline-accent text-left cursor-pointer min-h-[44px]"
                 >
                   <Image
@@ -211,7 +211,7 @@ export function HomepageGallery({ photos }: HomepageGalleryProps) {
                 <button
                   type="button"
                   onClick={() => setLightboxIndex(idx)}
-                  aria-label={`Photo ${idx + 1} of ${photos.length}: ${photo.alt}`}
+                  aria-label={photo.caption ? `${photo.caption}. Photo ${idx + 1} of ${photos.length}: ${photo.alt}` : `Photo ${idx + 1} of ${photos.length}: ${photo.alt}`}
                   className="group relative w-full h-full block rounded-[2px] overflow-hidden border border-line bg-surface text-left focus-visible:outline-2 focus-visible:outline-accent cursor-pointer min-h-[44px]"
                 >
                   <Image
